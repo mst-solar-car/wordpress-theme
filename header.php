@@ -10,9 +10,6 @@
   $options  = get_option( 'solarcar_theme_options' );
   $author   = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name ) : get_userdata( intval( $author ) );
   $curauth  = $author; // I think this is needed for wordpress, but I want the variable named as $author...
-
-  $page_url = strpos( strtolower( $_SERVER['SERVER_PROTOCOL'] ),'https' ) === FALSE ? 'http' : 'https';
-  $page_url = $page_url . '://' .  $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 ?>
 <!DOCTYPE html>
 <html  <?php language_attributes(); ?>>
@@ -22,7 +19,7 @@
 
     <title><?php echo trim( spaces( wp_title( '', false) ?: 'Home')) . ' - '; ?><?php bloginfo('name')?></title>
 
-    <meta property="og:url" content="<?php echo  $page_url; ?>" />
+    <meta property="og:url" content="<?php echo get_permalink( $post ); ?>" />
     <meta property="og:type" content="<?php echo ((is_single()) ? 'article' : ((is_author()) ? 'profile' : 'website')); ?>" />
     <meta property="og:site_name" content="<?php echo bloginfo('name'); ?>" />
     <meta property="og:title" name="twitter:title" content="<?php echo trim(wp_title('', false) ?: 'Home'); ?>" />
