@@ -35,8 +35,7 @@
         <?php // Social Media Share Buttons ?>
         <?php get_template_part('social-media', 'share'); ?>
 
-        <!-- Home Button -->
-        <a href="<?php echo get_site_url(); ?>">&larr; Home</a>
+        <?php get_template_part( 'back-button' ); ?>
 
       </article> <!-- End of Article -->
       <?php
