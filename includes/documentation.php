@@ -8,23 +8,14 @@
 ?>
 <?php
 
-add_action( 'admin_menu', 'theme_docs_add_page' );
-
-
-/**
- * Adds the documentation page to the menu
- */
-function theme_docs_add_page() {
+add_action( 'admin_menu', function(){
 	add_theme_page( 'Theme Documentation', 'Documentation', 'edit_theme_options', 'docs', 'theme_docs_do_page' );
-}
-
-
+} );
 
 /**
  * Creates the Page
  */
-function theme_docs_do_page ()
-{
+function theme_docs_do_page () {
   ?>
     <style>.documentation h1 { font-size: 35px; }.documentation h2 {font-size: 30px; margin-top: 40px;} .documentation h3 { font-size: 25px;} .documentation, .documentation p { font-size: 16px; padding: 0; margin: 0; line-height: 1.5em;padding-right: 10px;} section{display: block;margin: 0 0 20px 20px;padding-top:20px;} article { display: block; margin: 40px 0 20px; border-top: 1px solid #ccc;} code {display: block;font-family: Consolas, monospace; background: #f0f0f0; border: 1px solid #ccc;border-radius: 5px; line-height: 1.5em;overflow-x: auto;font-size: 15px;padding: 10px;margin:20px 0;}tab{display:inline;}tab::before{content:' ';padding-left:15px;}.toc{display: block;box-sizing:border-box;}.toc ul {display:inline-block;list-style-type:none;background: #f0f0f0;border:1px solid #ccc;border-radius: 5px;padding:10px;}.toc li {display: block;margin:0;margin-bottom:10px;font-size:14px;} .toc li ul {display: block;margin-left:20px;padding:0;border:0px;}.toc a {text-decoration: none; font-size:16px;}.toc li ul li{margin-bottom: 0px;}.toc a:hover{text-decoration:underline}.toc a::before {content: ''; padding-left:5px;}.toc-title{text-align: center;font-weight:bold;font-size:16px!important;}</style>
     <div class="documentation">

@@ -13,7 +13,7 @@
  <p>Oh no... What have you done?</p>
  <br/>
  <h3>Do Not Panic!</h3>
- <p>This error is nothing serious, to fix it all you need to do is <a href="<?php bloginfo('url'); ?>">Click Here</a> and you will return to the homepage.</p>
+ <p>This error is nothing serious, to fix it all you need to do is <a href="<?php bloginfo( 'url' ); ?>">Click Here</a> and you will return to the homepage.</p>
  <br/>
  <h3>What Caused This?</h3>
  <p>This could have been caused by an incorrect/mistyped URL, or the page/post you requested no longer exists.</p>

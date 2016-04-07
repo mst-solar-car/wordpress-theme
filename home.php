@@ -11,13 +11,11 @@
 
   get_search_form();
 
-  if ( have_posts() )
-  {
-    while (have_posts() )
-    {
-      the_post();
-      get_template_part('article', 'preview');
-    }
+  if ( have_posts() ) :
+    while ( have_posts() ) : the_post();
+      get_template_part( 'article', 'preview' );
+    endwhile;
+
 ?>
 <div class="pagination">
   <div class="pagination-older"><?php next_posts_link( '&larr; Older' ); ?></div>
@@ -25,5 +23,6 @@
 </div>
 
 <?php
-  }
+  endif;
+
   get_footer(); ?>

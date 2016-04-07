@@ -6,4 +6,4 @@
  * Does nothing except load the default page template
  */
 ?>
-<?php get_template_part('page'); ?>
+<?php get_template_part( 'page' ); ?>

@@ -4,15 +4,12 @@
  *
  * @author Michael Rouse
  */
-?>
-<?php
 
 /*
  * HTML Shortcodes
  *
  * Shortcodes that make basic HTML elements easy to do for anyone
  */
-
 // Linebreak
 function br_shortcode( $attributes, $content ) {
   return '<br />';
@@ -192,10 +189,11 @@ function image_text_hover_shortcode( $attributes, $content ) {
 /**
  * Emojis
  */
-$emojis = ['smile' => '60A', 'bigsmile' => '604', 'frown' => '641', 'grin' => '600', 'laugh' => '602', 'wink' => '609', 'tongueout' => '61B', 'tongueout-wink' => '61C', 'kiss' => '617',
-          'hearteyes' => '60D', 'crying' => '622', 'loudcry' => '62D', 'angry' => '623', 'scream' => '631', 'shocked' => '632', 'unamused' => '612', 'confused' => '615', 'noexpression' => '611',
-          'smilewithhorns' => '608', 'relieved' => '60C', 'sunglasses' => '60E', 'worried' => '61F', 'fearful' => '628', 'triumph' => '624', 'sleeping' => '634', 'dizzy' => '635', 'nomouth' => '636',
-          'medicalmask' => '637', 'angel' => '607', 'delicious' => '60B', 'sun' => '31E', 'car' => '697', 'checkeredflag' => '3C1'];
+$emojis = [ 'smile' => '60A', 'bigsmile' => '604', 'frown' => '641', 'grin' => '600', 'laugh' => '602', 'wink' => '609', 'tongueout' => '61B', 'tongueout-wink' => '61C', 
+            'kiss' => '617', 'hearteyes' => '60D', 'crying' => '622', 'loudcry' => '62D', 'angry' => '623', 'scream' => '631', 'shocked' => '632', 'unamused' => '612',
+            'confused' => '615', 'noexpression' => '611', 'smilewithhorns' => '608', 'relieved' => '60C', 'sunglasses' => '60E', 'worried' => '61F', 'fearful' => '628',
+            'triumph' => '624', 'sleeping' => '634', 'dizzy' => '635', 'nomouth' => '636', 'medicalmask' => '637', 'angel' => '607', 'delicious' => '60B', 'sun' => '31E',
+            'car' => '697', 'checkeredflag' => '3C1' ];
 
 function emoji_shortcode( $attributes, $content, $tag ) {
   global $emojis;

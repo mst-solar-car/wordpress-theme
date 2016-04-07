@@ -5,7 +5,7 @@ add_action( 'admin_menu', 'theme_options_add_page' );
 /**
  * Init plugin options to white list our options
  */
-function theme_options_init(){
+function theme_options_init() {
 	register_setting( 'solarcar_options', 'solarcar_theme_options', 'theme_options_validate' );
 }
 
