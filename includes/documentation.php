@@ -297,9 +297,11 @@ function theme_docs_do_page () {
           This theme has custom shortcode for one third and one fourth sized columns.
           <code>
             [one_third]Content here[/one_third]<br/>
-            [one_fourth]Content here[/one_third]
+            [one_fourth]Content here[/one_third]<br />
+						[split_left]Content Here[/split_left][split_right]Content Here[/split_right]
           </code>
-          Whenever you use these, you will usually have three one_thirds, or four one_fourths, in a row because the columns are designed to be next to each other, to take up the whole screen.
+          Whenever you use these, you will usually have three one_thirds, or four one_fourths, in a row because the columns are designed to be next to each other, to take up the whole screen.<br/><br/>
+					Split left and Split right will unevenly divide the page based on the content in each one.
         </section> <!-- End Columns -->
 
         <!-- Timeline -->

@@ -91,6 +91,16 @@ function onefourth_shortcode( $attributes, $content ) {
   return '<div' . classes( $attributes, 'one-fourth-column' ) .'>' . do_shortcode( $content ) . '</div>';
 }
 
+// Split Left
+function splitleft_shortcode( $attributes, $content ) {
+  return '<div class="split-left">' . do_shortcode( $content ) . '</div>';
+}
+
+// Split Right
+function splitright_shortcode( $attributes, $content ) {
+  return '<div class="split-right">' . do_shortcode( $content ) . '</div>';
+}
+
 // Iframe
 function iframe_shortcode( $attributes ) {
   $html = '<div class="flexible-iframe">';
@@ -189,7 +199,7 @@ function image_text_hover_shortcode( $attributes, $content ) {
 /**
  * Emojis
  */
-$emojis = [ 'smile' => '60A', 'bigsmile' => '604', 'frown' => '641', 'grin' => '600', 'laugh' => '602', 'wink' => '609', 'tongueout' => '61B', 'tongueout-wink' => '61C', 
+$emojis = [ 'smile' => '60A', 'bigsmile' => '604', 'frown' => '641', 'grin' => '600', 'laugh' => '602', 'wink' => '609', 'tongueout' => '61B', 'tongueout-wink' => '61C',
             'kiss' => '617', 'hearteyes' => '60D', 'crying' => '622', 'loudcry' => '62D', 'angry' => '623', 'scream' => '631', 'shocked' => '632', 'unamused' => '612',
             'confused' => '615', 'noexpression' => '611', 'smilewithhorns' => '608', 'relieved' => '60C', 'sunglasses' => '60E', 'worried' => '61F', 'fearful' => '628',
             'triumph' => '624', 'sleeping' => '634', 'dizzy' => '635', 'nomouth' => '636', 'medicalmask' => '637', 'angel' => '607', 'delicious' => '60B', 'sun' => '31E',
@@ -246,6 +256,9 @@ add_shortcode( 'column_onethird', 'onethird_shortcode' );
 
 add_shortcode( 'one_fourth', 'onefourth_shortcode' );
 add_shortcode( 'column_onefourth', 'onefourth_shortcode' );
+
+add_shortcode( 'split_left', 'splitleft_shortcode' );
+add_shortcode( 'split_right', 'splitright_shortcode' );
 
 add_shortcode( 'telephone', 'telephone_link_shortcode' );
 add_shortcode( 'email', 'email_link_shortcode' );
