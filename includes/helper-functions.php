@@ -10,21 +10,6 @@
 
 
 
-
-  function __setting($name, $default) { return htmlspecialchars(get_theme_mod($name, (($default) ?: ''))); }
-  function _setting($name, $default) { echo __setting($name, $default); }
-
-
-
-  /** Depreciated **/
-  function spaces($content)
-  {
-    return preg_replace('/(_|\+|%20)/', ' ', $content);
-  }
-
-
-
-
 /**
  * Returns the URL for an asset in the assets folder
  */
@@ -209,7 +194,7 @@ function url_spaces( $content ) {
 /**
  * Returns the type of page (for meta headers)
  */
-functon page_type() {
+function page_type() {
   $page_type = 'website';
   if ( is_single() ) {
     $page_type = 'article';
