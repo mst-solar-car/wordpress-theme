@@ -6,10 +6,6 @@
  */
 
 
-
-
-
-
 /**
  * Returns the URL for an asset in the assets folder
  */
