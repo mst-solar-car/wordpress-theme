@@ -619,19 +619,12 @@ footer
   height: 100vh;
   z-index: 920;
   text-align: center;
-  line-height: 50vh;
   vertical-align: bottom;
-}
-.loading-text
-{
-  font-size: 30px;
 }
 body.is-loading #loading-page
 {
   display: block;
 }
-
-
 
 /* Timeline */
 .timeline-entry [class*="entypo-"]::before

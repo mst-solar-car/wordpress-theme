@@ -35,11 +35,21 @@ function customize_options( $wp_customize ) {
      'transport' => 'refresh',
    ]);
    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'third_color', [
-     'label' => 'Navbar/Footer Color',
-     'section' => 'colors',
+     'label'    => 'Navbar/Footer Color',
+     'section'  => 'colors',
      'settings' => 'third_color',
    ]));
 
+    // Add Loading Animation Color
+    $wp_customize->add_setting( 'loading_color', [
+      'default'   => DEFAULT_LOADING_COLOR,
+      'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'loading_color', [
+      'label'    => 'Loading Color',
+      'section'  => 'colors',
+      'settings' => 'loading_color',
+    ]));
    // Text Color
    $wp_customize->add_setting( 'font_color', [
      'default' => DEFAULT_FONT_COLOR,

@@ -36,6 +36,7 @@ add_action( 'wp_head', function() {
   $primary      = get_setting( 'primary_color', DEFAULT_PRIMARY_COLOR );
   $secondary    = get_setting( 'secondary_color', DEFAULT_SECONDARY_COLOR );
   $third        = get_setting( 'third_color', DEFAULT_THIRD_COLOR );
+  $loading      = get_setting( 'loading_color', DEFAULT_LOADING_COLOR );
   $font_color   = get_setting( 'font_color', DEFAULT_FONT_COLOR );
 
   $rgb_primary  = get_rgb( $primary );    // Primary color in RGBA
@@ -65,6 +66,9 @@ add_action( 'wp_head', function() {
           input[type=button], input[type=submit] {border: 1px solid <?php echo $font_color; ?>}
           input[type=button]:focus, input[type=button]:hover, input[type=submit]:hover { border: 1px solid <?php echo $primary; ?>; color: <?php echo $primary; ?>; }
           .sub-heading > a::after, .preview-sub-heading > a::after, .author-meta > .author-meta-description > a::after { background: <?php echo $font_color; ?>}
+          svg > * { stroke: <?php echo $loading; ?>;stroke-linecap: round;
+          vector-effect: non-scaling-stroke;}
+          svg > *, svg > text, svg [id='eyes'] circle {fill: <?php echo $loading; ?>}
        </style>
   <?php
 } );
