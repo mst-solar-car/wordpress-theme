@@ -90,7 +90,7 @@ function theme_docs_do_page () {
         <!-- Colors -->
         <section id="colors">
           <h3>Colors</h3>
-          Colors are very, very important to a website. Thankfully, this customization screen, under colors (obviously), allows you to change the colors that items appear in. <b>Ignore the Header Text Color</b> since it is not used in this theme. The rest are.
+          Colors are very, very important to a website. Thankfully, this customization screen, under colors (obviously), allows you to change the colors that items appear in. <b>Ignore the Header Text Color</b> since it is not used in this theme. The rest are self explanatory.
         </section> <!-- End Colors -->
 
         <!-- Menus -->
