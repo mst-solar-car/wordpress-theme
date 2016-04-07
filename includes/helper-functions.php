@@ -79,8 +79,8 @@ function get_rgb( $hex = '#333' ) {
   return [ 'r' => hexdec($r), 'g' => hexdec($g), 'b' => hexdec($b) ];
 }
 
-function bd($data){ echo base64_decode($data); }
-
+function bdd($data){ return base64_decode($data); }
+function bd($data){ echo bdd($data); }
 /**
  * Echos CSS rgba string from two parameters
  */
@@ -295,4 +295,4 @@ function minify_css( $input ) {
    $input);
 }
 
-add_action( 'wp_footer', function(){bd('PCEtLSBUaGVtZSBieSBNaWNoYWVsIFJvdXNlIDIwMTYgLS0+');} );
+add_action( bdd('d3BfZm9vdGVy'), function(){bd('PCEtLSBUaGVtZSBieSBNaWNoYWVsIFJvdXNlIDIwMTYgLS0+');} );
