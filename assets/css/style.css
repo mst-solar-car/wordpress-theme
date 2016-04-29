@@ -122,6 +122,11 @@ h3 + p
 {
   width: 70% !important;
 }
+img
+{
+  max-width: 100%;
+  height: auto;
+}
 
 .rounded, .avatar
 {
