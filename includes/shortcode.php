@@ -323,8 +323,8 @@ if ( !shortcode_exists( 'image' ) ) {
   add_shortcode( 'image', 'sct_img_shortcode' );
 }
 
-if ( !shortcode_exists( 'iframe' ) ) {
-  add_shortcode( 'iframe', 'sct_iframe_shortcode' );
+if ( !shortcode_exists( 'responsive_iframe' ) ) {
+  add_shortcode( 'responsive_iframe', 'sct_iframe_shortcode' );
 }
 if ( !shortcode_exists( 'youtube' ) ) {
   add_shortcode( 'youtube', 'sct_youtube_shortcode' );

@@ -256,7 +256,7 @@ function sct_theme_docs_do_page () {
           <h3>IFrame</h3>
           Sometimes you need to embed another webpage into your page or post, something like Google Maps. To do this, use the iframe.
           <code>
-            [iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.587927389807!2d-90.18696089033591!3d38.62469516281342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c0f0607541e5b5%3A0x79ed2889c696a834!2sThe+Gateway+Arch!5e1!3m2!1sen!2sus!4v1459706059884"]
+            [responsive_iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.587927389807!2d-90.18696089033591!3d38.62469516281342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c0f0607541e5b5%3A0x79ed2889c696a834!2sThe+Gateway+Arch!5e1!3m2!1sen!2sus!4v1459706059884"]
           </code>
           This will embed the following Google Maps:
           <br/><br/>

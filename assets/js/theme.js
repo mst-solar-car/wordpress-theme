@@ -62,12 +62,12 @@ var scroller = document.getElementById('nav-bar').minimizeOnScroll(10, 'minimize
 
 
 // Preload the navigation menu images
-window.onload = function(){
+window.addEventListener('load', function(){
   var nav_menu = document.getElementById('nav-menu');
 
   nav_menu.classList.add('hidden');
   nav_menu.classList.remove('pre-load');
-};
+});
 
 
 // Show/hide the navigation menu

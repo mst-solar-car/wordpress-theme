@@ -226,7 +226,7 @@ function socialmedia_url( $name ) {
     $url = preg_replace( '/(https|http):\/\/(.*?)\.(.*?)\/(@|)/i', '', $url );
     $url = preg_replace( '/\/(.*)/i', '', $url );
   }
-  return $url;
+  echo $url;
 }
 
 
