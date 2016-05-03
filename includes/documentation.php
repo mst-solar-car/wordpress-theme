@@ -9,13 +9,13 @@
 <?php
 
 add_action( 'admin_menu', function(){
-	add_theme_page( 'Theme Documentation', 'Documentation', 'edit_theme_options', 'docs', 'theme_docs_do_page' );
+	add_theme_page( 'Theme Documentation', 'Documentation', 'edit_theme_options', 'docs', 'sct_theme_docs_do_page' );
 } );
 
 /**
  * Creates the Page
  */
-function theme_docs_do_page () {
+function sct_theme_docs_do_page () {
   ?>
     <style>.documentation h1 { font-size: 35px; }.documentation h2 {font-size: 30px; margin-top: 40px;} .documentation h3 { font-size: 25px;} .documentation, .documentation p { font-size: 16px; padding: 0; margin: 0; line-height: 1.5em;padding-right: 10px;} section{display: block;margin: 0 0 20px 20px;padding-top:20px;} article { display: block; margin: 40px 0 20px; border-top: 1px solid #ccc;} code {display: block;font-family: Consolas, monospace; background: #f0f0f0; border: 1px solid #ccc;border-radius: 5px; line-height: 1.5em;overflow-x: auto;font-size: 15px;padding: 10px;margin:20px 0;}tab{display:inline;}tab::before{content:' ';padding-left:15px;}.toc{display: block;box-sizing:border-box;}.toc ul {display:inline-block;list-style-type:none;background: #f0f0f0;border:1px solid #ccc;border-radius: 5px;padding:10px;}.toc li {display: block;margin:0;margin-bottom:10px;font-size:14px;} .toc li ul {display: block;margin-left:20px;padding:0;border:0px;}.toc a {text-decoration: none; font-size:16px;}.toc li ul li{margin-bottom: 0px;}.toc a:hover{text-decoration:underline}.toc a::before {content: ''; padding-left:5px;}.toc-title{text-align: center;font-weight:bold;font-size:16px!important;}</style>
     <div class="documentation">
@@ -106,7 +106,7 @@ function theme_docs_do_page () {
           </code>
           Where [option_name] is the name of the menu option.
           <br/><br/>
-          Now that you have a specific class, you need to tell the webpage what image to use. To do this, go to the "Custom CSS/JS" page, under the "Appearance" menu.
+          Now that you have a specific class, you need to tell the webpage what image to use. To do this, go to the "Custom CSS/JS" section on the customize page.
           <br/><br/>
           In the CSS box, type:
           <code>
@@ -145,9 +145,9 @@ function theme_docs_do_page () {
         <!-- Custom CSS/JS -->
         <section id="custom_css">
           <h3>Custom CSS/JS</h3>
-          The "Custom CSS/JS" page, under the "Appearance" menu, is where you specify custom CSS and any custom JavaScript that you want to use on this webpage.
+          The "Custom CSS/JS" section, is where you specify custom CSS and any custom JavaScript that you want to use on this webpage.
           <br/><br/>
-          <b>Note:</b> on the JavaScript section, you need to include the &lt;script&gt; tags, this way you can use this section to include any outside JavaScript files that you want.
+          <b>Note:</b> on the JavaScript section, <strong>DO NOT</strong> include the &lt;script&gt; tags, this way you can use this section to include any outside JavaScript files that you want.
         </section> <!-- End Custom CSS/JS -->
 
       </article> <!-- End Theme Options -->
@@ -555,7 +555,7 @@ function theme_docs_do_page () {
 
 
 
-function theme_docs_validate ( $input )
+function sct_theme_docs_validate ( $input )
 {
   return $input;
 }

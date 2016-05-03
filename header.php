@@ -76,8 +76,10 @@
 
     <?php wp_head(); ?>
 
-    <style>svg{width:80%;height:80%}[id='line']{stroke-width:3}text{font-size:1em}[id='mover']{animation:sun-motion 5s cubic-bezier(0.175,0.885,0.32,1.275) infinite}[id='main']{fill:transparent;stroke-width:7}[id='eyes']{animation:eye-motion 5s ease-out infinite}[id='ray']{stroke-width:4}[id='rays']{animation:rot 5s linear infinite}@keyframes rot{to{transform:rotate(0.25turn)}}@keyframes eye-motion{0%,20%,49%,100%{transform:translate(-13px)}21%,25%,29%,47%{transform:translate(13px) scaleY(1)}27%{transform:translate(13px) scaleY(0)}48%{transform:translate(0)}}@keyframes sun-motion{0%,99%,100%{transform:translateY(-16px)}50%{transform:translateY(-29px)}52%,98%{transform:translate(4px) scaleY(1.25)}53%,97%{transform:translateY(23px)}}#wpadminbar{position:static!important;z-index:100!important;overflow-x:hidden!important;}#wpadminbar .quicklinks ul {z-index:100!important}#wpadminbar .ab-top-secondary{z-index:100!important;}<?php if (is_home() || !has_post_thumbnail() || is_search()) {?>.hero { display: none; }.content{margin-top: 100px;min-height:75vh;}
-    <?php } if (isset($options['custom_css']) && !empty($options['custom_css'])) { echo minify_css($options['custom_css']); } ?></style>
+    <style>#wpadminbar{position:static!important;z-index:100!important;overflow-x:hidden!important;}#wpadminbar .quicklinks ul {z-index:100!important}#wpadminbar .ab-top-secondary{z-index:100!important;}
+    <?php if (is_home() || !has_post_thumbnail() || is_search()) {?>.hero { display: none; }.content{margin-top: 100px;min-height:75vh;}<?php } ?></style>
+
+    <?php show_custom_css(); ?>
   </head>
   <body class="is-loading">
     <div id="loading-page">

@@ -28,6 +28,16 @@ function get_setting( $name, $default = '' ) {
 }
 
 /**
+ * Returns Custom CSS and JS
+ */
+function show_custom_css() {
+  echo '<style type="text/css">' . get_theme_mod( 'custom_theme_css', '' ) . '</style>';
+}
+function show_custom_js() {
+  echo '<script type="text/javascript">' . get_theme_mod( 'custom_theme_js', '' ) . '</script>';
+}
+
+/**
  * Echos out a setting
  */
 function setting( $name, $default = '' ) {

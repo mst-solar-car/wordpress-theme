@@ -6,9 +6,6 @@
  * Displays the footer for all pages
  */
 ?>
-<?php
-  $options = get_option( 'solarcar_theme_options' );
-?>
         </div> <!-- End content -->
       </div><!-- End Wrapper -->
 
@@ -31,7 +28,7 @@
               </div>
             <?php endif; ?>
 
-            &copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ) ?>
+            &copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>
             <br />
             <br />
           </div>
@@ -43,11 +40,7 @@
 
     <script type="text/javascript" src="<?php asset( 'js/theme.min.js' ); ?>"></script>
 
-    <?php if ( isset( $options['custom_js'] ) ) : ?>
-      <?php if ( !empty($options['custom_js'] ) ) : ?>
-        <?php echo $options['custom_js']; ?>
-      <?php endif; ?>
-    <?php endif; ?>
+    <?php show_custom_js(); ?>
 
     <?php wp_footer(); ?>
   </body>
