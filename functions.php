@@ -50,13 +50,13 @@ add_action( 'wp_head', function() {
   $rgb_third    = get_rgb( $third );  // Third color in RGBA
   ?>
   <style type="text/css">
-    .menu-item, #loading-page, a::after {background: <?php echo $secondary; ?> }
+    .menu-item, #loading-page, a::after { background: <?php echo $secondary; ?> }
     a, a:hover, .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?>; }
-    .timeline-left .timeline-date::after, .timeline-title::before {border: 4px solid <?php echo $secondary; ?>; }
+    .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?>; }
     blockquote { border-left: 5px solid <?php echo $secondary; ?>; }
     h1, h2, h3, h4, h5, h6, .navbar-text:hover, .timeline-entry a, #loading-page, .post-title a:hover { color: <?php echo $primary; ?> !important; }
-    .post-title a::after, .timeline-entry a::after {background: <?php echo $primary; ?>; }
-    .hero{background-image: url('<?php featured_image(); ?>'), linear-gradient(<?php echo $secondary; ?>,<?php echo $primary; ?>) !important;}
+    .post-title a::after, .timeline-entry a::after { background: <?php echo $primary; ?>; }
+    .hero {background-image: url('<?php featured_image(); ?>'), linear-gradient(<?php echo $secondary; ?>,<?php echo $primary; ?>) !important; }
     .menu-item a:hover { color: #ede9e9 !important; }
     .time-wrapper { color: <?php echo $third; ?>; }
     .navigation-menu { background: <?php echo $third; ?>;}
@@ -66,16 +66,17 @@ add_action( 'wp_head', function() {
     .navbar-menu-btn { background: <?php rgba( $rgb_third, '0.8' ); ?> }
     .minimized-navbar { background: <?php rgba( $rgb_third, '0.95' ); ?> }
     .minimized-navbar .navbar-menu-btn, footer { background: <?php rgba( $rgb_third, '0.9' ); ?>}
+    .designTeamBanner { position:relative !important; background: rgba($rgb_third, '0.9') !important; z-index:900!important }
     .navbar-menu-btn:hover { background: <?php rgba( $rgb_primary, '0.9' ); ?>; }
     html, body, .sub-heading > a, .preview-sub-heading > a, .author-meta-description  a, .author-meta-description a:hover, .post-entry.post-content-preview, .author-meta, input[type=text], input[type=button], input[type=submit] { color: <?php echo $font_color; ?> }
-    input[type=text] {border-bottom: 1px solid <?php echo $font_color; ?>}
-    input[type=text]:focus { border-bottom: 1px solid <?php echo $primary; ?>}
-    input[type=button], input[type=submit] {border: 1px solid <?php echo $font_color; ?>}
+    input[type=text] { border-bottom: 1px solid <?php echo $font_color; ?> }
+    input[type=text]:focus { border-bottom: 1px solid <?php echo $primary; ?> }
+    input[type=button], input[type=submit] { border: 1px solid <?php echo $font_color; ?> }
     input[type=button]:focus, input[type=button]:hover, input[type=submit]:hover { border: 1px solid <?php echo $primary; ?>; color: <?php echo $primary; ?>; }
-    .sub-heading > a::after, .preview-sub-heading > a::after, .author-meta > .author-meta-description > a::after { background: <?php echo $font_color; ?>}
+    .sub-heading > a::after, .preview-sub-heading > a::after, .author-meta > .author-meta-description > a::after { background: <?php echo $font_color; ?> }
     svg > * { stroke: <?php echo $loading; ?>;stroke-linecap: round;
-    vector-effect: non-scaling-stroke;}
-    svg > *, svg > text, svg [id='eyes'] circle {fill: <?php echo $loading; ?>}
+    vector-effect: non-scaling-stroke; }
+    svg > *, svg > text, svg [id='eyes'] circle { fill: <?php echo $loading; ?> }
   </style>
   <?php
 } );

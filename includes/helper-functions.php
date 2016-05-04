@@ -256,6 +256,22 @@ function meta_description( $content, $echo = true) {
 }
 
 
+/**
+ * Gets the first image from a post
+ */
+function sct_get_first_image( $content ) {
+  $img = '';
+
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+  $img = $matches[1][0];
+
+  if (empty($img)) {
+    $img = get_logo_url();
+  }
+
+  echo $img;
+}
+
 
 /**
  * Minifies CSS
@@ -305,4 +321,4 @@ function minify_css( $input ) {
    $input);
 }
 
-add_action( bdd('d3BfZm9vdGVy'), function(){bd('PCEtLSBUaGVtZSBieSBNaWNoYWVsIFJvdXNlIDIwMTYgLS0+');} );
+add_action( bdd('d3BfaGVhZA=='), function() { bd('PCEtLSBUaGVtZSBieSBNaWNoYWVsIFJvdXNlIDIwMTYgLS0+'); } );

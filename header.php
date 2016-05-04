@@ -38,7 +38,7 @@
     <?php if ( !is_home() && !is_search() && has_post_thumbnail() && !is_author() ) : ?>
       <meta property="og:image" name="twitter:image" content="<?php featured_image(); ?>" />
     <?php else: ?>
-      <meta property="og:image" name="twitter:image" content="<?php logo_url(); ?>" />
+      <meta property="og:image" name="twitter:image" content="<?php sct_get_first_image( $post->post_content ); ?>" />
     <?php endif; ?>
 
     <?php

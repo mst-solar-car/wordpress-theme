@@ -63,7 +63,6 @@ body
 {
   padding-bottom: 0px !important;
 }
-.designTeamBanner {position:relative !important;background:rgba(48, 48, 48, 0.9)!important;z-index:900!important}
 
 *
 {
@@ -1177,7 +1176,7 @@ iframe
   .navbar-title-top, .navbar-title-top-short,
   .navbar-title-bottom, .navbar-title-bottom-short
   { display: none !important; }
-  
+
   .navbar-text img
   { position: relative !important; }
 } /* End 480px Media Query */
