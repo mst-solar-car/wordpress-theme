@@ -69,6 +69,7 @@ function sct_theme_docs_do_page () {
               <li>4.1 <a href="#image_compression">Image Compression</a></li>
               <li>4.2 <a href="#script_issues">Script Interference</a></li>
               <li>4.3 <a href="#font_use">Fonts</a></li>
+							<li>4.4 <a href="#readmore">Read More Links</a></li>
             </ul>
           </li>
         </ul>
@@ -557,6 +558,17 @@ function sct_theme_docs_do_page () {
           Fonts can make or break the user experience, the font used on this theme is <a href="https://www.fontsquirrel.com/fonts/source-sans-pro" target="_blank">Source Sans Pro</a> (this documentation page uses WordPress's font) by Adobe. <br/><br/>
           If you are going to specify another font for an element, please use a <a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">Web Safe Font</a> so that all users, no matter what device, will see the same font.<br/><br/>Do not use more than 3 fonts on a page.
         </section> <!-- End Fonts -->
+
+				<!-- Read More -->
+				<section id="readmore">
+					<h3>Read More Links</h3>
+					It is considered a good idea to put a read more link on posts that are rather long. This way, on the page that displays all the blog posts, you only see a snipped of the post and not the entire thing.<br/>
+					To do this, simply add the following into your post where you want the link to appear:
+					<code>
+						&lt;!--more--&gt;
+					</code>
+					This is best when placed about 300 characters into a post, and before any images or attachments.
+				</section> <!-- End Read More -->
       </article> <!-- End Website Practices -->
 
     </div>

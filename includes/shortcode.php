@@ -353,6 +353,7 @@ if ( !shortcode_exists( 'tab' ) ) {
 }
 
 
+
 /* Emojis */
 foreach ( $sct_emojis as $emoji => $code ) {
   if ( !shortcode_exists( $emoji ) ) {

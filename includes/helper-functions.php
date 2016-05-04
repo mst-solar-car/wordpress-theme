@@ -180,15 +180,11 @@ function strip_content_tags( $content ) {
 
 /**
  * Function will limit post content to a specified amount of characters (300 by default)
+ *
+ * As of version 3.5, this function simply outputs the content
  */
 function post_content( $more_text = '', $length = 300 ) {
-  $content = get_the_content( $more_text ); // Get the content
-
-  if ( strlen( $content ) > $length ) {
-    $content = substr( $content, 0, $length ) . $more_text; // Cut the string to the length desired
-  }
-
-  echo apply_filters( 'the_content', $content ); // Echo the trimmed string
+  echo apply_filters( 'the_content', get_the_content( $more_text, true ) );
 }
 
 
