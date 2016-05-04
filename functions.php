@@ -67,6 +67,7 @@ add_action( 'wp_head', function() {
     .minimized-navbar { background: <?php rgba( $rgb_third, '0.95' ); ?> }
     .minimized-navbar .navbar-menu-btn, footer { background: <?php rgba( $rgb_third, '0.9' ); ?>}
     .designTeamBanner { position:relative !important; background: rgba($rgb_third, '0.9') !important; z-index:900!important }
+    #designTeamBlinder { position: relative !important; }
     .navbar-menu-btn:hover { background: <?php rgba( $rgb_primary, '0.9' ); ?>; }
     html, body, .sub-heading > a, .preview-sub-heading > a, .author-meta-description  a, .author-meta-description a:hover, .post-entry.post-content-preview, .author-meta, input[type=text], input[type=button], input[type=submit] { color: <?php echo $font_color; ?> }
     input[type=text] { border-bottom: 1px solid <?php echo $font_color; ?> }

@@ -197,6 +197,13 @@ function sct_image_text_hover_shortcode( $attributes, $content ) {
 }
 
 /**
+ * Tab Shortcode
+ */
+function sct_tab_shortcode( $attributes, $content ) {
+  return '&nbsp;&nbsp;&nbsp;&nbsp;';
+}
+
+/**
  * Emojis
  */
 $sct_emojis = array( 'smile' => '60A', 'bigsmile' => '604', 'frown' => '641', 'grin' => '600', 'laugh' => '602', 'wink' => '609', 'tongueout' => '61B', 'tongueout-wink' => '61C',
@@ -339,6 +346,10 @@ if ( !shortcode_exists( 'break' ) ) {
 
 if ( !shortcode_exists( 'p' ) ) {
   add_shortcode( 'p', 'sct_p_shortcode' );
+}
+
+if ( !shortcode_exists( 'tab' ) ) {
+  add_shortcode( 'tab', 'sct_tab_shortcode' );
 }
 
 

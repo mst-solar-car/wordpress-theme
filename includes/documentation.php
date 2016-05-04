@@ -52,8 +52,9 @@ function sct_theme_docs_do_page () {
                 <li>2.11 <a href="#timeline">Timeline</a></li>
                 <li>2.12 <a href="#image_desc">Image and Description</a></li>
                 <li>2.13 <a href="#image_hover_text">Image Hover Text</a></li>
-								<li>2.14 <a href="#emojis">Emojis</a></li>
-                <li>2.15 <a href="#class_attribute">CSS Classes Attribute</a></li>
+								<li>2.14 <a href="#tab_shortcode">Tab</a></li>
+								<li>2.15 <a href="#emojis">Emojis</a></li>
+                <li>2.16 <a href="#class_attribute">CSS Classes Attribute</a></li>
               </ul>
           </li>
           <li>3 <a href="#page_posts">Page/Post Features</a>
@@ -395,6 +396,15 @@ function sct_theme_docs_do_page () {
           Here is an example of this effect:<br/>
           <iframe src="http://codepen.io/mwrouse/full/oxwqzo/" width="530" height="300">Your browser cannot display this content</iframe>
         </section> <!-- End Image Hover Text -->
+
+				<!-- Tab -->
+				<section id="tab_shortcode">
+					<h2>Tab</h2>
+					Using the following shortcode will result in placing four spaces to symbolize a tab or indent.
+					<code>
+						[tab]
+					</code>
+				</section>
 
 				<!-- Emojis -->
 				<section id="emojis">
