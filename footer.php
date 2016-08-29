@@ -41,7 +41,6 @@
     <script type="text/javascript">window.addEventListener('load', function(){document.querySelector('body').classList.remove('is-loading');});window.addEventListener('beforeunload', function(){document.querySelector('body').classList.add('is-loading');});</script>
 
     <script type="text/javascript" src="<?php asset( 'require.js' ); ?>" data-main="<?php asset( 'js/theme.js' ); ?>"></script>
-    <!--<script type="text/javascript" src="<?php asset( 'js/theme.min.js' ); ?>"></script>-->
 
     <?php show_custom_js(); ?>
 
