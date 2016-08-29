@@ -27,8 +27,7 @@
 
     <title><?php echo $page_title . ' - '; ?><?php bloginfo( 'name' ); ?></title>
 
-    <link rel="stylesheet" href="<?php asset( 'css/style.min.css' ); ?>" type="text/css" >
-    <link rel="stylesheet" href="<?php asset( 'css/social-share.min.css' ); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php asset( 'css/style.css' ); ?>" type="text/css" >
 
     <?php wp_head(); ?>
 
