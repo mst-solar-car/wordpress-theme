@@ -16,7 +16,7 @@ html, body
   vertical-align: baseline;
   margin: 0 auto;
   padding: 0;
-  background-color: @background;
+  background-color: #f8f8f8;
   min-width: 100px;
   overflow-x: hidden;
 }
@@ -523,7 +523,7 @@ footer
 {
   display: inline-block;
   width: 50vw;
-  height: calc(33.3vh - 15px);
+  height: calc(~"33.3vh - 15px");
   font-size: 35px;
   font-weight: 600;
   text-align: center;
@@ -549,7 +549,7 @@ footer
   display: table-cell;
   vertical-align: middle;
   width: 50vw;
-  height: calc(33.3vh - 15px);
+  height: calc(~"33.3vh - 15px");
   color: #EDE9E9;
   text-decoration: none;
   text-align: center;
@@ -620,13 +620,13 @@ ol.timeline::before
 ol.timeline li
 {
   display: block;
-  width: calc(50% - 20px);
+  width: calc(~"50% - 20px");
   padding-top: 20px;
   padding-bottom: 20px;
 }
 ol.timeline li.timeline-right
 {
-  margin-left: calc(50% + 25px);
+  margin-left: calc(~"50% + 25px");
 }
 ol.timeline li.timeline-left
 {
@@ -1016,6 +1016,8 @@ iframe
 
 
 
+
+
 /**
  * Image Gallery
  */
@@ -1073,28 +1075,6 @@ iframe
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * Media Styles
  */
@@ -1145,7 +1125,7 @@ iframe
   .timeline-entry
   { width: 100%; text-align: center; }
   .timeline-right .timeline-entry::before, .timeline-left .timeline-entry::after
-  { top: -20px; left: calc(50% - 7px); border-color:transparent; border-bottom-color: #ccc; }
+  { top: -20px; left: calc(~"50% - 7px"); border-color:transparent; border-bottom-color: #ccc; }
   .timeline-entry .timeline-title
   { display: block; }
   .timeline-entry .timeline-date::after
@@ -1155,13 +1135,13 @@ iframe
   .timeline-title
   { position: relative; }
   .timeline-title::before
-  { position: absolute; left: calc(50% - 7px); top: -40px; }
+  { position: absolute; left: calc(~"50% - 7px"); top: -40px; }
 
   /* Image and description split screen */
   .split-left, .split-right { float: none; }
   .flexible-iframe iframe { width: 100% !important; left:0px; }
 
-  /* Image Gallery */
+    /* Image Gallery */
   .imageGallery_container
   {
     width: 100% !important;
@@ -1185,9 +1165,9 @@ iframe
 
   /* Menu Stuff */
   .menu-item
-  { display: block; width: 100%; height: calc(16.6vh - 7.5px); }
+  { display: block; width: 100%; height: calc(~"16.6vh - 7.5px"); }
   .menu-item > a
-  { float: none !important; left: 0 !important; width: 100vw !important; height: calc(16.6vh - 7.5px);}
+  { float: none !important; left: 0 !important; width: 100vw !important; height: calc(~"16.6vh - 7.5px");}
 
 
   .one-third-column
@@ -1291,7 +1271,5 @@ iframe
     margin-top: 0px !important;
   }
 }
-
-
 
 @import "social-share";
