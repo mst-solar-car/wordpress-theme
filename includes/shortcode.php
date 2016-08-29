@@ -220,6 +220,46 @@ function sct_emoji_shortcode( $attributes, $content, $tag ) {
 }
 
 
+/**
+ * Image Galleries
+ */
+$lazyLoadingIcon = "";
+
+function sct_imageGallery_shortcode ( $attributes, $content ) {
+  global $lazyLoadingIcon;
+  $lazyLoadingIcon = $attributes['loader'];
+
+  return '<div class="imageGallery">' . short_code ( $content ) . '</div>';
+}
+
+function sct_imageGalleryImage_shortcode ( $attributes ) {
+  global $lazyLoadingIcon;
+
+  return '<div class="imageGallery_container"><img src="' . $lazyLoadingIcon . '" data-echo="' . $attributes['img'] . '"' . classes( $attributes, 'zoomIn imageGallery_img' ) . ( ( $attributes['alt'] ) ? ' alt="' . $attributes['alt'] . '"' : '' ) . '/></div>';
+}
+
+
+/**
+ * Zoomable Images
+ */
+function sct_zoomImage_shortcode ( $attributes ) {
+  return '<img src="' . $attributes['src'] . '"' . classes( $attributes, 'zoomIn' ) . ( ( $attributes['alt'] ) ? ' alt="' . $attributes['alt'] . '"' : '' ) . '/>';
+}
+
+
+/**
+ * Lazy loaded image
+ */
+function sct_lazyImage_shortcode ( $attributes ) {
+  if ( !$attributes['loader'] || !$attributes['img'] )
+    return 'Lazy Loaded images require an attribute of \'loader\' and \'img\'';
+
+  return '<img src="' . $attributes['loader'] . '" data-echo="' . $attributes['img'] . '"' . classes( $attributes, 'zoomIn' ) . ( ( $attributes['alt'] ) ? ' alt="' . $attributes['alt'] . '"' : '' ) . '/>';
+}
+
+
+
+
 
 // Helper function for do_shortcode() while removinging HTML tags
 function short_code( $content ) {
@@ -352,6 +392,17 @@ if ( !shortcode_exists( 'tab' ) ) {
   add_shortcode( 'tab', 'sct_tab_shortcode' );
 }
 
+if ( !shortcode_exists( 'image_gallery' ) ) {
+	add_shortcode( 'image_gallery', 'sct_imageGallery_shortcode' );
+}
+
+if ( !shortcode_exists( 'gallery_image' ) ) {
+	add_shortcode( 'gallery_image', 'sct_imageGalleryImage_shortcode' );
+}
+
+if ( !shortcode_exists( 'lazy_image' ) ) {
+  add_shortcode( 'lazy_image', 'sct_lazyImage_shortcode' );
+}
 
 
 /* Emojis */
