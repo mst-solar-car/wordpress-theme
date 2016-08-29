@@ -235,7 +235,7 @@ function sct_imageGallery_shortcode ( $attributes, $content ) {
 function sct_imageGalleryImage_shortcode ( $attributes ) {
   global $lazyLoadingIcon;
 
-  return '<div class="imageGallery_container"><img src="' . $lazyLoadingIcon . '" data-echo="' . $attributes['img'] . '"' . classes( $attributes, 'zoomIn imageGallery_img' ) . ( ( $attributes['alt'] ) ? ' alt="' . $attributes['alt'] . '"' : '' ) . '/></div>';
+  return '<div class="imageGallery_container"><img src="' . $lazyLoadingIcon . '" data-lazyLoadSrc="' . $attributes['img'] . '"' . classes( $attributes, 'zoomIn imageGallery_img' ) . ( ( $attributes['alt'] ) ? ' alt="' . $attributes['alt'] . '"' : '' ) . '/></div>';
 }
 
 
@@ -254,7 +254,7 @@ function sct_lazyImage_shortcode ( $attributes ) {
   if ( !$attributes['loader'] || !$attributes['img'] )
     return 'Lazy Loaded images require an attribute of \'loader\' and \'img\'';
 
-  return '<img src="' . $attributes['loader'] . '" data-echo="' . $attributes['img'] . '"' . classes( $attributes, 'zoomIn' ) . ( ( $attributes['alt'] ) ? ' alt="' . $attributes['alt'] . '"' : '' ) . '/>';
+  return '<img src="' . $attributes['loader'] . '" data-lazyLoadSrc="' . $attributes['img'] . '"' . classes( $attributes, 'zoomIn' ) . ( ( $attributes['alt'] ) ? ' alt="' . $attributes['alt'] . '"' : '' ) . '/>';
 }
 
 
