@@ -55,6 +55,8 @@ function sct_theme_docs_do_page () {
 								<li>2.14 <a href="#tab_shortcode">Tab</a></li>
 								<li>2.15 <a href="#emojis">Emojis</a></li>
                 <li>2.16 <a href="#class_attribute">CSS Classes Attribute</a></li>
+				<li>2.17 <a href="#lazy_loading">Lazy Loading Images</a></li>
+				<li>2.18 <a href="#image_gallery">Image Galleries</a></li>
               </ul>
           </li>
           <li>3 <a href="#page_posts">Page/Post Features</a>
@@ -216,6 +218,18 @@ function sct_theme_docs_do_page () {
             <image src="https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg"/>
           </code>
           See, WordPress Shortcodes are easy!
+
+					<br/><br/>
+					If you want to make an image zoomable, simply add:
+					<code>
+						classes="zoomIn"
+					</code>
+					to your existing image shortcode.
+					<br/>
+					Example:
+					<code>
+						[image src="https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg" classes="zoomIn"]
+					</code>
         </section> <!-- End Images -->
 
         <!-- Page Breaks -->
@@ -460,6 +474,34 @@ function sct_theme_docs_do_page () {
           </code>
           This attribute allows you to specify additional css classes (separate them by a space if you have multiple) for an element. This is useful if you want to slightly change the look of an element. Custom CSS can be defined on the <b>Custom CSS/JS</b> page under the appearance menu.
         </section> <!-- End Shortcode Attributes -->
+
+				<!-- Lazy Loading Images -->
+				<section id="lazy_loading">
+					<h2>Lazy Loading Images</h2>
+					Lazy loading images is useful if you have a page that contains lots of images. <br/>
+					<br/>
+					By definition, lazy loading something means waiting until the last possible moment to load that object.<br/>
+					In this case, images. The technique used is to wait until the image is visible on the screen (in the viewport) and then load it. This reduces the initial page loading time.
+					<code>
+						[lasy_image loader="URL of image to show while loading" img="URL of image to lazy load"]
+					</code>
+					By default, images that get lazy loaded are zoomable.
+				</section> <!-- End Lazy Loading Images -->
+
+				<!-- Image Galleries -->
+				<section id="image_gallery">
+					<h2>Image Galleries</h2>
+					Image galleries are useful for showing lots of pictures on a single page. By default, all images in a gallery are lazy loaded and zoomable.
+					<code>
+						[image_gallery loader="URL of image to show while loading images"]<br/>
+						<tab></tab>[gallery_image img="URL of image in gallery" desc="Image description"]<br/>
+						<tab></tab>.<br/>
+						<tab></tab>.<br/>
+						<tab></tab>.<br/>
+						<tab></tab>[gallery_image img="URL of image in gallery" desc="Image description"]<br/>
+						[/image_gallery]
+					</code>
+				</section> <!-- End Image Galleries -->
 
       </article> <!-- End Shortcodes -->
 
