@@ -6,6 +6,7 @@ export class LazyLoader {
   private lazyLoadURL: string;
   private attrToLoadFrom: string;
 
+  private loadEvent: any;
 
   /**
    * Class Constructor
@@ -19,6 +20,8 @@ export class LazyLoader {
     this.attrToLoadFrom = (attr != undefined) ? attr : 'data-lazyLoadSrc';
 
     this.lazyLoadURL = this.elem.getAttribute(this.attrToLoadFrom);
+
+    this.loadEvent = null;
 
     // Register event listeners
     this.RegisterEvents();
@@ -45,7 +48,14 @@ export class LazyLoader {
 
     // Listen for scroll
     document.addEventListener('scroll', () => {
-      this.LoadImages();
+      // Clear the old timeout
+      if (this.loadEvent != null)
+        clearTimeout(this.loadEvent);
+
+      // Set a new timeout event to load images
+      this.loadEvent = setTimeout(() => {
+        this.LoadImages();
+      }, 250);
     });
   };
 

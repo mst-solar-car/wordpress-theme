@@ -1,51 +1,12 @@
+// "out": "style.css", "compress": true
+@import "colors";
+@import "fonts";
 /*
 Theme Name: Missouri S&T Solar Car Team
 Theme URI: http://solarcar.mst.edu
 Author: Michael Rouse
 Description: Wordpress theme for Missouri S&T Solar Car Team
 */
-
-@font-face{
-  font-family: 'SourceSansPro';
-  src: url('../fonts/SourceSansPro/Regular/SourceSansPro-Regular.eot');
-  src: url('../fonts/SourceSansPro/Regular/SourceSansPro-Regular.woff') format('woff'),
-       url('../fonts/SourceSansPro/Regular/SourceSansPro-Regular.ttf') format('ttf'),
-       url('../fonts/SourceSansPro/Regular/SourceSansPro-Regular.svg') format('svg');
-  font-weight: 400;
-}
-@font-face{
-  font-family: 'SourceSansPro';
-  src: url('../fonts/SourceSansPro/Semibold/SourceSansPro-Semibold.eot');
-  src: url('../fonts/SourceSansPro/Semibold/SourceSansPro-Semibold.woff') format('woff'),
-       url('../fonts/SourceSansPro/Semibold/SourceSansPro-Semibold.ttf') format('ttf'),
-       url('../fonts/SourceSansPro/Semibold/SourceSansPro-Semibold.svg') format('svg');
-  font-weight: 600;
-}
-@font-face{
-  font-family: 'SourceSansPro';
-  src: url('../fonts/SourceSansPro/Bold/SourceSansPro-Bold.eot');
-  src: url('../fonts/SourceSansPro/Bold/SourceSansPro-Bold.woff') format('woff'),
-       url('../fonts/SourceSansPro/Bold/SourceSansPro-Bold.ttf') format('ttf'),
-       url('../fonts/SourceSansPro/Bold/SourceSansPro-Bold.svg') format('svg');
-  font-weight: bold;
-}
-@font-face{
-  font-family: 'SourceSansPro';
-  src: url('../fonts/SourceSansPro/Light/SourceSansPro-Light.eot');
-  src: url('../fonts/SourceSansPro/Light/SourceSansPro-Light.woff') format('woff'),
-       url('../fonts/SourceSansPro/Light/SourceSansPro-Light.ttf') format('ttf'),
-       url('../fonts/SourceSansPro/Light/SourceSansPro-Light.svg') format('svg');
-  font-weight: 200;
-}
-
-@font-face{
-  font-family: 'NimbusMono';
-  src: url('../fonts/NimbusMono/nimbusmono-regular.eot');
-  src: url('../fonts/NimbusMono/nimbusmono-regular.woff') format('woff'),
-       url('../fonts/NimbusMono/nimbusmono-regular.ttf') format('ttf'),
-       url('../fonts/NimbusMono/nimbusmono-regular.svg') format('svg');
-}
-
 html, body
 {
   font-family: 'SourceSansPro', sans-serif !important;
@@ -55,7 +16,7 @@ html, body
   vertical-align: baseline;
   margin: 0 auto;
   padding: 0;
-  background-color: #f8f8f8;
+  background-color: @background;
   min-width: 100px;
   overflow-x: hidden;
 }
@@ -1330,3 +1291,7 @@ iframe
     margin-top: 0px !important;
   }
 }
+
+
+
+@import "social-share";

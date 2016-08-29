@@ -7,6 +7,7 @@ export class MinimizeOnScroll {
 
   private parent: HTMLElement;
 
+  private scrollEvent: any;
 
   // Minimize on scroll constructor
   constructor(el: HTMLElement, limit?: number, minimizedClass?: string, maximizedClass?: string)
@@ -19,8 +20,17 @@ export class MinimizeOnScroll {
 
     this.checkScroll();    // Minimizes navbar if scrolled down on page load
 
+    this.scrollEvent = null;
+
     document.addEventListener('scroll', () => {
-      this.checkScroll();
+      // Clear the old timeout event
+      if (this.scrollEvent != null)
+        clearTimeout(this.scrollEvent);
+
+      // Set a new timeout event
+      this.scrollEvent = setTimeout(() => {
+        this.checkScroll();
+      }, 250);
     });  // Minimizes/maximizes navbar on scroll
   }
 
