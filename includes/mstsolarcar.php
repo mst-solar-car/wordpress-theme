@@ -14,3 +14,4 @@ require_once( get_template_directory() . '/includes/shortcode.php' );
 require_once( get_template_directory() . '/includes/documentation.php' );
 require_once( get_template_directory() . '/includes/custom-options.php' );
 require_once( get_template_directory() . '/includes/helper-functions.php' );
+require_once( get_template_directory() . '/includes/theme-editor.php' );
