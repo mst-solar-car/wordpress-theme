@@ -7,7 +7,7 @@
 
 # Begin Customizable Variables 
     # File Extensions to ignore when adding files to the .zip folder
-    $extensionsToIgnore = @("*.ts", "*.less", "*.json", "*.gitignore", "*.zip", "*.ps1", ".md")
+    $extensionsToIgnore = @("*.ts", "*.less", "*.json", "*.gitignore", "*.zip", "*.ps1", "*.md")
 
 
     # Regular Expressions 
