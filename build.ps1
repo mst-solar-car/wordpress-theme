@@ -68,7 +68,7 @@ if (Test-Path $tempDir)
 
 
 # Get all the files with proper file extensions  
-$files = Get-ChildItem $PSScriptRoot -Recurse -Exclude $badExtensions | where { ! $_.PSIsContainer } # Get files without the pad file extensions
+$files = Get-ChildItem $PSScriptRoot -Recurse -Exclude $extensionsToIgnore | where { ! $_.PSIsContainer } # Get files without the pad file extensions
 
 # Create the temp directory
 New-Item $tempDir -Type directory -Force
