@@ -26,6 +26,7 @@ window.addEventListener('load', () => {
 
     new LazyLoader(lazyImages[i] as HTMLElement, 'data-lazyLoadSrc'); // Lazy load the image when it comes into the viewport
   }
+
   // Discover zoomable images that have been loaded after initialization
   zoom.DiscoverImages();
 
@@ -56,6 +57,7 @@ window.addEventListener('load', () => {
 
     // Minimize the navbar when showing the menu
     scroller.minimize();
+    
     fluid_nav.classList.remove('reading-width');
     btn.classList.add('close');
   }

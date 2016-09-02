@@ -22,6 +22,7 @@ export class MinimizeOnScroll {
 
     this.scrollEvent = null;
 
+    // Listen for scrolling
     document.addEventListener('scroll', () => {
       // Clear the old timeout event
       if (this.scrollEvent != null)
@@ -30,7 +31,7 @@ export class MinimizeOnScroll {
       // Set a new timeout event
       this.scrollEvent = setTimeout(() => {
         this.checkScroll();
-      }, 250);
+      }, 100);
     });  // Minimizes/maximizes navbar on scroll
   }
 
@@ -57,7 +58,7 @@ export class MinimizeOnScroll {
    * This will minimize or maximize based on the scroll position
    */
   public checkScroll = (): void => {
-    if ((window.pageYOffset > this.scroll_limit) || this.parent.classList.contains('visible'))
+    if ((window.pageYOffset > this.scroll_limit) || document.getElementById("nav-menu").classList.contains('visible'))
     {
       // Minimize
       this.minimize();
