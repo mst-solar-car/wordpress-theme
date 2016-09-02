@@ -118,8 +118,8 @@
     <!-- Navbar -->
     <div id="nav-bar" class="navigation-bar full-navbar">
       <div class="fluid-nav width-limit reading-width">
-        <div class="navbar-logo navbar-absolute navbar-left" onclick="window.location.href = '<?php bloginfo('url'); ?>'">
-          <div class="navbar-text" tabindex="5">
+        <div id="NavBarHeaderLink" class="navbar-logo navbar-absolute navbar-left" onclick="window.location.href = '<?php bloginfo('url'); ?>'">
+          <div id="InnerNavBarHeaderLink" class="navbar-text" tabindex="5">
             <img alt="Brand" src="<?php logo_url(); ?>">
             <span class="navbar-title-top"><?php setting( 'title_top_long' ); ?></span>
             <span class="navbar-title-top-short"><?php setting( 'title_top_short' ); ?></span>
