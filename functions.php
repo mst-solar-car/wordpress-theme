@@ -51,24 +51,24 @@ add_action( 'wp_head', function() {
   ?>
   <style type="text/css">
     .menu-item, #loading-page, a::after { background: <?php echo $secondary; ?> }
-    a, a:hover, .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?>; }
+    a, a:hover, a:focus, .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?>; }
     .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?>; }
     blockquote { border-left: 5px solid <?php echo $secondary; ?>; }
-    h1, h2, h3, h4, h5, h6, .navbar-text:hover, .timeline-entry a, #loading-page, .post-title a:hover { color: <?php echo $primary; ?> !important; }
+    h1, h2, h3, h4, h5, h6, .navbar-text:hover, .navbar-text:focus, .timeline-entry a, #loading-page, .post-title a:hover, .post-title a:focus { color: <?php echo $primary; ?> !important; }
     .post-title a::after, .timeline-entry a::after { background: <?php echo $primary; ?>; }
     .hero {background-image: url('<?php featured_image(); ?>'), linear-gradient(<?php echo $secondary; ?>,<?php echo $primary; ?>) !important; }
-    .menu-item a:hover { color: #ede9e9 !important; }
+    .menu-item a:hover, .menu-item a:focus { color: #ede9e9 !important; }
     .time-wrapper { color: <?php echo $third; ?>; }
     .navigation-menu { background: <?php echo $third; ?>;}
     .menu-item a { background: <?php rgba( $rgb_third, '0.75' ); ?>;}
-    .menu-item > a:hover { background: <?php rgba( $rgb_third, '0.5' ); ?>; }
+    .menu-item > a:hover, .menu-item > a:focus { background: <?php rgba( $rgb_third, '0.5' ); ?>; }
     .full-navbar { background: <?php rgba( $rgb_third, '0.85' ); ?> }
     .navbar-menu-btn { background: <?php rgba( $rgb_third, '0.8' ); ?> }
     .minimized-navbar { background: <?php rgba( $rgb_third, '0.95' ); ?> }
     .minimized-navbar .navbar-menu-btn, footer { background: <?php rgba( $rgb_third, '0.9' ); ?>}
     .designTeamBanner { position:relative !important; background: rgba($rgb_third, '0.9') !important; z-index:900!important }
     #designTeamBlinder { position: relative !important; }
-    .navbar-menu-btn:hover { background: <?php rgba( $rgb_primary, '0.9' ); ?>; }
+    .navbar-menu-btn:hover, .navbar-menu-btn:focus { background: <?php rgba( $rgb_primary, '0.9' ); ?>; }
     html, body, .sub-heading > a, .preview-sub-heading > a, .author-meta-description  a, .author-meta-description a:hover, .post-entry.post-content-preview, .author-meta, input[type=text], input[type=button], input[type=submit] { color: <?php echo $font_color; ?> }
     input[type=text] { border-bottom: 1px solid <?php echo $font_color; ?> }
     input[type=text]:focus { border-bottom: 1px solid <?php echo $primary; ?> }
