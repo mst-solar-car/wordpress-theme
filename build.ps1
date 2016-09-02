@@ -92,7 +92,7 @@ for ($i = 0; $i -lt $totalFiles; $i++)
 
     # Update Progress
     $progress = [System.Math]::Round(($i / $totalFiles) * 100, 2);
-    Write-Progress -Activity "Copying Filese" -Status "$progress% Complete:" -PercentComplete $progress;
+    Write-Progress -Activity "Copying Files" -Status "$progress% Complete:" -PercentComplete $progress;
 
     Start-Sleep -m 50 # Really short delay so it looks like it is doing more work ;)
 }
@@ -106,7 +106,22 @@ Compress-Archive -Path "$tempDir\*" -DestinationPath $outFile
 # Remove the temp folder 
 Remove-Item $tempDir -Recurse -Force
 
-# Show final output
-Write-Output ""
-Write-Output ""
-Write-Output "Success: $outFile"
+
+if (!(Test-Path $outFile)) 
+{
+    Write-Error "Could not create zip folder: $outFile"
+}
+else 
+{
+    # Show final output
+    Write-Output ""
+    Write-Output ""
+    Write-Output "Success: $outFile"
+}
+
+if (Test-Path $tempDir) 
+{
+    Write-Error "Could Not remove the temporary directory: $tempDir"
+}
+
+
