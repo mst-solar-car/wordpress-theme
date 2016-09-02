@@ -9,7 +9,7 @@
 <?php
 
 add_action( 'admin_menu', function(){
-	add_theme_page( 'Theme Documentation', 'Documentation', 'edit_theme_options', 'docs', 'sct_theme_docs_do_page' );
+	add_theme_page( 'Theme Documentation', 'Documentation', 'edit_posts', 'docs', 'sct_theme_docs_do_page' );
 } );
 
 /**
