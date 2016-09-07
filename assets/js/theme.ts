@@ -40,11 +40,6 @@ window.addEventListener('load', () => {
       ToggleNavMenu();
   });
 
-  // Let enter click on the home page button
-  (document.getElementById('InnerNavBarHeaderLink')).addEventListener('keypress', (e: KeyboardEvent) => {
-      if (e.keyCode == 13)
-        (document.getElementById('NavBarHeaderLink')).click(); // Toggle onclick event
-  });
 
 });
 
