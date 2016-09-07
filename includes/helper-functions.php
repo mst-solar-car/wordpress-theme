@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * Little Helper Functions for this theme
  *
  * @author Michael Rouse
