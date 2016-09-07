@@ -119,7 +119,7 @@
     <div id="nav-bar" class="navigation-bar full-navbar">
       <div class="fluid-nav width-limit reading-width">
         <div id="NavBarHeaderLink" class="navbar-logo navbar-absolute navbar-left">
-          <a href="<?php bloginfo('url') ?>">
+          <a href="<?php bloginfo('url') ?>"> 
             <div id="InnerNavBarHeaderLink" class="navbar-text" tabindex="5">
               <img alt="Brand" src="<?php logo_url(); ?>">
               <span class="navbar-title-top"><?php setting( 'title_top_long' ); ?></span>
