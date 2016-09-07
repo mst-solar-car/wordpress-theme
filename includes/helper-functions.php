@@ -136,7 +136,7 @@ function get_author_avatar( $id, $args = [] ) {
 
   // Default arguments
   $args['size']     = $args['size'] ?: '100';                     // 100px default size
-  $args['default']  = $args['default'] ?: get_logo_url();         // Site Logo default author image
+  $args['default']  = $args['default'] ?: get_setting( 'default_profile_picture', get_logo_url() );         // Site Logo default author image
   $args['alt']      = $args['alt'] ?: 'Author Image';             // Default alt text
   $args['class']    = $args['class'] ?: 'rounded fade-on-hover';  // Default CSS classes
 
