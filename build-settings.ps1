@@ -49,12 +49,12 @@ if ( ($BuildAfterCommit -eq $true) -Or ($MarkOldBuildsAsExpired -eq $true) )
         }
 
 
-        $postScript = $scriptContent -match "powershell\.exe \.\/\.\.\/\.\.\/post-commit\.ps1"
+        $postScript = $scriptContent -match "powershell\.exe -File \.\\\.\.\\\.\.\\post-commit\.ps1"
 
         if ( !$postScript ) 
         {
             # Add the post script to the file 
-            Add-Content $script "powershell.exe ./../../post-commit.ps1"
+            Add-Content $script "powershell.exe .\..\..\post-commit.ps1"
         }
     }
     else 
@@ -63,6 +63,6 @@ if ( ($BuildAfterCommit -eq $true) -Or ($MarkOldBuildsAsExpired -eq $true) )
         New-Item $script -type file 
 
         Add-Content $script "#!/bin/sh"
-        Add-Content $script "powershell.exe ./../../post-commit.ps1"
+        Add-Content $script "powershell.exe .\..\..\post-commit.ps1"
     }
 }
