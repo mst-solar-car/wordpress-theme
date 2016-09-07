@@ -5,14 +5,14 @@
 #    Marks an old theme build     #
 #          as expired             #
 ###################################
-.\build-settings.ps1 # Import settings
+. "$PSScriptRoot\build-settings.ps1" # Import settings
 
 
 
 if ($BuildAfterCommit -eq $true) 
 {
     # Run the build script
-    .\build.ps1
+    powershell.exe -File "$PSScriptRoot\build.ps1"
 }
 elseif ($MarkOldBuildsAsExpired -eq $true) 
 {
