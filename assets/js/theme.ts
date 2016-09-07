@@ -30,10 +30,25 @@ window.addEventListener('load', () => {
   // Discover zoomable images that have been loaded after initialization
   zoom.DiscoverImages();
 
+
+  // Event Listeners for the nav menu button
+  var navMenuBtn: HTMLElement = document.getElementById('nav-menu-button');
+  navMenuBtn.addEventListener('click', ToggleNavMenu);
+  navMenuBtn.addEventListener('keypress', (e: KeyboardEvent) => {
+    // Allow enter key to toggle the nav menu when the button is in focus
+    if (e.keyCode == 13)
+      ToggleNavMenu();
+  });
+
+
 });
 
-// Show/hide the navigation menu
-(document.getElementById('nav-menu-button')).addEventListener('click', () => {
+
+
+
+
+
+function ToggleNavMenu() {
   var nav_menu = document.getElementById('nav-menu');
   var nav_bar = document.getElementById('nav-bar');
   var fluid_nav = document.querySelector('.fluid-nav');
@@ -57,12 +72,12 @@ window.addEventListener('load', () => {
 
     // Minimize the navbar when showing the menu
     scroller.minimize();
-    
+
     fluid_nav.classList.remove('reading-width');
     btn.classList.add('close');
   }
 
-});
+}
 
 
 

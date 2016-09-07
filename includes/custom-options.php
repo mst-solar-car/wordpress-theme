@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * Adds custom options to the WordPress Customization screen for this theme
  *
  * @author Michael Rouse

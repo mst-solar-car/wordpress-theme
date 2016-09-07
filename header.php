@@ -118,16 +118,18 @@
     <!-- Navbar -->
     <div id="nav-bar" class="navigation-bar full-navbar">
       <div class="fluid-nav width-limit reading-width">
-        <div class="navbar-logo navbar-absolute navbar-left" onclick="window.location.href = '<?php bloginfo('url'); ?>'">
-          <div class="navbar-text">
-            <img alt="Brand" src="<?php logo_url(); ?>">
-            <span class="navbar-title-top"><?php setting( 'title_top_long' ); ?></span>
-            <span class="navbar-title-top-short"><?php setting( 'title_top_short' ); ?></span>
-            <span class="navbar-title-bottom"><?php setting( 'title_bottom_long' ); ?></span>
-            <span class="navbar-title-bottom-short"><?php setting( 'title_bottom_short' ); ?></span>
-          </div>
+        <div id="NavBarHeaderLink" class="navbar-logo navbar-absolute navbar-left">
+          <a href="<?php bloginfo('url') ?>" tabindex="5">
+            <div id="InnerNavBarHeaderLink" class="navbar-text">
+              <img alt="Brand" src="<?php logo_url(); ?>">
+              <span class="navbar-title-top"><?php setting( 'title_top_long' ); ?></span>
+              <span class="navbar-title-top-short"><?php setting( 'title_top_short' ); ?></span>
+              <span class="navbar-title-bottom"><?php setting( 'title_bottom_long' ); ?></span>
+              <span class="navbar-title-bottom-short"><?php setting( 'title_bottom_short' ); ?></span>
+            </div>
+          </a>
         </div>
-        <div id="nav-menu-button" class="navbar-menu-btn navbar-relative navbar-right">
+        <div id="nav-menu-button" class="navbar-menu-btn navbar-relative navbar-right" tabindex="10">
           <span class="regular-text"><?php setting( 'menu_btn_text', 'Menu' ); ?></span><span class="close-text">Close</span>
         </div>
       </div>

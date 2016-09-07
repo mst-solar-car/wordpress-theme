@@ -244,6 +244,11 @@ blockquote { padding-left: 5px; }
   transition: all 0.3s linear;
 }
 
+#NavBarHeaderLink a::after {
+  display: none !important;
+}
+
+
 .navbar-logo
 {
   margin: 0;
@@ -272,7 +277,7 @@ blockquote { padding-left: 5px; }
   display: inline-block;
   overflow: hidden;
 }
-.navbar-text:hover
+.navbar-text:hover, .navbar-text:focus, #NavBarHeaderLink a:hover .navbar-text, #NavBarHeaderLink a:focus  .navbar-text
 {
   -webkit-transition: color 0.2s linear !important;
   transition: color 0.2s linear !important;
@@ -376,7 +381,7 @@ blockquote { padding-left: 5px; }
 {
   right: 0px;
 }
-.navbar-menu-btn:hover
+.navbar-menu-btn:hover, .navbar-menu-btn:focus
 {
   -webkit-transition: background 0.2s linear, opacity 0.2s linear;
   transition: background 0.2s linear, opacity 0.2s linear;
@@ -564,7 +569,7 @@ footer
 {
   left: -50% !important;
 }
-.menu-item > a:hover
+.menu-item > a:hover, .menu-item > a:focus
 {
   -webkit-transition: background 0.5s linear, opacity 0.5s linear;
   transition: background 0.5s linear, opacity 0.5s linear;
