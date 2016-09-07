@@ -215,4 +215,26 @@ function sct_customize_options( $wp_customize ) {
     'section'   => 'custom_script_section',
     'setting'   => 'custom_theme_js',
   ) ) );
+
+
+  /**
+   * Misc. Section
+   */
+   $wp_customize->add_section( 'custom_misc_section', array(
+     'title'        => 'Misc.',
+     'priority'     => 100,
+     'capability'   => 'edit_theme_options',
+     'description'  => 'Misc. theme settings'
+   ) );
+
+   // Default profile picture
+   $wp_customize->add_setting( 'default_profile_picture', array(
+     'default'   => '',
+     'transport' => 'refresh'
+   ) );
+   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'default_profile_picture', array(
+     'label'     => 'Default Profile Picture (URL)',
+     'section'   => 'custom_misc_section',
+     'settings'  => 'default_profile_picture',
+   ) ) );
 }
