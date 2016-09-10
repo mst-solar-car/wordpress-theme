@@ -79,7 +79,7 @@
 
     <?php show_custom_css(); ?>
   </head>
-  <body class="is-loading">
+  <body id="MSTSolarCarTheme" class="is-loading">
     <div id="loading-page">
       <div class="loading-text">
         <!-- Sunrise SVG Animation by Ana Tudor (http://codepen.io/thebabydino/) -->

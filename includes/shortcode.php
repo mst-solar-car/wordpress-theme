@@ -12,7 +12,15 @@
  */
 // Linebreak
 function sct_br_shortcode( $attributes, $content ) {
-  return '<br />';
+  $result = "<br/>";
+  if ($attributes['count'])
+  {
+      for ($i = 1; $i < (int)$attributes['count']; $i++){
+        $result .= "<br/>";
+      }
+  }
+
+  return $result;
 }
 
 // Paragraph
@@ -258,10 +266,35 @@ function sct_lazyImage_shortcode ( $attributes ) {
 }
 
 
+/**
+ * Grid
+ */
+function sct_grid_shortcode ( $attributes, $content ) {
+  return '<div ' . classes( $attributes, 'grid' ) . ' >' . short_code ( $content ) . '</div>';
+}
+
+function sct_half_shortcode ( $attributes, $content ) {
+  return '<div ' . classes ( $attributes, 'col col-half' ) . ' >' . short_code ( $content ) . '</div>';
+}
+
+function sct_third_shortcode ( $attributes, $content ) {
+  return '<div ' . classes ( $attributes, 'col col-third' ) . ' >' . short_code ( $content ) . '</div>';
+}
+
+function sct_fourth_shortcode ( $attributes, $content ) {
+  return '<div ' . classes ( $attributes, 'col col-fourth' ) . ' >' . short_code ( $content ) . '</div>';
+}
+
+function sct_fifth_shortcode ( $attributes, $content ) {
+  return '<div ' . classes ( $attributes, 'col col-fifth' ) . ' >' . short_code ( $content ) . '</div>';
+}
 
 
 
 // Helper function for do_shortcode() while removinging HTML tags
+function shortcode ( $content ) {
+  return short_code ( $content );
+}
 function short_code( $content ) {
   return do_shortcode( strip_tags( $content ) );
 }
@@ -282,8 +315,11 @@ function classes( $attributes, $default ) {
 }
 
 
-
-
+register_shortcode( 'grid', 'sct_grid_shortcode' );
+register_shortcode( 'col_half', 'sct_half_shortcode' );
+register_shortcode( 'col_third', 'sct_third_shortcode' );
+register_shortcode( 'col_fourth', 'sct_fourth_shortcode' );
+register_shortcode( 'col_fifth', 'sct_fifth_shortcode' );
 
 
 
@@ -410,4 +446,19 @@ foreach ( $sct_emojis as $emoji => $code ) {
   if ( !shortcode_exists( $emoji ) ) {
     add_shortcode( $emoji, 'sct_emoji_shortcode' );
   }
+}
+
+
+
+
+
+
+
+function register_shortcode ( $shortcode_name, $function_name ) {
+  if ( !shortcode_exists( $shortcode_name )) {
+    add_shortcode ( $shortcode_name, $function_name );
+    return true; // Shortcode added
+  }
+
+  return false; // Shortcode not added
 }

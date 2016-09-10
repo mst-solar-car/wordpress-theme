@@ -8,6 +8,19 @@ namespace SolarCarTeam;
  */
 require_once ( get_template_directory() . '/includes/mstsolarcar.php' );
 
+remove_filter( 'the_content', 'wpautop' ); // Remove stupid auto-formatting
+remove_filter( 'the_excerpt', 'wpautop' );
+
+
+// Add a filter to automatically add <br/> for every two new liness
+add_filter ('the_content', function ( $content ) {
+  $content = preg_replace( '/(\n\s*){2}/', '<br/>', $content );
+  $content = preg_replace( '/\[br-([0-9]+)\]/', '[br count="$1"]', $content );
+
+  return $content;
+});
+
+
 
 /**
  * Theme Support

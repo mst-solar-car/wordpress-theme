@@ -755,7 +755,6 @@ ol.timeline li.timeline-left
 {
   height: 200px;
   max-width: 200px;
-  min-width: 200px;
   width: 100%;
 }
 .image-hover-text
@@ -1078,6 +1077,41 @@ iframe
 
 
 
+/**
+ * Grid
+ */
+.grid {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.col {
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+}
+
+.col-one {
+  width: calc(~"100% - 10px");
+}
+.col-half {
+  width: calc(~"50% - 10px");
+}
+.col-third {
+  width: calc(~"33.3% - 10px");
+}
+.col-fourth {
+  width: calc(~"25% - 10px");
+}
+.col-fifth {
+  width: calc(~"20% - 10px");
+}
+
+
+
+
+
 
 
 /**
@@ -1092,6 +1126,8 @@ iframe
 
   .content
   {padding: 0;}
+
+  .col-fifth { width: calc(~"25% - 10px") !important; }
 } /* End 1000px Media Query */
 
 
@@ -1109,16 +1145,15 @@ iframe
   .content
   {padding: 0 20px;}
 
+  .col-fourth, .col-fifth { width: calc(~"33.3% - 10px") !important; }
+
   /* Image hover show text */
   .image-hover-text
   { position: static; display: block; opacity: 1; }
   .image-hover-text-bubble
-  { height: auto; min-width: 200px; background-color: inherit; padding: 0px !important; border: none; border-radius: 0px !important;}
+  { height: auto; background-color: inherit; padding: 0px !important; border: none; border-radius: 0px !important;}
   .image-hover-image img
-  { min-width: 200px; max-width: 200px; min-width: 200px; width: 100%; height: auto; }
-  .one-third-column .image-hover-image img
-  { min-width: 150px; }
-
+  { min-width: 200px; max-width: 200px; width: 100%; height: auto; }
 
   /* Timeline stuff */
   ol.timeline
@@ -1147,8 +1182,7 @@ iframe
   .flexible-iframe iframe { width: 100% !important; left:0px; }
 
     /* Image Gallery */
-  .imageGallery_container
-  {
+  .imageGallery_container {
     width: 100% !important;
   }
 
@@ -1179,6 +1213,9 @@ iframe
   { width: 100%; display: block; margin-bottom: 20px; }
   .one-fourth-column
   { width: 100% !important; display: block !important; margin-bottom: 20px; }
+
+  .col-one, .col-half, .col-third, .col-fourth, .col-fifth { width: 100% !important;}
+  .col { display: block; padding: 0px; }
 
   .split-left, .split-right { float: none; }
   .split-left iframe, .split-right iframe { width: 100% !important; left: 0px; }
