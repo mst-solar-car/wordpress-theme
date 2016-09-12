@@ -571,12 +571,13 @@ footer
 }
 .menu-item > a:hover, .menu-item > a:focus
 {
+  text-decoration: none;
   -webkit-transition: background 0.5s linear, opacity 0.5s linear;
   transition: background 0.5s linear, opacity 0.5s linear;
 }
-.menu-item > a:hover::after
+.menu-item > a:hover::after, .menu-item > a:focus::after
 {
-  width: 0px;
+  width: 0px !important;
 }
 
 /* Loading Page */
