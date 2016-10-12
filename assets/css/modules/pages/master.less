@@ -1,0 +1,84 @@
+.wrapper {
+  height: auto;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0 auto;
+
+  .hero {
+    width: 100%;
+    height: 75vh;
+    transition: height 0.3s linear;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    overflow: hidden;
+
+    @media @m730pxWidth {
+      height: 50vh;
+    }
+  }
+
+  .content {
+    margin-top: 40px;
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+
+    @media @m730pxWidth {
+      padding: 0 20px;
+    }
+
+    article, header, section { display: block; }
+    author, time, date { display: inline-block; }
+
+    @import "author";
+    @import "post";
+    @import "imageHover";
+    @import "imageDescription";
+    @import "timeline";
+    @import "imageGallery";
+
+
+    iframe {
+      border: 0px;
+    }
+    .flexible-iframe {
+      position: relative;
+      padding: 30px 0 56.25% 0;
+      margin-bottom: 30px;
+      height: 0px;
+      overflow: hidden;
+    }
+    .flexible-iframe iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      @media @m730pxWidth {
+        width: 100% !important;
+        left: 0px !important;
+      }
+    }
+    .split-left iframe, .split-right iframe {
+      left: 50px;
+    }
+
+  }
+
+  .pagination {
+    width: 100%;
+    height: auto;
+    display: table;
+  }
+  .pagination-older, .pagination-newer {
+    font-size: 1.2em;
+    display: table-cell;
+    width: 50%;
+  }
+  .pagination-newer {
+    text-align: right;
+  }
+
+}

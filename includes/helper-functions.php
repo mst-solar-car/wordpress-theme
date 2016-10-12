@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * Little Helper Functions for this theme
  *
  * @author Michael Rouse
@@ -18,6 +18,14 @@ function get_asset( $file ) {
  */
 function asset( $file ) {
   echo get_asset( $file );
+}
+
+
+/**
+ * Gets a file
+ */
+function get_file ( $path ) {
+    echo bloginfo( 'template_directory' ) . '/' . $path;
 }
 
 /**

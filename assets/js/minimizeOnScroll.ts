@@ -31,7 +31,7 @@ export class MinimizeOnScroll {
       // Set a new timeout event
       this.scrollEvent = setTimeout(() => {
         this.checkScroll();
-      }, 100);
+      }, 50);
     });  // Minimizes/maximizes navbar on scroll
   }
 

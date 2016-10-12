@@ -1,0 +1,52 @@
+.author-page {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  .author-name {
+    font-family: "Tungsten A", "Tungsten B", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 3.35em;
+    letter-spacing: 0.05em;
+    .uppercase;
+  }
+  .author-page-about {
+    margin-top: 40px;
+  }
+
+  .author-posts {
+    margin-top: 50px;
+    text-align: left;
+  }
+
+}
+
+.author-meta {
+  border-top: 1px solid #A4A4A4;
+  border-bottom: 1px solid #A4A4A4;
+  margin-top: 50px;
+  padding: 10px 0;
+  min-height: 160px;
+}
+
+.author-meta-image
+{
+  float: left;
+}
+.author-meta-description
+{
+  display: block;
+  padding: 10px 0;
+  margin-left: 120px;
+}
+
+.author-meta-image, .author-meta-description {
+  @media @m580pxWidth {
+    float: none;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-left: 0px;
+  }
+}

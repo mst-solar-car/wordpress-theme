@@ -1,0 +1,92 @@
+.image-hover-text-container
+{
+  position: relative;
+  display: block;
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+
+  @media @m580pxWidth {
+    max-width: 100% !important;
+    width: 100% !important;
+    text-align: center;
+  }
+}
+.image-hover-inline
+{
+  display: inline-block !important;
+}
+.image-hover-image
+{
+  display: block;
+}
+.image-hover-image img
+{
+  height: 200px;
+  max-width: 200px;
+  width: 100%;
+
+  @media @m730pxWidth {
+    min-width: 200px;
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+  }
+}
+.image-hover-text
+{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  cursor: default;
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  opacity: 0;
+
+  @media @m730pxWidth {
+    position: static;
+    display: block;
+    opacity: 1;
+  }
+}
+.image-hover-text:hover
+{
+  opacity: 1; /* Make visible on hover */
+}
+.image-hover-text-bubble
+{
+  display: block;
+  width: auto;
+  height: 200px;
+  font-size: 1.1em;
+  text-align: center;
+  word-wrap: break-word;
+  margin: 0 auto;
+  padding: 35% 8px 5px 8px;
+  box-sizing: border-box;
+  background: rgba(218, 211, 211, 0.9);
+  border: 1px solid #848484;
+  overflow: hidden;
+
+  @media @m730pxWidth {
+    height: auto;
+    background-color: inherit;
+    padding: 0px !important;
+    border: none;
+    border-radius: 0px !important;
+  }
+
+  @media @m580pxWidth {
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+.image-hover-text-bubble .image-hover-text-title
+{
+  font-size: 1.5em;
+  font-weight: 600;
+  display: block;
+}

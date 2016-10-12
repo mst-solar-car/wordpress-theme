@@ -8,8 +8,8 @@ namespace SolarCarTeam;
  */
 require_once ( get_template_directory() . '/includes/mstsolarcar.php' );
 
-remove_filter( 'the_content', 'wpautop' ); // Remove stupid auto-formatting
-remove_filter( 'the_excerpt', 'wpautop' );
+//remove_filter( 'the_content', 'wpautop' ); // Remove stupid auto-formatting
+//remove_filter( 'the_excerpt', 'wpautop' );
 
 
 // Add a filter to automatically add <br/> for every two new liness
@@ -83,13 +83,14 @@ add_action( 'wp_head', function() {
     #designTeamBlinder { position: relative !important; }
     .navbar-menu-btn:hover, .navbar-menu-btn:focus { background: <?php rgba( $rgb_primary, '0.9' ); ?>; }
     html, body, .sub-heading > a, .preview-sub-heading > a, .author-meta-description  a, .author-meta-description a:hover, .post-entry.post-content-preview, .author-meta, input[type=text], input[type=button], input[type=submit] { color: <?php echo $font_color; ?> }
-    input[type=text] { border-bottom: 1px solid <?php echo $font_color; ?> }
-    input[type=text]:focus { border-bottom: 1px solid <?php echo $primary; ?> }
+    input[type=text] { border-bottom: 1px solid <?php echo $font_color; ?> !important; }
+    input[type=text]:focus { border-bottom: 1px solid <?php echo $primary; ?> !important; }
     input[type=button], input[type=submit] { border: 1px solid <?php echo $font_color; ?> }
     input[type=button]:focus, input[type=button]:hover, input[type=submit]:hover { border: 1px solid <?php echo $primary; ?>; color: <?php echo $primary; ?>; }
     .sub-heading > a::after, .preview-sub-heading > a::after, .author-meta > .author-meta-description > a::after { background: <?php echo $font_color; ?> }
     svg > * { stroke: <?php echo $loading; ?>; stroke-linecap: round; vector-effect: non-scaling-stroke; }
     svg > *, svg > text, svg [id='eyes'] circle { fill: <?php echo $loading; ?> }
+    .menu-item { background-position: center center !important; }
   </style>
   <?php
 } );

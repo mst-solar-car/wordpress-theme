@@ -1,0 +1,18 @@
+a, a:hover, a:focus {
+  display: inline-block;
+  text-decoration: none;
+  .cursor-pointer;
+}
+a::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 0px;
+  .ease-500ms;
+}
+a:hover::after, a:focus::after { width: 100%; }
+a.more-link {
+  color: @hidden-font;
+  margin-top: 20px;
+  font-size: 0.9em;
+}

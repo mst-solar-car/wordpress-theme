@@ -1,0 +1,150 @@
+@import "variables";
+
+// Namespace
+#MSTSolarCarTheme {
+  font-family: "Orgon Slab", Georgia, Times New Roman, serif;
+  font-weigth: 400;
+  letter-spacing: 0.5px;
+  line-height: 1.5em;
+  font-size: 1em;
+  color: @font-color;
+
+  vertical-align: baseline;
+
+  margin: 0 auto;
+  padding: 0 !important;
+  min-width: 100px;
+  overflow-x: hidden;
+
+  * { box-sizing: border-box; }
+
+  // Common/Useful Mixins
+  @import "modules/transitions";
+  .cursor-pointer { cursor: pointer; }
+  .uppercase      { text-transform: uppercase; }
+
+  .width-limit   { max-width: @max-width !important; }
+  .height-limit  { max-height: @max-height !important; }
+  .reading-width {
+    width: @reading-width !important;
+
+    @media @m1000pxWidth {
+      width: 90% !important;
+    }
+    @media @m730pxWidth { width: 100% !important; }
+
+    .navbar-menu-btn {
+      @media @m730pxWidth { right: 0px !important; }
+    }
+  }
+
+  .rounded, .avatar   { border-radius: 50%; }
+  .collapsed, .hidden { visibility: hidden; }
+
+  .absolute  { position: absolute; }
+  .relative  { position: relative; }
+  .fixed     { position: fixed; }
+  .left, .split-left   { float: left; }
+  .right, .split-right { float: right; }
+
+  .split-left, .split-right {
+    @media @m730pxWidth {
+      float: none;
+    }
+  }
+
+  .fade-on-hover       { .ease-500ms; }
+  .fade-on-hover:hover { opacity: 0.6; }
+
+
+  .monospace { font-family: TSTARMonoRound,"Orgon Slab",Georgia,Times New Roman,serif; }
+  img { max-width: 100%; height: auto; }
+
+  .section-separator {
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 80px 0 50px 0;
+    background: #cbcbcb;
+  }
+
+  pre, .pre { white-space: pre; }
+  code {
+    display: block;
+    .monospace;
+    font-size: 1.2em;
+    background: #f0f0f0;
+    border-radius: 54px;
+    border: 1px solid #ccc;
+    overflow-x: auto;
+    padding: 20px;
+    width: 100%;
+  }
+  blockquote { padding-left: 5px; .monospace; }
+
+  @import "modules/links";
+  @import "modules/headers";
+  @import "modules/navbar";
+  @import "modules/footer";
+  @import "modules/menu";
+  @import "modules/pages/master";
+  @import "modules/grid";
+  
+
+  #loading-page {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    z-index: 920;
+    text-align: center;
+    vertical-align: bottom;
+  }
+
+  &.is-loading {
+    #loading-page {
+      display: block;
+    }
+  }
+
+
+  #nav-menu-button, #imageGalleryOverlay{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;
+  }
+  #imageGalleryOverlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: rgba(48, 48, 48, 0.95);
+    z-index: 9999999;
+    cursor: zoom-out;
+  }
+  #imageGalleryOverlay.visible {
+    display: flex !Important;
+    align-items: center;
+    justify-content: center;
+  }
+  #imageGalleryOverlay img {
+    max-width: 95%!important;
+    max-height: 95% !important;
+  }
+
+  .menu-item {
+    background-position: center center;
+  }
+
+  .emoji {
+    display: inline;
+    cursor: default;
+  }
+
+
+} // End S&T Solar Car Namespace

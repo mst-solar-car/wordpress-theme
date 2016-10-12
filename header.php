@@ -5,8 +5,7 @@
  * @author Michael Rouse
  * Displays the header, and the <head> for all pages
  */
-?>
-<?php
+
   $options  = get_option( 'solarcar_theme_options' );
   $author = null;
 
@@ -27,7 +26,11 @@
 
     <title><?php echo $page_title . ' - '; ?><?php bloginfo( 'name' ); ?></title>
 
-    <link rel="stylesheet" href="<?php asset( 'css/style.css' ); ?>" type="text/css" >
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6681974/695648/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="https://campus.mst.edu/emctest/t4v3/fonts/Orgon/orgon_slab.css">
+    <link rel="stylesheet" type="text/css" href="https://campus.mst.edu/emctest/t4v3/fonts/tstar/tstar.css" />
+
+    <link rel="stylesheet" href="<?php get_file( 'style.css' ); ?>" type="text/css" >
 
     <?php wp_head(); ?>
 
@@ -75,14 +78,14 @@
     <?php endif; ?>
 
     <style>svg{width:80%;height:80%}[id=line]{stroke-width:3}text{font-size:1em}[id=mover]{animation:sun-motion 5s cubic-bezier(.175,.885,.32,1.275) infinite}[id=main]{fill:transparent;stroke-width:7}[id=eyes]{animation:eye-motion 5s ease-out infinite}[id=ray]{stroke-width:4}[id=rays]{animation:rot 5s linear infinite}@keyframes rot{to{transform:rotate(.25turn)}}@keyframes eye-motion{0%,100%,20%,49%{transform:translate(-13px)}21%,25%,29%,47%{transform:translate(13px) scaleY(1)}27%{transform:translate(13px) scaleY(0)}48%{transform:translate(0)}}@keyframes sun-motion{0%,100%,99%{transform:translateY(-16px)}50%{transform:translateY(-29px)}52%,98%{transform:translate(4px) scaleY(1.25)}53%,97%{transform:translateY(23px)}}#wpadminbar{position:static!important;overflow-x:hidden!important;}#wpadminbar * {z-index:900!important;}
-    <?php if (is_home() || !has_post_thumbnail() || is_search() || is_author()) {?>.hero { display: none; }.content{margin-top: 100px;min-height:75vh;}<?php } ?></style>
+    <?php if (is_home() || !has_post_thumbnail() || is_search() || is_author()) {?>.hero { display: none; }.content{margin-top: 100px !important;min-height:75vh;}<?php } ?></style>
 
     <?php show_custom_css(); ?>
   </head>
   <body id="MSTSolarCarTheme" class="is-loading">
     <div id="loading-page">
       <div class="loading-text">
-        <!-- Sunrise SVG Animation by Ana Tudor (http://codepen.io/thebabydino/) -->
+        <!-- Sunrise SVG Animation by the amazing Ana Tudor (http://codepen.io/thebabydino/) -->
         <svg viewbox="-200 -150 400 300">
           <defs>
             <line id="ray" x1="-5" x2="5"></line>
@@ -118,7 +121,7 @@
     <!-- Navbar -->
     <div id="nav-bar" class="navigation-bar full-navbar">
       <div class="fluid-nav width-limit reading-width">
-        <div id="NavBarHeaderLink" class="navbar-logo navbar-absolute navbar-left">
+        <div id="NavBarHeaderLink" class="navbar-logo absolute left">
           <a href="<?php bloginfo('url') ?>" tabindex="5">
             <div id="InnerNavBarHeaderLink" class="navbar-text">
               <img alt="Brand" src="<?php logo_url(); ?>">
@@ -129,7 +132,7 @@
             </div>
           </a>
         </div>
-        <div id="nav-menu-button" class="navbar-menu-btn navbar-relative navbar-right" tabindex="10">
+        <div id="nav-menu-button" class="navbar-menu-btn relative right" tabindex="10">
           <span class="regular-text"><?php setting( 'menu_btn_text', 'Menu' ); ?></span><span class="close-text">Close</span>
         </div>
       </div>

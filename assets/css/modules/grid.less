@@ -1,0 +1,88 @@
+.one-third-column
+{
+  float: left;
+  display: block;
+  width: 33.3%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 5px;
+
+  @media @m580pxWidth {
+    width: 100%;
+    display: block !important;
+    margin-bottom: 20px;
+  }
+}
+
+.one-fourth-column
+{
+  float: left;
+  display: block;
+  width: 25%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+
+  @media @m580pxWidth {
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 20px;
+  }
+}
+.one-fourth-column img
+{
+  width: 100%;
+  height: 100%;
+}
+
+
+.grid {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.col {
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+}
+
+.col-one {
+  width: calc(~"100% - 10px");
+}
+.col-half {
+  width: calc(~"50% - 10px");
+}
+.col-third {
+  width: calc(~"33.3% - 10px");
+}
+.col-fourth {
+  width: calc(~"25% - 10px");
+
+  @media @m730pxWidth {
+    width: calc(~"33.3% - 10px") !important;
+  }
+}
+.col-fifth {
+  width: calc(~"20% - 10px");
+
+  @media @m1000pxWidth {
+    width: calc(~"25% - 10px") !important;
+  }
+
+  @media @m730pxWidth {
+    width: calc(~"33.3% - 10px") !important;
+  }
+}
+
+@media @m580pxWidth {
+  .col-one, .col-half, .col-third, .col-fourth, .col-fifth {
+    width: 100% !important;
+  }
+  .col {
+    display: block;
+    padding: 0;
+  }
+}
