@@ -40,8 +40,10 @@ export class MinimizeOnScroll {
    * This function will minimized the parent element
    */
   public minimize = (): void => {
-    this.parent.classList.add(this.minimized_class);
-    this.parent.classList.remove(this.maximized_class);
+    if (this.parent.classList.contains(this.maximized_class) || !this.parent.classList.contains(this.minimized_class)) {
+      this.parent.classList.add(this.minimized_class);
+      this.parent.classList.remove(this.maximized_class);
+    }
   };
 
 
@@ -49,8 +51,10 @@ export class MinimizeOnScroll {
    * This function will maximize the parent element
    */
   public maximize = (): void => {
-    this.parent.classList.add(this.maximized_class);
-    this.parent.classList.remove(this.minimized_class);
+    if (this.parent.classList.contains(this.minimized_class) || !this.parent.classList.contains(this.maximized_class)) {
+      this.parent.classList.add(this.maximized_class);
+      this.parent.classList.remove(this.minimized_class);
+    }
   };
 
 
@@ -58,13 +62,10 @@ export class MinimizeOnScroll {
    * This will minimize or maximize based on the scroll position
    */
   public checkScroll = (): void => {
-    if ((window.pageYOffset > this.scroll_limit) || document.getElementById("nav-menu").classList.contains('visible'))
-    {
+    if ((window.pageYOffset > this.scroll_limit) || document.getElementById("nav-menu").classList.contains('visible')) {
       // Minimize
       this.minimize();
-    }
-    else
-    {
+    } else {
       // Maximize
       this.maximize();
     }

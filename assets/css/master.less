@@ -3,10 +3,10 @@
 // Namespace
 #MSTSolarCarTheme {
   font-family: "Orgon Slab", Georgia, Times New Roman, serif;
-  font-weigth: 400;
+  font-weight: 300;
   letter-spacing: 0.5px;
   line-height: 1.5em;
-  font-size: 1em;
+  font-size: 1.1em;
   color: @font-color;
 
   vertical-align: baseline;
@@ -45,7 +45,7 @@
   .relative  { position: relative; }
   .fixed     { position: fixed; }
   .left, .split-left   { float: left; }
-  .right, .split-right { float: right; }
+  .right { float: right; }
 
   .split-left, .split-right {
     @media @m730pxWidth {
@@ -57,7 +57,12 @@
   .fade-on-hover:hover { opacity: 0.6; }
 
 
-  .monospace { font-family: TSTARMonoRound,"Orgon Slab",Georgia,Times New Roman,serif; }
+  .monospace, .callout {
+    font-family: TSTARMonoRound,"Orgon Slab",Georgia,Times New Roman,serif;
+    letter-spacing: -0.33em;
+    line-height: 1.3em;
+  }
+
   img { max-width: 100%; height: auto; }
 
   .section-separator {
@@ -69,16 +74,17 @@
   }
 
   pre, .pre { white-space: pre; }
-  code {
+  code, .code {
     display: block;
-    .monospace;
-    font-size: 1.2em;
+    font-family: 'NimbusMono', monospace, sans-serif;
+    font-size: 1em;
     background: #f0f0f0;
-    border-radius: 54px;
     border: 1px solid #ccc;
+    border-radius: 5px;
     overflow-x: auto;
     padding: 20px;
     width: 100%;
+    line-height: 1.5em;
   }
   blockquote { padding-left: 5px; .monospace; }
 
@@ -89,7 +95,7 @@
   @import "modules/menu";
   @import "modules/pages/master";
   @import "modules/grid";
-  
+
 
   #loading-page {
     position: fixed;

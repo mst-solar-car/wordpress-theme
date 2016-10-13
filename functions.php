@@ -65,7 +65,7 @@ add_action( 'wp_head', function() {
   <style type="text/css">
     .menu-item, #loading-page, a::after { background: <?php echo $secondary; ?> }
     a, a:hover, a:focus, .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?>; }
-    .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?>; }
+    .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?> !important; }
     blockquote { border-left: 5px solid <?php echo $secondary; ?>; }
     h1, h2, h3, h4, h5, h6, .navbar-text:hover, .navbar-text:focus, #NavBarHeaderLink a:hover .navbar-text, #NavBarHeaderLink a:focus  .navbar-text, .timeline-entry a, #loading-page, .post-title a:hover, .post-title a:focus { color: <?php echo $primary; ?> !important; }
     .post-title a::after, .timeline-entry a::after { background: <?php echo $primary; ?>; }

@@ -33,7 +33,9 @@ register_shortcode( 'tab', function( $content ) {
 
 // Code
 register_shortcode( 'code', function( $attributes, $content ) {
-  return '<pre><code' . classes( $attributes, 'code' ) . '>' . trim( strip_tags( $content ) ) . '</code></pre>';
+  $language = $attributes['language'] ?: ($attributes['lang'] ?: '' );
+
+  return '<pre '. classes($attributes, 'code' . ( !empty($language) ? ' lang:' . $language . ' decode:true' : '' ) ) .'>' . trim( strip_tags( $content ) ) . '</pre>';
 } );
 
 
@@ -118,7 +120,7 @@ register_shortcode( 'responsive_iframe', function( $attributes ) {
               ' allowfullscreen>Your browser cannot display this content.</iframe>';
   $html .= '</div>';
   return $html;
-}, ['sct_iframe'] );
+}, ['sct_iframe', 'iframe'] );
 
 
 // YouTube
@@ -367,10 +369,11 @@ function sc( $code ) {
  */
 function classes( $attributes, $default ) {
   $html = '';
-  if ( $default || $attributes['classes'] ) {
+  if ( $default || $attributes['classes'] || $attributes['class'] ) {
+    $classes = $attributes['classes'] ?: ($attributes['class'] ?: '');
     $html = ' class="';
-    $html .= ( ( $default ) ?: '' ); // Add the default classes if there are any
-    $html .= ( ( $attributes['classes'] ) ? ( ( $default ) ? ( ' ' . $attributes['classes'] ) : $attributes['classes'] ) : '' ); // Add the optional classes if specified
+    $html .= $default ?: '' ; // Add the default classes if there are any
+    $html .= $classes ? ( $default ? ( ' ' . $classes ) : $classes ) : '' ; // Add the optional classes if specified
     $html .= '"';
   }
   return $html;
