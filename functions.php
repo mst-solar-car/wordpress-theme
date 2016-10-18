@@ -64,7 +64,7 @@ add_action( 'wp_head', function() {
   $rgb_third    = get_rgb( $third );  // Third color in RGBA
   ?>
   <style type="text/css">
-    .menu-item, #loading-page { background: <?php echo $primary; ?> }
+    #nav-menu .menu-item, #loading-page { background: <?php echo $primary; ?> }
     a, a:hover, a:focus, .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?>; }
     a::after { background: <?php echo $secondary; ?> }
     .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?> !important; }
@@ -72,11 +72,11 @@ add_action( 'wp_head', function() {
     h1, h2, h3, h4, h5, h6, .navbar-text:hover, .navbar-text:focus, #NavBarHeaderLink a:hover .navbar-text, #NavBarHeaderLink a:focus  .navbar-text, .timeline-entry a, #loading-page, .post-title a:hover, .post-title a:focus { color: <?php echo $primary; ?> !important; }
     .post-title a::after, .timeline-entry a::after { background: <?php echo $primary; ?>; }
     .hero {background-image: url('<?php featured_image(); ?>'), linear-gradient(<?php echo $secondary; ?>,<?php echo $primary; ?>) !important; }
-    .menu-item a:hover, .menu-item a:focus { color: #ede9e9 !important; }
+    #nav-menu .menu-item a:hover, #nav-menu .menu-item a:focus { color: #ede9e9 !important; }
     .time-wrapper { color: <?php echo $third; ?>; }
     .navigation-menu { background: <?php echo $third; ?>; }
-    .menu-item a { background: <?php rgba( $rgb_third, '0.75' ); ?>; }
-    .menu-item > a:hover, .menu-item > a:focus { background: <?php rgba( $rgb_third, '0.5' ); ?>; }
+    #nav-menu .menu-item a { background: <?php rgba( $rgb_third, '0.75' ); ?>; }
+    #nav-menu .menu-item > a:hover, #nav-menu .menu-item > a:focus { background: <?php rgba( $rgb_third, '0.5' ); ?>; }
     .full-navbar { background: <?php rgba( $rgb_third, '0.85' ); ?> }
     .navbar-menu-btn { background: <?php rgba( $rgb_third, '0.8' ); ?> }
     .minimized-navbar { background: <?php rgba( $rgb_third, '0.95' ); ?> }
@@ -92,7 +92,7 @@ add_action( 'wp_head', function() {
     .sub-heading > a::after, .preview-sub-heading > a::after, .author-meta > .author-meta-description > a::after { background: <?php echo $font_color; ?> }
     svg > * { stroke: <?php echo $loading; ?>; stroke-linecap: round; vector-effect: non-scaling-stroke; }
     svg > *, svg > text, svg [id='eyes'] circle { fill: <?php echo $loading; ?> }
-    .menu-item { background-position: center center !important; }
+    #nav-menu .menu-item { background-position: center center !important; }
     .more-link::after { background: #838383 !important; }
   </style>
   <?php

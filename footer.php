@@ -14,6 +14,8 @@
       <footer>
         <div class="fluid-footer width-limit reading-width">
           <div class="footer-center">
+            <h2 style="text-transform: uppercase;font-weight:600;font-size:2.25em;"><?php bloginfo( 'name' ); ?></h2>
+
             <?php if ( get_theme_mod( 'include_social_media', '' ) == 'y' ) : ?>
               <div class="social-media">
                 <?php if ( is_setting( 'facebook_url' ) ) :?>
@@ -28,7 +30,6 @@
               </div>
             <?php endif; ?>
 
-            &copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>
             <br />
             <br />
           </div>

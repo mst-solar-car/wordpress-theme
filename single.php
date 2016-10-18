@@ -16,7 +16,6 @@
           <h1 class="post-title"><?php the_title(); ?></h1>
           <div class="sub-heading">
             Posted on <time class="post-date"><?php the_date(); ?></time> - by <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><author><?php the_author_meta( 'display_name' ); ?></author></a>
-
           </div>
         </header><!-- end of post meta -->
 
