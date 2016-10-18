@@ -597,9 +597,8 @@ function sct_theme_docs_do_page () {
         <!-- Fonts -->
         <section id="font_use">
           <h3>Fonts</h3>
-          Fonts can make or break the user experience, the font used on this theme is <a href="https://www.fontsquirrel.com/fonts/source-sans-pro" target="_blank">Source Sans Pro</a> (this documentation page uses WordPress's font) by Adobe. <br/><br/>
-          If you are going to specify another font for an element, please use a <a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">Web Safe Font</a> so that all users, no matter what device, will see the same font.<br/><br/>Do not use more than 3 fonts on a page.
-        </section> <!-- End Fonts -->
+					Plz don't mess with them. The fonts used in this theme are the same fonts the school uses.
+				</section> <!-- End Fonts -->
 
 				<!-- Read More -->
 				<section id="readmore">
