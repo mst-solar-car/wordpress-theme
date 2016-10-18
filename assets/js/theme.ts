@@ -76,7 +76,7 @@ function ToggleNavMenu() {
     fluid_nav.classList.remove('reading-width');
     btn.classList.add('close');
   }
-
+  (document.activeElement as any).blur(); // Remove focus from the nav menu button
 }
 
 

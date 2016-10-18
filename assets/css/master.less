@@ -18,6 +18,8 @@
 
   * { box-sizing: border-box; }
 
+
+
   // Common/Useful Mixins
   @import "modules/transitions";
   .cursor-pointer { cursor: pointer; }
@@ -50,6 +52,9 @@
   .split-left, .split-right {
     @media @m730pxWidth {
       float: none;
+    }
+    &br:first-child {
+      display: none !important;
     }
   }
 

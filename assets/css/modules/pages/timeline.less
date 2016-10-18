@@ -12,6 +12,11 @@ ol.timeline
   padding: 0;
 
 }
+.timeline {
+  br {
+    display: none !important;
+  }
+}
 ol.timeline::before
 {
   content: ' ';
@@ -62,6 +67,10 @@ ol.timeline li.timeline-left
   @media @m730pxWidth {
     width: 100%;
     text-align: center;
+  }
+
+  br {
+    display: none !important;
   }
 }
 .timeline-left .timeline-entry::after, .timeline-right .timeline-entry::before
@@ -163,6 +172,10 @@ ol.timeline li.timeline-left
 {
   display: block;
   margin-top: 10px;
+
+  br {
+    display: block !important;
+  }
 }
 .timeline-desc img
 {
