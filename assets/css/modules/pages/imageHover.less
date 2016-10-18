@@ -58,18 +58,19 @@
 }
 .image-hover-text-bubble
 {
-  display: block;
+  display: flex;
   width: auto;
   height: 200px;
   font-size: 1.1em;
   text-align: center;
   word-wrap: break-word;
   margin: 0 auto;
-  padding: 35% 8px 5px 8px;
   box-sizing: border-box;
   background: rgba(218, 211, 211, 0.9);
   border: 1px solid #848484;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
 
   @media @m730pxWidth {
     height: auto;
@@ -86,7 +87,7 @@
 }
 .image-hover-text-bubble .image-hover-text-title
 {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 600;
   display: block;
 }

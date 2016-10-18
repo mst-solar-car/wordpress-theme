@@ -207,8 +207,10 @@ register_shortcode( 'image_text_hover', function( $attributes, $content ) {
     $html .= '</div>';
     $html .= '<div class="image-hover-text">';
       $html .= '<div class="image-hover-text-bubble rounded">';
-        $html .= '<span class="image-hover-text-title">' . $attributes['title'] . '</span>';
-        $html .= do_shortcode( $attributes['desc'] ?: $content );
+        $html .= '<div>';
+          $html .= '<span class="image-hover-text-title">' . $attributes['title'] . '</span>';
+          $html .= do_shortcode( $attributes['desc'] ?: $content );
+        $html .= '</div>';
       $html .= '</div>';
     $html .= '</div>';
   $html .= '</div>';
