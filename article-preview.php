@@ -10,9 +10,7 @@
   <header class="post-meta post-header">
     <h2 class="post-title"><a href="<?php echo post_permalink(); ?>"><?php the_title();?></a></h2>
     <div class="preview-sub-heading">
-      By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><author><?php the_author_meta( 'display_name' ); ?></author></a>
-      on
-      <time class="post-date"><?php the_date(); ?></time>
+      <time class="post-date"><?php the_date(); ?></time> - <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><author><?php the_author_meta( 'display_name' ); ?></author></a>
     </div>
   </header> <!-- End Post Meta -->
 

@@ -293,6 +293,20 @@ register_shortcode( 'grid', function( $attributes, $content ) {
             do_shortcode( $content ) . '</div>';
 } );
 
+
+// Grid half
+register_shortcode( 'grid_half', function( $attributes, $content ) {
+  return '<div ' . classes( $attributes, 'cell cell-one-half' ) . ' >' .
+          do_shortcode( $content ) . '</div>';
+} );
+
+
+// Grid third
+register_shortcode( 'grid_third', function( $attributes, $content ) {
+  return '<div ' . classes( $attributes, 'cell cell-one-third' ) . ' >' .
+          do_shortcode( $content ) . '</div>';
+} );
+
 // One Half
 register_shortcode( 'col_half', function( $attributes, $content ) {
   return '<div ' . classes( $attributes, 'col col-half' ) . ' >' .

@@ -38,10 +38,34 @@
 
 
 .grid {
+  display: table;
   width: 100%;
-  height: auto;
-  display: block;
+  table-layout: fixed;
 }
+
+.cell {
+  display: table-cell;
+}
+
+.cell-one-third {
+  width: 33.3%;
+}
+
+.cell-one-half {
+  width: 50%;
+}
+
+
+@media @m680pxWidth {
+  .cell-one-third, .cell-one-half {
+    width: 100% !important;
+  }
+
+  .cell {
+    display: block;
+  }
+}
+
 
 .col {
   display: inline-block;

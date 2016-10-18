@@ -64,8 +64,9 @@ add_action( 'wp_head', function() {
   $rgb_third    = get_rgb( $third );  // Third color in RGBA
   ?>
   <style type="text/css">
-    .menu-item, #loading-page, a::after { background: <?php echo $primary; ?> }
+    .menu-item, #loading-page { background: <?php echo $primary; ?> }
     a, a:hover, a:focus, .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?>; }
+    a::after { background: <?php echo $secondary; ?> }
     .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?> !important; }
     blockquote { border-left: 5px solid <?php echo $secondary; ?>; }
     h1, h2, h3, h4, h5, h6, .navbar-text:hover, .navbar-text:focus, #NavBarHeaderLink a:hover .navbar-text, #NavBarHeaderLink a:focus  .navbar-text, .timeline-entry a, #loading-page, .post-title a:hover, .post-title a:focus { color: <?php echo $primary; ?> !important; }
@@ -92,6 +93,7 @@ add_action( 'wp_head', function() {
     svg > * { stroke: <?php echo $loading; ?>; stroke-linecap: round; vector-effect: non-scaling-stroke; }
     svg > *, svg > text, svg [id='eyes'] circle { fill: <?php echo $loading; ?> }
     .menu-item { background-position: center center !important; }
+    .more-link::after { background: #838383 !important; }
   </style>
   <?php
 } );
