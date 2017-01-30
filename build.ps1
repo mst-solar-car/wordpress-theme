@@ -8,7 +8,8 @@
 # Begin Customizable Variables 
     # File Extensions to ignore when adding files to the .zip folder
     $extensionsToIgnore = @("*.ts", "*.less", "*.json", "*.gitignore", "*.zip", "*.ps1", "*.md")
-
+    
+    $foldersToIgnore = "\.(.*)(\\(.*)?)*"
 
     # Regular Expressions 
     $namePattern = "(?:T|t)heme (?:N|n)ame: " # Used to read the theme name from style.css
@@ -53,7 +54,7 @@ $outFile = "$PSScriptRoot\$zipFileName.zip" # Full path to the zip output file
 # Remove previous zipped themes if one exists
 if (Test-Path $outFile)
 {
-    Remove-Item $outFile 
+    Remove-Item $outFile
 }
 
 # Create temp folder
@@ -71,7 +72,7 @@ if (Test-Path $tempDir)
 $files = Get-ChildItem $PSScriptRoot -Recurse -Exclude $extensionsToIgnore | where { ! $_.PSIsContainer } # Get files without the pad file extensions
 
 # Create the temp directory
-New-Item $tempDir -Type directory -Force
+New-Item $tempDir -Type directory -Force | Out-Null
 
 $totalFiles = $files.Length; 
 $progress = 0;
@@ -87,27 +88,29 @@ for ($i = 0; $i -lt $totalFiles; $i++)
     $directoryName = $files[$i].DirectoryName
     $relativeDir = $directoryName -replace "$escapedRoot(\\)?", ""
     
-    # Copy to temp folder and preserve structure
-    robocopy "$directoryName" "$tempDir\$relativeDir" "$($files[$i].Name)"
+    if ( !($relativeDir -match $foldersToIgnore) ) { 
+        # Copy to temp folder and preserve structure
+        robocopy "$directoryName" "$tempDir\$relativeDir" "$($files[$i].Name)" | Out-Null
 
-    # Update Progress
-    $progress = [System.Math]::Round(($i / $totalFiles) * 100, 2);
-    Write-Progress -Activity "Copying Files" -Status "$progress% Complete:" -PercentComplete $progress;
+        # Update Progress
+        $progress = [System.Math]::Round(($i / $totalFiles) * 100, 2);
+        Write-Progress -Activity "Copying Files" -Status "$progress% Complete:" -PercentComplete $progress;
 
-    Start-Sleep -m 50 # Really short delay so it looks like it is doing more work ;)
+        Start-Sleep -m 50 # Really short delay so it looks like it is doing more work ;)
+    }
 }
 
 
 
 # Compress the entire temp folder into the zip folder
-Compress-Archive -Path "$tempDir\*" -DestinationPath $outFile
+Compress-Archive -Path "$tempDir\*" -DestinationPath $outFile | Out-Null
 
 
 # Remove the temp folder 
-Remove-Item $tempDir -Recurse -Force
+Remove-Item $tempDir -Recurse -Force | Out-Null
 
 
-if (!(Test-Path $outFile)) 
+if ( !(Test-Path $outFile) ) 
 {
     Write-Error "Could not create zip folder: $outFile"
 }
