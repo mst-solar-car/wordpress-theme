@@ -19,7 +19,7 @@
             <?php if ( get_theme_mod( 'include_donate_button', '' ) == 'y' ) : ?>
                 <?php if ( is_setting( 'give_url' ) ) : ?>
                     <br/>
-                    <a href="<?php setting( 'give_url' ) ?>"><button id="donateBtn"><?php setting( 'donate_btn_text' ) ?></button></a>
+                    <a href="<?php setting( 'give_url' ) ?>" class="no-underline donateNowLink"><button class="btn"><?php setting( 'donate_btn_text', 'Donate Now' ) ?></button></a>
                     <br/>
                 <?php endif; ?>
             <?php endif; ?>

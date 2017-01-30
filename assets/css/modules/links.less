@@ -16,3 +16,10 @@ a.more-link {
   margin-top: 20px;
   font-size: 0.9em;
 }
+
+
+a.no-underline {
+    &:hover::after, &:focus::after {
+        width: 0px;
+    }
+}

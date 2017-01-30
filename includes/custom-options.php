@@ -201,7 +201,7 @@ function sct_customize_options( $wp_customize ) {
       'transport' => 'refresh',
   ) );
   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'donate_btn_text', array(
-      'label'    => 'Donate Button labelL',
+      'label'    => 'Donate Button Label',
       'section'  => 'footer_settings',
       'settings' => 'donate_btn_text',
   ) ) );

@@ -62,6 +62,7 @@ add_action( 'wp_head', function() {
   $rgb_primary  = get_rgb( $primary );    // Primary color in RGBA
   $rgb_secondary = get_rgb( $secondary );
   $rgb_third    = get_rgb( $third );  // Third color in RGBA
+  $rgb_loading = get_rgb( $loading );
   ?>
   <style type="text/css">
     #nav-menu .menu-item, #loading-page { background: <?php echo $primary; ?> }
@@ -94,6 +95,7 @@ add_action( 'wp_head', function() {
     svg > *, svg > text, svg [id='eyes'] circle { fill: <?php echo $loading; ?> }
     #nav-menu .menu-item { background-position: center center !important; }
     .more-link::after { background: #838383 !important; }
+    .donateNowLink .btn:hover { background-color: <?php echo $rgb_loading; ?>; }
   </style>
   <?php
 } );
