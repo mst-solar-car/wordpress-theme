@@ -95,7 +95,7 @@ add_action( 'wp_head', function() {
     svg > *, svg > text, svg [id='eyes'] circle { fill: <?php echo $loading; ?> }
     #nav-menu .menu-item { background-position: center center !important; }
     .more-link::after { background: #838383 !important; }
-    .donateNowLink .btn:hover { background-color: <?php echo $rgb_loading; ?>; }
+    .donateNowLink .btn:hover { background-color: <?php rgba( $rgb_loading, '1') ?>; }
   </style>
   <?php
 } );
