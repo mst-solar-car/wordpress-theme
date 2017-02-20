@@ -8,8 +8,8 @@ namespace SolarCarTeam;
  */
 require_once ( get_template_directory() . '/includes/mstsolarcar.php' );
 
-remove_filter( 'the_content', 'wpautop' ); // Remove stupid auto-formatting
-remove_filter( 'the_excerpt', 'wpautop' );
+//remove_filter( 'the_content', 'wpautop' ); // Remove stupid auto-formatting
+//remove_filter( 'the_excerpt', 'wpautop' );
 
 
 // Add a filter to automatically add <br/> for every two new liness
@@ -44,7 +44,7 @@ add_filter( 'menu_image_default_sizes', function( $sizes ) {
  */
 add_action( 'init', function() {
   global $wp_rewrite;
-  $wp_rewrite->author_base = 'team'; // Change 'team' to be the base URL you wish to use
+  $wp_rewrite->author_base = 'team/members'; // Change 'team' to be the base URL you wish to use
   $wp_rewrite->author_structure = '/' . $wp_rewrite->author_base. '/%author%';
 } );
 
@@ -60,36 +60,42 @@ add_action( 'wp_head', function() {
   $font_color   = get_setting( 'font_color', SCT_DEFAULT_FONT_COLOR );
 
   $rgb_primary  = get_rgb( $primary );    // Primary color in RGBA
+  $rgb_secondary = get_rgb( $secondary );
   $rgb_third    = get_rgb( $third );  // Third color in RGBA
+  $rgb_loading = get_rgb( $loading );
   ?>
   <style type="text/css">
-    .menu-item, #loading-page, a::after { background: <?php echo $secondary; ?> }
+    #nav-menu .menu-item, #loading-page { background: <?php echo $primary; ?> }
     a, a:hover, a:focus, .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?>; }
-    .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?>; }
+    a::after { background: <?php echo $secondary; ?> }
+    .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?> !important; }
     blockquote { border-left: 5px solid <?php echo $secondary; ?>; }
     h1, h2, h3, h4, h5, h6, .navbar-text:hover, .navbar-text:focus, #NavBarHeaderLink a:hover .navbar-text, #NavBarHeaderLink a:focus  .navbar-text, .timeline-entry a, #loading-page, .post-title a:hover, .post-title a:focus { color: <?php echo $primary; ?> !important; }
     .post-title a::after, .timeline-entry a::after { background: <?php echo $primary; ?>; }
     .hero {background-image: url('<?php featured_image(); ?>'), linear-gradient(<?php echo $secondary; ?>,<?php echo $primary; ?>) !important; }
-    .menu-item a:hover, .menu-item a:focus { color: #ede9e9 !important; }
+    #nav-menu .menu-item a:hover, #nav-menu .menu-item a:focus { color: #ede9e9 !important; }
     .time-wrapper { color: <?php echo $third; ?>; }
-    .navigation-menu { background: <?php echo $third; ?>;}
-    .menu-item a { background: <?php rgba( $rgb_third, '0.75' ); ?>;}
-    .menu-item > a:hover, .menu-item > a:focus { background: <?php rgba( $rgb_third, '0.5' ); ?>; }
+    .navigation-menu { background: <?php echo $third; ?>; }
+    #nav-menu .menu-item a { background: <?php rgba( $rgb_third, '0.75' ); ?>; }
+    #nav-menu .menu-item > a:hover, #nav-menu .menu-item > a:focus { background: <?php rgba( $rgb_third, '0.5' ); ?>; }
     .full-navbar { background: <?php rgba( $rgb_third, '0.85' ); ?> }
     .navbar-menu-btn { background: <?php rgba( $rgb_third, '0.8' ); ?> }
     .minimized-navbar { background: <?php rgba( $rgb_third, '0.95' ); ?> }
     .minimized-navbar .navbar-menu-btn, footer { background: <?php rgba( $rgb_third, '0.9' ); ?>}
     .designTeamBanner { position:relative !important; background: rgba($rgb_third, '0.9') !important; z-index:900!important }
     #designTeamBlinder { position: relative !important; }
-    .navbar-menu-btn:hover, .navbar-menu-btn:focus { background: <?php rgba( $rgb_primary, '0.9' ); ?>; }
+    .navbar-menu-btn:hover, .navbar-menu-btn:focus { background: <?php rgba( $rgb_secondary, '0.9' ); ?>; }
     html, body, .sub-heading > a, .preview-sub-heading > a, .author-meta-description  a, .author-meta-description a:hover, .post-entry.post-content-preview, .author-meta, input[type=text], input[type=button], input[type=submit] { color: <?php echo $font_color; ?> }
-    input[type=text] { border-bottom: 1px solid <?php echo $font_color; ?> }
-    input[type=text]:focus { border-bottom: 1px solid <?php echo $primary; ?> }
+    input[type=text] { border-bottom: 1px solid <?php echo $font_color; ?> !important; }
+    input[type=text]:focus { border-bottom: 1px solid <?php echo $primary; ?> !important; }
     input[type=button], input[type=submit] { border: 1px solid <?php echo $font_color; ?> }
     input[type=button]:focus, input[type=button]:hover, input[type=submit]:hover { border: 1px solid <?php echo $primary; ?>; color: <?php echo $primary; ?>; }
     .sub-heading > a::after, .preview-sub-heading > a::after, .author-meta > .author-meta-description > a::after { background: <?php echo $font_color; ?> }
     svg > * { stroke: <?php echo $loading; ?>; stroke-linecap: round; vector-effect: non-scaling-stroke; }
     svg > *, svg > text, svg [id='eyes'] circle { fill: <?php echo $loading; ?> }
+    #nav-menu .menu-item { background-position: center center !important; }
+    .more-link::after { background: #838383 !important; }
+    .donateNowLink .btn:hover { background-color: <?php rgba( $rgb_loading, '1') ?>; }
   </style>
   <?php
 } );

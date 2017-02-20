@@ -9,7 +9,7 @@
 <?php
 
 add_action( 'admin_menu', function(){
-	add_theme_page( 'Theme Documentation', 'Documentation', 'edit_posts', 'docs', 'sct_theme_docs_do_page' );
+	add_menu_page( 'Theme Documentation', 'Theme Documentation', 'edit_posts', 'docs', 'sct_theme_docs_do_page' );
 } );
 
 /**
@@ -312,12 +312,25 @@ function sct_theme_docs_do_page () {
           <br/>
           This theme has custom shortcode for one third and one fourth sized columns.
           <code>
-            [one_third]Content here[/one_third]<br/>
-            [one_fourth]Content here[/one_third]<br />
-						[split_left]Content Here[/split_left][split_right]Content Here[/split_right]
+						[grid]
+							[grid_third]Content Here[/grid_third]<br/>
+							[grid_third]Content Here[/grid_third]<br/>
+							[grid_third]Content Here[/grid]<br/>
+            [grid]
           </code>
-          Whenever you use these, you will usually have three one_thirds, or four one_fourths, in a row because the columns are designed to be next to each other, to take up the whole screen.<br/><br/>
-					Split left and Split right will unevenly divide the page based on the content in each one.
+					or
+					<code>
+						[grid]
+							[grid_half]Content Here[/grid_half]<br/>
+							[grid_half]Content Here[/grid_half]<br/>
+						[/grid]
+					</code>
+					or
+					<code>
+						[split_left]Content Here[/split_left][split_right]Content Here[/split_right]
+					</code>
+        	Split left and Split right will unevenly divide the page based on the content in each one.<br/><br/>
+					Other than that, these should be pretty self explanatory.
         </section> <!-- End Columns -->
 
         <!-- Timeline -->
@@ -597,9 +610,8 @@ function sct_theme_docs_do_page () {
         <!-- Fonts -->
         <section id="font_use">
           <h3>Fonts</h3>
-          Fonts can make or break the user experience, the font used on this theme is <a href="https://www.fontsquirrel.com/fonts/source-sans-pro" target="_blank">Source Sans Pro</a> (this documentation page uses WordPress's font) by Adobe. <br/><br/>
-          If you are going to specify another font for an element, please use a <a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">Web Safe Font</a> so that all users, no matter what device, will see the same font.<br/><br/>Do not use more than 3 fonts on a page.
-        </section> <!-- End Fonts -->
+					Plz don't mess with them. The fonts used in this theme are the same fonts the school uses.
+				</section> <!-- End Fonts -->
 
 				<!-- Read More -->
 				<section id="readmore">

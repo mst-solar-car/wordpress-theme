@@ -14,6 +14,16 @@
       <footer>
         <div class="fluid-footer width-limit reading-width">
           <div class="footer-center">
+            <h2 style="text-transform: uppercase;font-weight:600;font-size:2.25em;"><?php bloginfo( 'name' ); ?></h2>
+
+            <?php if ( get_theme_mod( 'include_donate_button', '' ) == 'y' ) : ?>
+                <?php if ( is_setting( 'give_url' ) ) : ?>
+                    <br/>
+                    <a href="<?php setting( 'give_url' ) ?>" class="no-underline donateNowLink"><button class="btn"><?php setting( 'donate_btn_text', 'Donate Now' ) ?></button></a>
+                    <br/>
+                <?php endif; ?>
+            <?php endif; ?>
+
             <?php if ( get_theme_mod( 'include_social_media', '' ) == 'y' ) : ?>
               <div class="social-media">
                 <?php if ( is_setting( 'facebook_url' ) ) :?>
@@ -28,7 +38,6 @@
               </div>
             <?php endif; ?>
 
-            &copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>
             <br />
             <br />
           </div>
@@ -37,8 +46,8 @@
 
     <div id="imageGalleryOverlay"></div>
 
-    <!-- Page Load JavaScript -->
-    <script type="text/javascript">window.addEventListener('load', function(){document.querySelector('body').classList.remove('is-loading');});window.addEventListener('beforeunload', function(){document.querySelector('body').classList.add('is-loading');});</script>
+    <!-- Page Load JavaScript --
+    <script type="text/javascript">window.addEventListener('load', function(){document.querySelector('body').classList.remove('is-loading');});window.addEventListener('beforeunload', function(){document.querySelector('body').classList.add('is-loading');});</script>-->
 
     <script type="text/javascript" src="<?php asset( 'require.js' ); ?>" data-main="<?php asset( 'js/theme.js' ); ?>"></script>
 

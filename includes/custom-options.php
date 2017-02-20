@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * Adds custom options to the WordPress Customization screen for this theme
  *
  * @author Michael Rouse
@@ -180,6 +180,43 @@ function sct_customize_options( $wp_customize ) {
     'section'   => 'footer_settings',
     'settings'  => 'instagram_url',
   ) ) );
+
+
+  // Include Donate Button
+  $wp_customize->add_setting( 'include_donate_button', array(
+    'default'   => '',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'include_donate_button', array(
+    'label'     => 'Include Donate Button',
+    'section'   => 'footer_settings',
+    'settings'  => 'include_donate_button',
+    'type'      => 'checkbox',
+    'choices'   => array( 'yes' => 'y' ),
+  ) ) );
+
+  // Donate Button Text
+  $wp_customize->add_setting( 'donate_btn_text', array(
+      'default' => 'Donate Now',
+      'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'donate_btn_text', array(
+      'label'    => 'Donate Button Label',
+      'section'  => 'footer_settings',
+      'settings' => 'donate_btn_text',
+  ) ) );
+
+  // URL to donate
+  $wp_customize->add_setting( 'give_url', array(
+      'default' => '',
+      'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'give_url', array(
+      'label'    => 'Donate URL',
+      'section'  => 'footer_settings',
+      'settings' => 'give_url',
+  ) ) );
+
 
 
   /**
