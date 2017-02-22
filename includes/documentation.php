@@ -57,6 +57,7 @@ function sct_theme_docs_do_page () {
                 <li>2.16 <a href="#class_attribute">CSS Classes Attribute</a></li>
 				<li>2.17 <a href="#lazy_loading">Lazy Loading Images</a></li>
 				<li>2.18 <a href="#image_gallery">Image Galleries</a></li>
+				<li>2.19 <a href="#script_style">JavaScript and CSS</a></li>
               </ul>
           </li>
           <li>3 <a href="#page_posts">Page/Post Features</a>
@@ -515,6 +516,26 @@ function sct_theme_docs_do_page () {
 						[/image_gallery]
 					</code>
 				</section> <!-- End Image Galleries -->
+
+				<!-- JavaScript and CSS -->
+				<section id="script_style">
+						<h2>JavaScript and CSS</h2>
+						To place JavaScript and CSS inside of a post or page use the following shortcode:
+						<code>
+							[script src="url_to_file.js"]
+
+							[script]
+							<tab></tab>// Your JavaScript code here
+							[/script]
+
+							[css]
+							<tab></tab>/* Your CSS here */
+							[/css]
+						</code>
+
+						<b>WARNING</b><br/>
+						If you add JavaScript to a code, be careful about putting it before your [more] tag, because then it will execute when showing a list of the blog posts. 
+				</section>
 
       </article> <!-- End Shortcodes -->
 
