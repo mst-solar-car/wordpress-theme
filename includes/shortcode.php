@@ -5,6 +5,54 @@
  * @author Michael Rouse
  */
 
+// Script Tag shortcode
+register_shortcode( 'script', function ( $attributes, $content ) {
+    $result = "";
+
+    $scriptStart = '<script type="';
+
+    if ( $attributes['type'] )
+    {
+        $scriptStart .= $attributes['type'] . "\"";
+    }
+    else
+    {
+        $scriptStart .= "text/javascript\"";
+    }
+
+    if ( $attributes['src'] )
+    {
+        $result = $scriptStart . ' src="' . $attributes['src'] . '"></script>';
+    }
+
+    if ( $content )
+    {
+        // Allow special characters (remove smart quotes)
+        $content = str_replace('&#8216;', "'", $content);
+        $content = str_replace('&#8217;', "'", $content);
+        $content = str_replace('&#8220;', '"', $content);
+        $content = str_replace('&#8221;', '"', $content);
+        $content = html_entity_decode($content);
+
+        $result .= $scriptStart . '>' . $content . '</script>';
+    }
+
+    return $result;
+}, ['js'] );
+
+
+// Style tag shortcode
+register_shortcode( 'style', function ( $attributes, $content ) {
+    $content = str_replace('&#8216;', "'", $content);
+    $content = str_replace('&#8217;', "'", $content);
+    $content = str_replace('&#8220;', '"', $content);
+    $content = str_replace('&#8221;', '"', $content);
+    $content = html_entity_decode($content);
+
+    return "<style>" . $content . "</style>";
+}, ['css'] );
+
+
 // Line break
 register_shortcode( 'br', function ( $attributes, $content ) {
   $result = "<br/>";
