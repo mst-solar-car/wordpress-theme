@@ -4,7 +4,10 @@
  *
  * @author Michael Rouse
  */
-
+ remove_filter('the_content', 'wptexturize');
+ remove_filter('the_title', 'wptexturize');
+ remove_filter('the_excerpt', 'wptexturize');
+ 
 // Script Tag shortcode
 register_shortcode( 'script', function ( $attributes, $content ) {
     $result = "";
