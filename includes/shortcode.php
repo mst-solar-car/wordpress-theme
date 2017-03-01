@@ -35,6 +35,8 @@ register_shortcode( 'script', function ( $attributes, $content ) {
         $content = str_replace('&#8217;', "'", $content);
         $content = str_replace('&#8220;', '"', $content);
         $content = str_replace('&#8221;', '"', $content);
+        $content = str_replace('&#39;', "'", $content);
+        $content = str_replace('&#34;', '"', $content);
         $content = html_entity_decode($content);
 
         $result .= $scriptStart . '>' . strip_tags($content) . '</script>';
@@ -52,6 +54,8 @@ register_shortcode( 'style', function ( $attributes, $content ) {
     $content = str_replace('&#8217;', "'", $content);
     $content = str_replace('&#8220;', '"', $content);
     $content = str_replace('&#8221;', '"', $content);
+    $content = str_replace('&#39;', "'", $content);
+    $content = str_replace('&#34;', '"', $content);
     $content = html_entity_decode($content);
 
     if ( $attributes['src'] )
