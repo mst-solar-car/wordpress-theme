@@ -37,9 +37,8 @@ register_shortcode( 'script', function ( $attributes, $content ) {
         $content = str_replace('&#8221;', '"', $content);
         $content = str_replace('&#39;', "'", $content);
         $content = str_replace('&#34;', '"', $content);
-        $content = html_entity_decode($content);
 
-        $result .= $scriptStart . '>' . strip_tags($content) . '</script>';
+        $result .= $scriptStart . '>' . html_entity_decode(strip_tags($content)) . '</script>';
     }
 
     return $result;
@@ -56,14 +55,14 @@ register_shortcode( 'style', function ( $attributes, $content ) {
     $content = str_replace('&#8221;', '"', $content);
     $content = str_replace('&#39;', "'", $content);
     $content = str_replace('&#34;', '"', $content);
-    $content = html_entity_decode($content);
+    
 
     if ( $attributes['src'] )
     {
         $result .= '<link rel="stylesheet" href="' . $attributes['src'] . '" type="text/cass" />';
     }
 
-    return $result . "<style>" . strip_tags($content) . "</style>";
+    return $result . "<style>" . html_entity_decode(strip_tags($content)) . "</style>";
 }, ['css'] );
 
 
