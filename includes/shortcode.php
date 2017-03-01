@@ -7,7 +7,7 @@
  remove_filter('the_content', 'wptexturize');
  remove_filter('the_title', 'wptexturize');
  remove_filter('the_excerpt', 'wptexturize');
- 
+
 // Script Tag shortcode
 register_shortcode( 'script', function ( $attributes, $content ) {
     $result = "";
@@ -37,7 +37,7 @@ register_shortcode( 'script', function ( $attributes, $content ) {
         $content = str_replace('&#8221;', '"', $content);
         $content = html_entity_decode($content);
 
-        $result .= $scriptStart . '>' . $content . '</script>';
+        $result .= $scriptStart . '>' . strip_tags($content) . '</script>';
     }
 
     return $result;
@@ -46,13 +46,20 @@ register_shortcode( 'script', function ( $attributes, $content ) {
 
 // Style tag shortcode
 register_shortcode( 'style', function ( $attributes, $content ) {
+    $result = "";
+
     $content = str_replace('&#8216;', "'", $content);
     $content = str_replace('&#8217;', "'", $content);
     $content = str_replace('&#8220;', '"', $content);
     $content = str_replace('&#8221;', '"', $content);
     $content = html_entity_decode($content);
 
-    return "<style>" . $content . "</style>";
+    if ( $attributes['src'] )
+    {
+        $result .= '<link rel="stylesheet" href="' . $attributes['src'] . '" type="text/cass" />';
+    }
+
+    return $result . "<style>" . strip_tags($content) . "</style>";
 }, ['css'] );
 
 
