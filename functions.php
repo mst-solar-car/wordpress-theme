@@ -91,8 +91,6 @@ add_action( 'wp_head', function() {
     input[type=button], input[type=submit] { border: 1px solid <?php echo $font_color; ?> }
     input[type=button]:focus, input[type=button]:hover, input[type=submit]:hover { border: 1px solid <?php echo $primary; ?>; color: <?php echo $primary; ?>; }
     .sub-heading > a::after, .preview-sub-heading > a::after, .author-meta > .author-meta-description > a::after { background: <?php echo $font_color; ?> }
-    svg > * { stroke: <?php echo $loading; ?>; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-    svg > *, svg > text, svg [id='eyes'] circle { fill: <?php echo $loading; ?> }
     #nav-menu .menu-item { background-position: center center !important; }
     .more-link::after { background: #838383 !important; }
     .donateNowLink .btn:hover { background-color: <?php rgba( $rgb_loading, '1') ?>; }
