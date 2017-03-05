@@ -65,7 +65,6 @@ add_action( 'wp_head', function() {
   $rgb_loading = get_rgb( $loading );
   ?>
   <style type="text/css">
-    #nav-menu .menu-item, #loading-page { background: <?php echo $primary; ?> }
     a, a:hover, a:focus, .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?>; }
     a::after { background: <?php echo $secondary; ?> }
     .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?> !important; }
@@ -73,25 +72,21 @@ add_action( 'wp_head', function() {
     h1, h2, h3, h4, h5, h6, .navbar-text:hover, .navbar-text:focus, #NavBarHeaderLink a:hover .navbar-text, #NavBarHeaderLink a:focus  .navbar-text, .timeline-entry a, #loading-page, .post-title a:hover, .post-title a:focus { color: <?php echo $primary; ?> !important; }
     .post-title a::after, .timeline-entry a::after { background: <?php echo $primary; ?>; }
     .hero {background-image: url('<?php featured_image(); ?>'), linear-gradient(<?php echo $secondary; ?>,<?php echo $primary; ?>) !important; }
-    #nav-menu .menu-item a:hover, #nav-menu .menu-item a:focus { color: #ede9e9 !important; }
     .time-wrapper { color: <?php echo $third; ?>; }
     .navigation-menu { background: <?php echo $third; ?>; }
-    #nav-menu .menu-item a { background: <?php rgba( $rgb_third, '0.75' ); ?>; }
-    #nav-menu .menu-item > a:hover, #nav-menu .menu-item > a:focus { background: <?php rgba( $rgb_third, '0.5' ); ?>; }
     .full-navbar { background: <?php rgba( $rgb_third, '0.85' ); ?> }
     .navbar-menu-btn { background: <?php rgba( $rgb_third, '0.8' ); ?> }
     .minimized-navbar { background: <?php rgba( $rgb_third, '0.95' ); ?> }
-    .minimized-navbar .navbar-menu-btn, footer { background: <?php rgba( $rgb_third, '0.9' ); ?>}
+    .minimized-navbar .navbar-menu-btn, #nav-menu li, footer { background: <?php rgba( $rgb_third, '0.9' ); ?>}
     .designTeamBanner { position:relative !important; background: rgba($rgb_third, '0.9') !important; z-index:900!important }
     #designTeamBlinder { position: relative !important; }
-    .navbar-menu-btn:hover, .navbar-menu-btn:focus { background: <?php rgba( $rgb_secondary, '0.9' ); ?>; }
+    .navbar-menu-btn:hover, .navbar-menu-btn:focus, #nav-menu li:hover { background: <?php rgba( $rgb_secondary, '0.9' ); ?>; }
     html, body, .sub-heading > a, .preview-sub-heading > a, .author-meta-description  a, .author-meta-description a:hover, .post-entry.post-content-preview, .author-meta, input[type=text], input[type=button], input[type=submit] { color: <?php echo $font_color; ?> }
     input[type=text] { border-bottom: 1px solid <?php echo $font_color; ?> !important; }
     input[type=text]:focus { border-bottom: 1px solid <?php echo $primary; ?> !important; }
     input[type=button], input[type=submit] { border: 1px solid <?php echo $font_color; ?> }
     input[type=button]:focus, input[type=button]:hover, input[type=submit]:hover { border: 1px solid <?php echo $primary; ?>; color: <?php echo $primary; ?>; }
     .sub-heading > a::after, .preview-sub-heading > a::after, .author-meta > .author-meta-description > a::after { background: <?php echo $font_color; ?> }
-    #nav-menu .menu-item { background-position: center center !important; }
     .more-link::after { background: #838383 !important; }
     .donateNowLink .btn:hover { background-color: <?php rgba( $rgb_loading, '1') ?>; }
   </style>

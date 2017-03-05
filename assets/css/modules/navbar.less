@@ -14,20 +14,12 @@
   }
 
   &.minimized-navbar {
-    min-height: @navbar-min-height;
-    max-height: @navbar-min-height;
-    height: @navbar-min-height;
-    margin-bottom: 85px;
 
     .navbar-text, .navbar-logo {
-      height: @navbar-min-height;
-
-      img { height: 35px; }
 
       .navbar-title-top, .navbar-title-top-short,
       .navbar-title-bottom, .navbar-title-bottom-short {
-        height: @navbar-min-height;
-        line-height: @navbar-min-height;
+
         vertical-align: middle;
       }
       .navbar-title-top, .navbar-title-top-short {
@@ -52,9 +44,7 @@
     }
 
     .navbar-menu-btn {
-      min-height: @navbar-min-height !important;
-      max-height: @navbar-min-height !important;
-      line-height: @navbar-min-height;
+
       -webkit-transition: all 0.5s ease !important;
       transition: all 0.5s ease !important;
     }
@@ -62,9 +52,6 @@
   } // End .minimized-navbar
 
   &.full-navbar {
-    min-height: @navbar-height;
-    max-height: @navbar-height;
-    height: @navbar-height;
 
     .navbar-text, .navbar-logo {
       height: @navbar-height;
@@ -175,17 +162,6 @@
         -webkit-transition: background 0.2s linear, opacity 0.2s linear;
         transition: background 0.2s linear, opacity 0.2s linear;
       }
-
-      &::before {
-        content: '\2261';
-        margin-right: 10px;
-      }
-      &.close::before {
-        content: 'X';
-      }
-      .close-text { display: none; }
-      &.close .regular-text { display: none; }
-      &.close .close-text { display: inline; }
 
     } // End .navbar-menu-btn
 
