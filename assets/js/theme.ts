@@ -4,7 +4,7 @@ import { LazyLoader } from "./LazyLoader";
 
 
 // Setup the scroller to control the navbar
-var scroller = new MinimizeOnScroll(document.getElementById('nav-bar'), 10, 'minimized-navbar', 'full-navbar');
+//var scroller = new MinimizeOnScroll(document.getElementById('nav-bar'), 10, 'minimized-navbar', 'full-navbar');
 
 // Setup the zoom control for zooming in on images
 var zoom = new ImageZoom('zoomIn', document.getElementById('imageGalleryOverlay'), 'visible');
@@ -32,13 +32,13 @@ window.addEventListener('load', () => {
 
 
   // Event Listeners for the nav menu button
-  var navMenuBtn: HTMLElement = document.getElementById('nav-menu-button');
+ /* var navMenuBtn: HTMLElement = document.getElementById('nav-menu-button');
   navMenuBtn.addEventListener('click', ToggleNavMenu);
   navMenuBtn.addEventListener('keypress', (e: KeyboardEvent) => {
     // Allow enter key to toggle the nav menu when the button is in focus
     if (e.keyCode == 13)
       ToggleNavMenu();
-  });
+  });*/
 
 
 });
@@ -46,7 +46,7 @@ window.addEventListener('load', () => {
 
 
 
-
+/*
 
 function ToggleNavMenu() {
   var nav_menu = document.getElementById('nav-menu');
@@ -80,8 +80,8 @@ function ToggleNavMenu() {
 }
 
 
-
 function refresh_page()
 {
   document.querySelector('body').classList.remove('is-loading');
 }
+*/
