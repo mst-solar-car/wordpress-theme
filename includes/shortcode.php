@@ -4,28 +4,49 @@
  *
  * @author Michael Rouse
  */
- remove_filter('the_content', 'wptexturize');
- remove_filter('the_title', 'wptexturize');
- remove_filter('the_excerpt', 'wptexturize');
+remove_filter('the_content', 'wptexturize');
+remove_filter('the_title', 'wptexturize');
+remove_filter('the_excerpt', 'wptexturize');
+
+
+
+// Full width shortcode exits the content reading-width restriction to allow
+// for a section that spans the width of the whole page
+register_shortcode( 'full_width', function ( $attributes, $content ) {
+  $result = "</div><div " . getDOMAttributes( $attributes, ['class' => 'width-limit'] ) . ">";
+  $result .= short_code( $content );
+  $result .= "</div><div class=\"content reading-width\">";
+
+  return $result;
+} );
+
+
+// Generic html tags
+register_shortcode( 'div', function ( $attributes, $content, $tag ) {
+  return '<' . $tag . ' ' . getDOMAttributes($attributes) . ' ' . getDOMAttribute( 'name', $attributes) . '>' . short_code($content) . '</' . $tag . '>';
+}, ['span', 'ul', 'li', 'ol', 'label', 'textarea'] );
+
+// Form input
+register_shortcode( 'form', function ( $attributes, $content ) {
+  return '<form ' . getDOMAttribute( 'action', $attributes ) . ' ' . getDOMAttribute( 'method', $attributes ) . ' ' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</form>';
+} );
+
+// Input types
+register_shortcode( 'input', function ($attributes, $content, $tag ) {
+  return '<' . $tag . ' ' . getDOMAttribute( 'type', $attributes ) . ' ' . getDOMAttribute( 'name', $attributes ) . ' ' . getDOMAttribute( 'value', $attributes ) . ' ' . getDOMAttributes( $attributes ) . '>';
+}, ['button', 'option', 'select'] );
+
 
 // Script Tag shortcode
 register_shortcode( 'script', function ( $attributes, $content ) {
     $result = "";
 
-    $scriptStart = '<script type="';
+    $scriptStart = '<script ' . getDOMAttribute( 'type', $attributes ) . " ";
 
-    if ( $attributes['type'] )
+    $src = getDOMAttribute( 'src', $attributes );
+    if ($src != "")
     {
-        $scriptStart .= $attributes['type'] . "\"";
-    }
-    else
-    {
-        $scriptStart .= "text/javascript\"";
-    }
-
-    if ( $attributes['src'] )
-    {
-        $result = $scriptStart . ' src="' . $attributes['src'] . '"></script>';
+      $result = $scriptStart . $src . "></script>";
     }
 
     if ( $content )
@@ -59,7 +80,7 @@ register_shortcode( 'style', function ( $attributes, $content ) {
 
     if ( $attributes['src'] )
     {
-        $result .= '<link rel="stylesheet" href="' . $attributes['src'] . '" type="text/cass" />';
+        $result .= '<link rel="stylesheet" ' . getDOMAttribute( 'href', $attributes, [], 'src' ) . ' type="text/css" />';
     }
 
     return $result . "<style>" . html_entity_decode(strip_tags($content), ENT_QUOTES) . "</style>";
@@ -82,7 +103,7 @@ register_shortcode( 'br', function ( $attributes, $content ) {
 
 // Paragraph
 register_shortcode( 'p', function( $attributes, $content ) {
-  return '<p' . classes( $attributes ) . '>' . short_code( $content ) . '</p>';
+  return '<p ' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</p>';
 } );
 
 
@@ -102,28 +123,30 @@ register_shortcode( 'code', function( $attributes, $content ) {
 
 // Headers
 register_shortcode( 'h1', function( $attributes, $content ) {
-  return '<h1' . classes( $attributes ) . '>' . do_shortcode( $content ) . '</h1>';
+  return '<h1' . getDOMAttributes($attributes) . '>' . short_code( $content ) . '</h1>';
 } );
 
 register_shortcode( 'h2', function( $attributes, $content ) {
-  return '<h2' . classes( $attributes ) . '>' . do_shortcode( $content ) . '</h2>';
+  return '<h2' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</h2>';
 } );
 
 register_shortcode( 'h3', function( $attributes, $content ) {
-  return '<h3' . classes( $attributes ) . '>' . do_shortcode( $content ) . '</h3>';
+  return '<h3' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</h3>';
 } );
 
 
 // Anchor tags
 register_shortcode( 'a', function( $attributes, $content ) {
-  return '<a href="' . ($attributes['href'] ?: $attributes['to'] ) . '" target="' . ($attributes['target'] ?: '_blank') . '"' .
-          classes($attributes) . '>' . do_shortcode( $content ) . '</a>';
+  $href = getDOMAttribute( 'href', $attributes, 'to' );
+  $target = getDOMAttribute( 'target', $attributes ) ?: 'target="_blank"';
+
+  return '<a ' . $href . ' ' . $target . ' ' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</a>';
 }, ['link'] );
 
 
 // Image
 register_shortcode( 'img', function( $attributes, $content ) {
-  return '<img src="' . $attributes['src'] . '"' . classes( $attributes ) . ($attributes['alt'] ? ' alt="' . $attributes['alt'] . '"' : '') . '/>';
+  return '<img ' . getDOMAttribute( 'src', $attributes ) . ' ' . getDOMAttributes( $attributes ) . ' ' . getDOMAttribute( 'alt', $attributes ) . '/>';
 }, ['image'] );
 
 
@@ -155,20 +178,20 @@ register_shortcode( 'email', function( $attributes ) {
 
 
 // Section separator
-register_shortcode( 'hr', function( ) {
-  return '<div class="section-separator"></div>';
+register_shortcode( 'hr', function( $attributes ) {
+  return '<div class="section-separator" ' . getDOMAttributes( $attributes ) . '></div>';
 }, ['section_separator', 'separator'] );
 
 
 // Split (float) left
 register_shortcode( 'split_left', function( $attributes, $content ) {
-  return '<div class="split-left">' . do_shortcode( $content ) . '</div>';
+  return '<div class="split-left" ' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</div>';
 }, ['left'] );
 
 
 // Split (float) Right
 register_shortcode( 'split_right', function( $attributes, $content ) {
-  return '<div class="split-right">' . do_shortcode( $content ) . '</div>';
+  return '<div class="split-right" ' . getDOMAttributes( $attributes ) . '>' . do_shortcode( $content ) . '</div>';
  }, ['right']);
 
 
@@ -428,8 +451,6 @@ function register_shortcode ( $shortcode_name, $fn, $aliases = [] ) {
 }
 
 
-
-
 // Helper function for do_shortcode() while removinging HTML tags
 function shortcode ( $content ) {
   return short_code ( $content );
@@ -440,6 +461,53 @@ function short_code( $content ) {
 function sc( $code ) {
   echo do_shortcode( $code );
 }
+
+
+
+/**
+ * Gets common attributes for DOM objects
+ */
+function getDOMAttributes ( $attributes, $default = [])
+{
+  $style = getDOMAttribute('style', $attributes, $default);
+  $classes = getDOMAttribute('class', $attributes, $default, 'classes');
+  $id = getDOMAttribute('id', $attributes, $default);
+
+  $result = $id . $classes . $style;
+
+  // Add any attributes that start with "data-" or "on"
+  foreach ($attributes as $key => $value)
+  {
+    if (preg_match('/^data-(.*)?/', $key) || preg_match('/^on(.*)?/', $key))
+      $result .= ' ' . $key . '="' . $value . '"';
+  }
+  return trim($result);
+}
+
+
+/**
+ * Gets a single DOM Attribute
+ */
+function getDOMAttribute ( $name, $attributes, $default = [], $alias = "" )
+{
+  $name = trim($name);
+  $alias = trim($alias);
+
+  $result = array_key_exists($name, $default) ? $default[$name] . " " : "";
+  $result .= array_key_exists($name, $attributes) ? $attributes[$name] . " " : "";
+
+  if (trim($alias) != "")
+  {
+    $result .= array_key_exists($alias, $default) ? $default[$alias] . " " : "";
+    $result .= array_key_exists($alias, $attributes) ? $attributes[$alias] . " " : "";
+  }
+
+  if ($result != "")
+      $result = $name . "=\"" . trim($result) . "\" ";
+
+  return $result;
+}
+
 
 /**
  * Helper function to get classes from the attributes

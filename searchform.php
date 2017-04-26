@@ -6,6 +6,7 @@
  * Simple little search form, and JS to process the form
  */
 ?>
+<br/><br/><br/><br/>
 <form id="search-form" method="get" class="searchform">
   <input id="search-form-search" type="text" placeholder="Search" value="<?php echo ( ( get_search_query() ) ?: '' ); ?>">
   <input id="search-form-submit" type="submit" value="Search">

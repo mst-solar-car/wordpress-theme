@@ -85,7 +85,7 @@
         #wpadminbar * {
             z-index: 900!important;
         }
-        <?php if (is_home() || !has_post_thumbnail() || is_search() || is_author()) {?>.hero { display: none; }.content{margin-top: 100px !important;min-height:75vh;}<?php } ?>
+        <?php if (is_home() || !has_post_thumbnail() || is_search() || is_author()) {?>.hero { display: none; } <?php } ?>
     </style>
 
     <?php show_custom_css(); ?>

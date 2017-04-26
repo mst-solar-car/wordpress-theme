@@ -11,7 +11,6 @@
 
   if ( have_posts() ) :
     while ( have_posts() ) : the_post(); ?>
-      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <header class="post-meta post-header">
           <h1 class="post-title"><?php the_title(); ?></h1>
           <div class="sub-heading">
@@ -20,10 +19,9 @@
         </header><!-- end of post meta -->
 
         <!-- Post Content -->
-        <section class="post-entry">
+
           <?php the_content(); ?>
           <?php edit_post_link( '[Edit]', '<br />', '<br />' ); ?>
-        </section> <!-- end of post entry -->
 
         <?php // Social Media Share Buttons ?>
         <?php get_template_part( 'social-media', 'share' ); ?>
@@ -33,7 +31,7 @@
         if ( get_the_modified_date() != get_the_date() ) : ?>
           <em style="font-size: 0.8em">Last Modified on <time class="post-modified-date"><?php echo the_modified_date(); ?></time></em>
         <?php endif; ?>
-      </article> <!-- End of Article -->
+
       <?php
     endwhile;
   endif;

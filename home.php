@@ -17,6 +17,7 @@
     endwhile;
 
 ?>
+
 <div class="pagination">
   <div class="pagination-older"><?php next_posts_link( '&larr; Older' ); ?></div>
   <div class="pagination-newer"><?php previous_posts_link( ' Newer &rarr;' ); ?></div>
