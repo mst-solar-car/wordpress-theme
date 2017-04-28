@@ -125,16 +125,6 @@ function sct_customize_options( $wp_customize ) {
   ) ) );
 
 
-  /*
-  * Footer Section
-  */
-  $wp_customize->add_section( 'footer_settings', array(
-    'title'       => 'Footer',
-    'priority'    => 100,
-    'capability'  => 'edit_theme_options',
-    'description' => 'Customize the theme footer',
-  ) );
-
   // Include Social Media
   $wp_customize->add_setting( 'include_social_media', array(
     'default'   => '',
@@ -142,7 +132,7 @@ function sct_customize_options( $wp_customize ) {
   ) );
   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'include_social_media', array(
     'label'     => 'Include Social Media Links',
-    'section'   => 'footer_settings',
+    'section'   => 'navbar_settings',
     'settings'  => 'include_social_media',
     'type'      => 'checkbox',
     'choices'   => array( 'yes' => 'y' ),
@@ -155,7 +145,7 @@ function sct_customize_options( $wp_customize ) {
   ) );
   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'facebook_url', array(
     'label'     => 'Facebook (facebook.com/your_name)',
-    'section'   => 'footer_settings',
+    'section'   => 'navbar_settings',
     'settings'  => 'facebook_url',
   ) ) );
 
@@ -166,7 +156,7 @@ function sct_customize_options( $wp_customize ) {
   ) );
   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'twitter_url', array(
     'label'     => 'Twitter Handle (@your_name)',
-    'section'   => 'footer_settings',
+    'section'   => 'navbar_settings',
     'settings'  => 'twitter_url',
   ) ) );
 
@@ -177,44 +167,8 @@ function sct_customize_options( $wp_customize ) {
   ) );
   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'instagram_url', array(
     'label'     => 'Instagram Handle (@your_name)',
-    'section'   => 'footer_settings',
+    'section'   => 'navbar_settings',
     'settings'  => 'instagram_url',
-  ) ) );
-
-
-  // Include Donate Button
-  $wp_customize->add_setting( 'include_donate_button', array(
-    'default'   => '',
-    'transport' => 'refresh',
-  ) );
-  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'include_donate_button', array(
-    'label'     => 'Include Donate Button',
-    'section'   => 'footer_settings',
-    'settings'  => 'include_donate_button',
-    'type'      => 'checkbox',
-    'choices'   => array( 'yes' => 'y' ),
-  ) ) );
-
-  // Donate Button Text
-  $wp_customize->add_setting( 'donate_btn_text', array(
-      'default' => 'Donate Now',
-      'transport' => 'refresh',
-  ) );
-  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'donate_btn_text', array(
-      'label'    => 'Donate Button Label',
-      'section'  => 'footer_settings',
-      'settings' => 'donate_btn_text',
-  ) ) );
-
-  // URL to donate
-  $wp_customize->add_setting( 'give_url', array(
-      'default' => '',
-      'transport' => 'refresh',
-  ) );
-  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'give_url', array(
-      'label'    => 'Donate URL',
-      'section'  => 'footer_settings',
-      'settings' => 'give_url',
   ) ) );
 
 

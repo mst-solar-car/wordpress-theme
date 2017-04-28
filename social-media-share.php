@@ -9,8 +9,8 @@
 <!-- Social Media Share Buttons -->
 <div class="social-media-share fifty-top-margin">
   <ul class="social-share">
-    <li class="entypo-twitter" onclick="javascript:ss('t')" title="Share on Twitter"></li>
     <li class="entypo-facebook" onclick="javascript:ss('f')" title="Share on Facebook"></li>
+    <li class="entypo-twitter" onclick="javascript:ss('t')" title="Share on Twitter"></li>
     <li class="entypo-gplus" onclick="javascript:ss('g')" title="Share on Google+"></li>
   </ul>
 </div>

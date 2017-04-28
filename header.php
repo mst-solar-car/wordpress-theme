@@ -26,7 +26,7 @@
 
     <title><?php echo $page_title . ' - '; ?><?php bloginfo( 'name' ); ?></title>
 
-    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6681974/695648/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="https://campus.mst.edu/emctest/t4v3/fonts/391663/23944D55C353AB485.css" />
     <link rel="stylesheet" type="text/css" href="https://campus.mst.edu/emctest/t4v3/fonts/Orgon/orgon_slab.css">
     <link rel="stylesheet" type="text/css" href="https://campus.mst.edu/emctest/t4v3/fonts/tstar/tstar.css" />
 
@@ -90,42 +90,7 @@
 
     <?php show_custom_css(); ?>
   </head>
-  <body id="MSTSolarCarTheme" class="is-loading">
-    <!--<div id="loading-page">
-      <div class="loading-text">
-        <!-- Sunrise SVG Animation by the amazing Ana Tudor (http://codepen.io/thebabydino/) --
-        <svg viewbox="-200 -150 400 300">
-          <defs>
-            <line id="ray" x1="-5" x2="5"></line>
-            <clipPath id="cp">
-              <rect x="-200" y="-150" width="400" height="150"></rect>
-            </clipPath>
-          </defs>
-          <line id="line" x1="-76" x2="76"></line>
-          <text text-anchor="middle" y="45">Loading...</text>
-          <g id="sun" clip-path="url(#cp)">
-            <g id="mover">
-              <circle id="main" r="50"></circle>
-              <g id="eyes">
-                <circle r="3" cx="-13"></circle>
-                <circle r="3" cx="13"></circle>
-              </g>
-              <g id="rays">
-                <use xlink:href="#ray" transform="rotate(315) translate(70)"></use>
-                <use xlink:href="#ray" transform="rotate(270) translate(70)"></use>
-                <use xlink:href="#ray" transform="rotate(225) translate(70)"></use>
-                <use xlink:href="#ray" transform="rotate(180) translate(70)"></use>
-                <use xlink:href="#ray" transform="rotate(135) translate(70)"></use>
-                <use xlink:href="#ray" transform="rotate(90) translate(70)"></use>
-                <use xlink:href="#ray" transform="rotate(45) translate(70)"></use>
-                <use xlink:href="#ray" transform="rotate(0) translate(70)"></use>
-              </g>
-            </g>
-          </g>
-        </svg>
-      </div>
-  </div>-->
-
+  <body id="MSTSolarCarTheme">
     <!-- Navbar -->
     <div id="nav-bar" class="navigation-bar full-navbar">
       <div class="fluid-nav width-limit reading-width">
@@ -140,8 +105,20 @@
             </div>
           </a>
         </div>
-        <div id="nav-menu-button" class="navbar-menu-btn relative right" tabindex="10">
-          <span class="regular-text"><?php setting( 'menu_btn_text', 'Menu' ); ?></span><span class="close-text">Close</span>
+        <div id="nav-navigation" class="right">
+          <?php if ( get_theme_mod( 'include_social_media', '' ) == 'y' ) : ?>
+            <?php if ( is_setting( 'facebook_url' ) ) :?>
+              <div class="nav-bar-social relative" class="relative">
+                <a href="https://www.facebook.com/<?php socialmedia_url( 'facebook' ); ?>" target="_blank" title="Like us on Facebook"><span class="social facebook"></span></a>
+              </div><?php endif; ?><?php if( is_setting( 'twitter_url' ) ) :?><div class="nav-bar-social relative" class="relative">
+                <a href="https://twitter.com/<?php socialmedia_url( 'twitter' ); ?>" target="_blank" title="Follow us on Twitter"><span class="social twitter"></span></a>
+              </div><?php endif; ?><?php if( is_setting( 'instagram_url' ) ) :?><div class="nav-bar-social relative" class="relative">
+                <a href="https://instagram.com/<?php socialmedia_url( 'instagram' ); ?>" target="_blank" title="Follow us on Instagram"><span class="social instagram"></span></a>
+              </div><?php endif; ?>
+          <?php endif; ?>
+          <div id="nav-menu-button" class="navbar-menu-btn relative" tabindex="10">
+            <span class="regular-text"><?php setting( 'menu_btn_text', 'Menu' ); ?></span><span class="close-text">Close</span>
+          </div>
         </div>
       </div>
     </div>
