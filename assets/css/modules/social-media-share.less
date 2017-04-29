@@ -1,0 +1,60 @@
+@social-media-share-height: 30px;
+
+@facebook-color: #3B5998;
+@facebook-hover-color: #243760;
+
+@twitter-color: #6CDFEA;
+@twitter-hover-color: #469EA7;
+
+@google-color: #E34429;
+@google-hover-color: #952C1A;
+
+
+.social-media-share {
+  margin-top: 50px;
+  margin-bottom: 20px;
+
+  .social-share {
+    list-style: none;
+    padding: 0;
+    height: @social-media-share-height;
+    width: auto;
+
+    li {
+      display: block;
+      float: left;
+      height: 100%;
+      width: 40px;
+      margin: 0;
+      line-height: @social-media-share-height;
+      vertical-align: middle;
+      cursor: pointer;
+
+      min-height: @social-media-share-height !important;
+      max-height: @social-media-share-height !important;
+
+      &.facebook {
+        background-color: @facebook-color !important;
+        &:hover {
+          background-color: @facebook-hover-color !important;
+        }
+      }
+
+      &.twitter {
+        background-color: @twitter-color !important;
+        &:hover {
+          background-color: @twitter-hover-color !important;
+        }
+      }
+
+      &.googleplus {
+        background-color: @google-color !important;
+        &:hover {
+          background-color: @google-hover-color !important;
+        }
+      }
+
+    }
+  }
+
+}

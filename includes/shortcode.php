@@ -21,21 +21,6 @@ register_shortcode( 'full_width', function ( $attributes, $content ) {
 } );
 
 
-// Generic html tags
-register_shortcode( 'div', function ( $attributes, $content, $tag ) {
-  return '<' . $tag . ' ' . getDOMAttributes($attributes) . ' ' . getDOMAttribute( 'name', $attributes) . '>' . short_code($content) . '</' . $tag . '>';
-}, ['span', 'ul', 'li', 'ol', 'label', 'textarea'] );
-
-// Form input
-register_shortcode( 'form', function ( $attributes, $content ) {
-  return '<form ' . getDOMAttribute( 'action', $attributes ) . ' ' . getDOMAttribute( 'method', $attributes ) . ' ' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</form>';
-} );
-
-// Input types
-register_shortcode( 'input', function ($attributes, $content, $tag ) {
-  return '<' . $tag . ' ' . getDOMAttribute( 'type', $attributes ) . ' ' . getDOMAttribute( 'name', $attributes ) . ' ' . getDOMAttribute( 'value', $attributes ) . ' ' . getDOMAttributes( $attributes ) . '>';
-}, ['button', 'option', 'select'] );
-
 
 // Script Tag shortcode
 register_shortcode( 'script', function ( $attributes, $content ) {
@@ -101,12 +86,6 @@ register_shortcode( 'br', function ( $attributes, $content ) {
 }, ['break'] );
 
 
-// Paragraph
-register_shortcode( 'p', function( $attributes, $content ) {
-  return '<p ' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</p>';
-} );
-
-
 // Tab
 register_shortcode( 'tab', function( $content ) {
   return '&nbsp;&nbsp;&nbsp;&nbsp;';
@@ -117,36 +96,34 @@ register_shortcode( 'tab', function( $content ) {
 register_shortcode( 'code', function( $attributes, $content ) {
   $language = $attributes['language'] ?: ($attributes['lang'] ?: '' );
 
-  return '<pre '. classes($attributes, 'code' . ( !empty($language) ? ' lang:' . $language . ' decode:true' : '' ) ) .'>' . trim( strip_tags( $content ) ) . '</pre>';
+  return '<pre ' . getDOMAttributes( $attributes, [ 'class' => 'code lang:' . $language . ' decode: true'] ) . '>' . trim( strip_tags( $content ) ) . '</pre>';
 } );
 
 
-// Headers
-register_shortcode( 'h1', function( $attributes, $content ) {
-  return '<h1' . getDOMAttributes($attributes) . '>' . short_code( $content ) . '</h1>';
+// Generic html tags
+register_shortcode( 'div', function ( $attributes, $content, $tag ) {
+  return '<' . $tag . ' ' . getDOMAttributes( $attributes ) . getDOMAttribute( ['for', 'name'], $attributes ) . '>' . short_code($content) . '</' . $tag . '>';
+}, ['span', 'ul', 'li', 'ol', 'textarea', 'blockquote', 'strong', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'em', 'var', 'samp', 'kbd', 'label'] );
+
+// Form input
+register_shortcode( 'form', function ( $attributes, $content ) {
+  return '<form ' . getDOMAttribute( ['action', 'method'], $attributes ) . ' ' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</form>';
 } );
 
-register_shortcode( 'h2', function( $attributes, $content ) {
-  return '<h2' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</h2>';
-} );
-
-register_shortcode( 'h3', function( $attributes, $content ) {
-  return '<h3' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</h3>';
-} );
-
+// Input types
+register_shortcode( 'input', function ($attributes, $content, $tag ) {
+  return '<' . $tag . ' ' . getDOMAttribute( ['type', 'value', 'name', 'max', 'min', 'step'], $attributes ) . ' ' . getDOMAttributes( $attributes ) . '>';
+}, ['button', 'option', 'select', 'progress'] );
 
 // Anchor tags
 register_shortcode( 'a', function( $attributes, $content ) {
-  $href = getDOMAttribute( 'href', $attributes, 'to' );
-  $target = getDOMAttribute( 'target', $attributes ) ?: 'target="_blank"';
-
-  return '<a ' . $href . ' ' . $target . ' ' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</a>';
+  return '<a ' . getDOMAttribute( 'href', $attributes, 'to' ) . ' ' . getDOMAttribute( 'target', $attributes ) . ' ' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</a>';
 }, ['link'] );
 
 
 // Image
 register_shortcode( 'img', function( $attributes, $content ) {
-  return '<img ' . getDOMAttribute( 'src', $attributes ) . ' ' . getDOMAttributes( $attributes ) . ' ' . getDOMAttribute( 'alt', $attributes ) . '/>';
+  return '<img ' . getDOMAttribute( ['src', 'alt'], $attributes ) . ' ' . getDOMAttributes( $attributes ) . ' />';
 }, ['image'] );
 
 
@@ -179,32 +156,23 @@ register_shortcode( 'email', function( $attributes ) {
 
 // Section separator
 register_shortcode( 'hr', function( $attributes ) {
-  return '<div class="section-separator" ' . getDOMAttributes( $attributes ) . '></div>';
+  return '<div ' . getDOMAttributes( $attributes, ['class' => 'section-separator'] ) . '></div>';
 }, ['section_separator', 'separator'] );
 
 
 // Split (float) left
-register_shortcode( 'split_left', function( $attributes, $content ) {
-  return '<div class="split-left" ' . getDOMAttributes( $attributes ) . '>' . short_code( $content ) . '</div>';
-}, ['left'] );
-
-
-// Split (float) Right
-register_shortcode( 'split_right', function( $attributes, $content ) {
-  return '<div class="split-right" ' . getDOMAttributes( $attributes ) . '>' . do_shortcode( $content ) . '</div>';
- }, ['right']);
+register_shortcode( 'split_left', function( $attributes, $content, $tag ) {
+  return '<div ' . getDOMAttributes( $attributes, ['class' => ((preg_match('/split_(.*)/gi', $tag)) ? '' : 'split_') . $tag] ) . '>' . short_code( $content ) . '</div>';
+}, ['left', 'split_right', 'right'] );
 
 
 // IFrame
-register_shortcode( 'responsive_iframe', function( $attributes ) {
-  if ( !$attributes['src'] ) return '';
+register_shortcode( 'iframe', function ( $attributes ) {
+  $src = getDOMAttribute( 'src', $attributes );
+  if ($src == '') return '';
 
-  $html = '<div class="flexible-iframe">';
-    $html .= '<iframe src="' . $attributes['src'] . '"' . classes( $attributes ) .
-              ' allowfullscreen>Your browser cannot display this content.</iframe>';
-  $html .= '</div>';
-  return $html;
-}, ['sct_iframe', 'iframe'] );
+  return '<div class="flexible-iframe"><iframe ' . $src . ' ' . getDOMAttributes( $attributes ) . ' allowfullscreen>Your browser can\'t display this content.</iframe></div>';
+}, ['sct_iframe, responsive_iframe'] );
 
 
 // YouTube
@@ -216,9 +184,7 @@ register_shortcode( 'youtube', function( $attributes ) {
   {
     $video_id = preg_replace( '/(http|https|)(:\/\/|)(m|www|)(\.|)(youtube\.com|youtu.be)\/(video\/|watch?v=|embed\/|)/', '', $attributes['video'] );
 
-    $html = do_shortcode( '[responsive_iframe src="https://youtube.com/embed/' . $video_id . '" classes="' . ($attributes['classes'] ?: '') . '"][/responsive_iframe]' );
-
-    //sct_iframe_shortcode( ['src' => 'https://youtube.com/embed/' . $video_id, 'classes' => $attributes['classes']] );
+    $html = short_code( '[responsive_iframe src="https://youtube.com/embed/' . $video_id . '" ' . getDOMAttributes( $attributes ) . '][/responsive_iframe]' );
   }
 
   return $html;
@@ -227,7 +193,7 @@ register_shortcode( 'youtube', function( $attributes ) {
 
 // Timeline
 register_shortcode( 'timeline', function( $attributes, $content ) {
-  return '<ol' . classes( $attributes, 'timeline' ) . '>' . do_shortcode( $content ) . '</ol>';
+  return '<ol ' . getDOMAttributes( $attributes, ['class' => 'timeline'] ) . '>' . short_code( $content ) . '</ol>';
 } );
 
 
@@ -418,7 +384,6 @@ register_shortcode( 'col_fifth', function( $attributes, $content ) {
 } );
 
 
-
 // 1/3rd Column
 register_shortcode( 'one_third', function( $attributes, $content ) {
   return '<div' . classes( $attributes, 'one-third-column' ) .'>' .
@@ -467,7 +432,7 @@ function sc( $code ) {
 /**
  * Gets common attributes for DOM objects
  */
-function getDOMAttributes ( $attributes, $default = [])
+function getDOMAttributes ( $attributes, $default = [] )
 {
   $style = getDOMAttribute('style', $attributes, $default);
   $classes = getDOMAttribute('class', $attributes, $default, 'classes');
@@ -490,16 +455,35 @@ function getDOMAttributes ( $attributes, $default = [])
  */
 function getDOMAttribute ( $name, $attributes, $default = [], $alias = "" )
 {
+  if (is_string($default))
+  {
+    $alias = $default;
+    $default = [];
+  }
+
+  // Recursively find information if $name is an array
+  if (is_array($name))
+  {
+    $result = "";
+    foreach($name as $to_find)
+      $result .= getDOMAttribute($to_find, $attributes, $default, $alias);
+
+    return $result;
+  }
+
   $name = trim($name);
   $alias = trim($alias);
 
   $result = array_key_exists($name, $default) ? $default[$name] . " " : "";
   $result .= array_key_exists($name, $attributes) ? $attributes[$name] . " " : "";
 
-  if (trim($alias) != "")
+  if (is_array($alias))
   {
-    $result .= array_key_exists($alias, $default) ? $default[$alias] . " " : "";
-    $result .= array_key_exists($alias, $attributes) ? $attributes[$alias] . " " : "";
+    foreach ($alias as $search)
+    {
+      $result .= array_key_exists($search, $default) ? $default[$search] . " " : "";
+      $result .= array_key_exists($search, $attributes) ? $attributes[$search] . " " : "";
+    }
   }
 
   if ($result != "")

@@ -92,44 +92,48 @@
   </head>
   <body id="MSTSolarCarTheme">
     <!-- Navbar -->
-    <div id="nav-bar" class="navigation-bar full-navbar">
-      <div class="fluid-nav width-limit reading-width">
-        <div id="NavBarHeaderLink" class="navbar-logo absolute left">
-          <a href="<?php bloginfo('url') ?>" tabindex="5">
-            <div id="InnerNavBarHeaderLink" class="navbar-text">
-              <img alt="Brand" src="<?php logo_url(); ?>">
-              <span class="navbar-title-top"><?php setting( 'title_top_long' ); ?></span>
-              <span class="navbar-title-top-short"><?php setting( 'title_top_short' ); ?></span>
-              <span class="navbar-title-bottom"><?php setting( 'title_bottom_long' ); ?></span>
-              <span class="navbar-title-bottom-short"><?php setting( 'title_bottom_short' ); ?></span>
-            </div>
-          </a>
-        </div>
-        <div id="nav-navigation" class="right">
-          <?php if ( get_theme_mod( 'include_social_media', '' ) == 'y' ) : ?>
-            <?php if ( is_setting( 'facebook_url' ) ) :?>
-              <div class="nav-bar-social relative" class="relative">
-                <a href="https://www.facebook.com/<?php socialmedia_url( 'facebook' ); ?>" target="_blank" title="Like us on Facebook"><span class="social facebook"></span></a>
-              </div><?php endif; ?><?php if( is_setting( 'twitter_url' ) ) :?><div class="nav-bar-social relative" class="relative">
-                <a href="https://twitter.com/<?php socialmedia_url( 'twitter' ); ?>" target="_blank" title="Follow us on Twitter"><span class="social twitter"></span></a>
-              </div><?php endif; ?><?php if( is_setting( 'instagram_url' ) ) :?><div class="nav-bar-social relative" class="relative">
-                <a href="https://instagram.com/<?php socialmedia_url( 'instagram' ); ?>" target="_blank" title="Follow us on Instagram"><span class="social instagram"></span></a>
-              </div><?php endif; ?>
-          <?php endif; ?>
-          <div id="nav-menu-button" class="navbar-menu-btn relative" tabindex="10">
-            <span class="regular-text"><?php setting( 'menu_btn_text', 'Menu' ); ?></span><span class="close-text">Close</span>
+    <input type="checkbox" id="menu-hack">
+    <div id="nav-container">
+      <div id="nav-bar" class="navigation-bar full-navbar">
+        <div class="fluid-nav width-limit reading-width">
+          <div id="NavBarHeaderLink" class="navbar-logo absolute left">
+            <a href="<?php bloginfo('url') ?>" tabindex="5">
+              <div id="InnerNavBarHeaderLink" class="navbar-text">
+                <img alt="Brand" src="<?php logo_url(); ?>">
+                <span class="navbar-title-top"><?php setting( 'title_top_long' ); ?></span>
+                <span class="navbar-title-top-short"><?php setting( 'title_top_short' ); ?></span>
+                <span class="navbar-title-bottom"><?php setting( 'title_bottom_long' ); ?></span>
+                <span class="navbar-title-bottom-short"><?php setting( 'title_bottom_short' ); ?></span>
+              </div>
+            </a>
+          </div>
+          <div id="nav-navigation" class="right">
+            <?php if ( get_theme_mod( 'include_social_media', '' ) == 'y' ) : ?>
+              <?php if ( is_setting( 'facebook_url' ) ) :?>
+                <div class="nav-bar-social relative" class="relative">
+                  <a href="https://www.facebook.com/<?php socialmedia_url( 'facebook' ); ?>" target="_blank" title="Like us on Facebook"><span class="social facebook"></span></a>
+                </div><?php endif; ?><?php if( is_setting( 'twitter_url' ) ) :?><div class="nav-bar-social relative" class="relative">
+                  <a href="https://twitter.com/<?php socialmedia_url( 'twitter' ); ?>" target="_blank" title="Follow us on Twitter"><span class="social twitter"></span></a>
+                </div><?php endif; ?><?php if( is_setting( 'instagram_url' ) ) :?><div class="nav-bar-social relative" class="relative">
+                  <a href="https://instagram.com/<?php socialmedia_url( 'instagram' ); ?>" target="_blank" title="Follow us on Instagram"><span class="social instagram"></span></a>
+                </div><?php endif; ?>
+            <?php endif; ?>
+            <label for="menu-hack" id="nav-menu-button2" class="navbar-menu-btn relative" tabindex="10">
+              <span class="regular-text"><?php setting( 'menu_btn_text', 'Menu' ); ?></span><span class="close-text">Close</span>
+            </label>
           </div>
         </div>
       </div>
-    </div>
-    <!-- End navbar -->
+      <!-- End navbar -->
 
-    <!-- Navigation Menu -->
-    <div id="nav-menu" class="navigation-menu pre-load">
-      <?php wp_nav_menu(); ?>
+      <!-- Navigation Menu -->
+      <div id="nav-menu" class="navigation-menu">
+        <?php wp_nav_menu(); ?>
+      </div>
     </div>
     <!-- End Navigation -->
 
     <div class="wrapper width-limit">
       <div class="hero width-limit height-limit"></div>
       <div class="content reading-width">
+        <?php if (!has_post_thumbnail()): ?><br/><br/><?php endif; ?>

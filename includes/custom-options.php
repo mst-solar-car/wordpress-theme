@@ -171,12 +171,68 @@ function sct_customize_options( $wp_customize ) {
     'settings'  => 'instagram_url',
   ) ) );
 
+  /**
+   * Footer Section
+   */
+  $wp_customize->add_section( 'footer_section', array(
+    'title'   => 'Footer',
+    'priortity' => 100,
+    'capability' => 'edit_theme_options',
+    'description' => 'Update items in the footer',
+  ) );
+
+  // Sponsors
+  $wp_customize->add_setting( 'sponsor1', array(
+    'default'   => '',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sponsor1', array(
+    'label'     => 'Sponsor Image',
+    'section'   => 'footer_section',
+    'settings'  => 'sponsor1',
+  ) ) );
+  $wp_customize->add_setting( 'sponsor2', array(
+    'default'   => '',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sponsor2', array(
+    'label'     => 'Sponsor Image',
+    'section'   => 'footer_section',
+    'settings'  => 'sponsor2',
+  ) ) );
+  $wp_customize->add_setting( 'sponsor3', array(
+    'default'   => '',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sponsor3', array(
+    'label'     => 'Sponsor Image',
+    'section'   => 'footer_section',
+    'settings'  => 'sponsor3',
+  ) ) );
+  $wp_customize->add_setting( 'sponsor4', array(
+    'default'   => '',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sponsor4', array(
+    'label'     => 'Sponsor Image',
+    'section'   => 'footer_section',
+    'settings'  => 'sponsor4',
+  ) ) );
+  $wp_customize->add_setting( 'sponsor5', array(
+    'default'   => '',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sponsor5', array(
+    'label'     => 'Sponsor Image',
+    'section'   => 'footer_section',
+    'settings'  => 'sponsor5',
+  ) ) );
 
 
   /**
    * Custom CSS Section
    */
-  $wp_customize->add_section( 'custom_script_section', array(
+   $wp_customize->add_section( 'custom_script_section', array(
     'title'       => 'Custom CSS/JS',
     'priority'    => 100,
     'capability'  => 'edit_theme_options',

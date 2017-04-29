@@ -15,7 +15,6 @@ var zoom = new ImageZoom('zoomIn', document.getElementById('imageGalleryOverlay'
 window.addEventListener('load', () => {
   var nav_menu = document.getElementById('nav-menu');
 
-  nav_menu.classList.add('hidden');
   nav_menu.classList.remove('pre-load');
 
   // Lazy load images
@@ -29,17 +28,6 @@ window.addEventListener('load', () => {
 
   // Discover zoomable images that have been loaded after initialization
   zoom.DiscoverImages();
-
-
-  // Event Listeners for the nav menu button
-  var navMenuBtn: HTMLElement = document.getElementById('nav-menu-button');
-  navMenuBtn.addEventListener('click', ToggleNavMenu);
-  navMenuBtn.addEventListener('keypress', (e: KeyboardEvent) => {
-    // Allow enter key to toggle the nav menu when the button is in focus
-    if (e.keyCode == 13)
-      ToggleNavMenu();
-  });
-
 
 });
 
