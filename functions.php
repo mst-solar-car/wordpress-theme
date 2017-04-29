@@ -65,6 +65,10 @@ add_action( 'wp_head', function() {
   $rgb_loading = get_rgb( $loading );
   ?>
   <style type="text/css">
+    .color-primary { color: <?php echo $primary; ?> !important; }
+    .color-secondary { color: <?php echo $secondary; ?> !important; }
+    .color-third, .color-tertiary { color: <?php echo $third; ?> !important; }
+    .color-font { color: <?php echo $font_color; ?> !important; }
     #nav-menu .menu-item, #loading-page { background: <?php echo $primary; ?> }
     a, a:hover, a:focus, .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?>; }
     a::after { background: <?php echo $secondary; ?> }

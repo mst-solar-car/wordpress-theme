@@ -159,10 +159,21 @@ register_shortcode( 'hr', function( $attributes ) {
   return '<div ' . getDOMAttributes( $attributes, ['class' => 'section-separator'] ) . '></div>';
 }, ['section_separator', 'separator'] );
 
+register_shortcode( 'section_title', function ( $attributes, $content ) {
+  return '<div ' . getDOMAttributes( $attributes, ['class' => 'section-title'] ) . '><div class="section-title-inner"><h1>' . short_code( $content ) . '</h1></div></div>';
+} );
+
+register_shortcode( 'section_intro', function ( $attributes, $content ) {
+  return '<div ' . getDOMAttributes( $attributes, ['class' => 'section-intro'] ) . '><div class="section-intro-inner">' . short_code( $content ) . '</div></div>';
+}, ['intro'] );
+
 
 // Split (float) left
 register_shortcode( 'split_left', function( $attributes, $content, $tag ) {
-  return '<div ' . getDOMAttributes( $attributes, ['class' => ((preg_match('/split_(.*)/gi', $tag)) ? '' : 'split_') . $tag] ) . '>' . short_code( $content ) . '</div>';
+  $tag = str_replace('_', '-', $tag);
+  $prefix = (preg_match('/split-(.*)/', $tag) == 1) ? '' : 'split-';
+
+  return '<div ' . getDOMAttributes( $attributes, ['class' => $prefix . $tag] ) . '>' . short_code( $content ) . '</div>';
 }, ['left', 'split_right', 'right'] );
 
 
@@ -172,7 +183,7 @@ register_shortcode( 'iframe', function ( $attributes ) {
   if ($src == '') return '';
 
   return '<div class="flexible-iframe"><iframe ' . $src . ' ' . getDOMAttributes( $attributes ) . ' allowfullscreen>Your browser can\'t display this content.</iframe></div>';
-}, ['sct_iframe, responsive_iframe'] );
+}, ['sct_iframe', 'responsive_iframe'] );
 
 
 // YouTube
