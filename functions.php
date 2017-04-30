@@ -70,8 +70,7 @@ add_action( 'wp_head', function() {
     .color-third, .color-tertiary { color: <?php echo $third; ?> !important; }
     .color-font { color: <?php echo $font_color; ?> !important; }
     #nav-menu .menu-item, #loading-page { background: <?php echo $primary; ?> }
-    a, a:hover, a:focus, .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?>; }
-    a::after { background: <?php echo $secondary; ?> }
+    .navbar-logo, .navbar-text, .image-hover-text-title { color: <?php echo $secondary; ?> !important; }
     .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?> !important; }
     blockquote { border-left: 5px solid <?php echo $secondary; ?>; }
     h1, h2, h3, h4, h5, h6, .navbar-text:hover, .navbar-text:focus, #NavBarHeaderLink a:hover .navbar-text, #NavBarHeaderLink a:focus  .navbar-text, .timeline-entry a, #loading-page, .post-title a:hover, .post-title a:focus { color: <?php echo $primary; ?> !important; }
@@ -97,7 +96,7 @@ add_action( 'wp_head', function() {
     .sub-heading > a::after, .preview-sub-heading > a::after, .author-meta > .author-meta-description > a::after { background: <?php echo $font_color; ?> }
     #nav-menu .menu-item { background-position: center center !important; }
     .more-link::after { background: #838383 !important; }
-    .donateNowLink .btn:hover { background-color: <?php rgba( $rgb_loading, '1') ?>; }
+    .image-caption .caption { background-color: <?php rgba($rgb_third, '0.9'); ?>; }
   </style>
   <?php
 } );

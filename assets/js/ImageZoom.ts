@@ -55,6 +55,7 @@ export class ImageZoom {
       images[i].addEventListener('click', (e: Event) => {
         this.clickEvent(e);
       }); // Registers the click event
+
       this.zoomableImages.push(images[i] as HTMLImageElement); // Push to the array
     }
 
@@ -69,7 +70,7 @@ export class ImageZoom {
     let src: string = (e.target as HTMLElement).getAttribute('src'); // Get the image source
 
     this.overlayElement.classList.add(this.visibleClass);
-    this.overlayElement.innerHTML = '<img src="' + src + '">';
+    this.overlayElement.innerHTML = '<img src="' + src + '"><div class="caption monospace">' + (e.target as HTMLElement).getAttribute('alt') + '</div>';
   }
 
   /**

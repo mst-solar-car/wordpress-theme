@@ -19,7 +19,7 @@ export class LazyLoader {
     else
       this.elem = document.createElement('IMG') as HTMLImageElement; // Creates a new image
 
-    this.attrToLoadFrom = (attr != undefined) ? attr : 'data-lazyLoadSrc';
+    this.attrToLoadFrom = (attr != undefined) ? attr : 'data-lazyloadsrc';
 
     this.lazyLoadURL = this.elem.getAttribute(this.attrToLoadFrom);
 

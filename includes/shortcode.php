@@ -123,7 +123,21 @@ register_shortcode( 'a', function( $attributes, $content ) {
 
 // Image
 register_shortcode( 'img', function( $attributes, $content ) {
-  return '<img ' . getDOMAttribute( ['src', 'alt'], $attributes ) . ' ' . getDOMAttributes( $attributes ) . ' />';
+    $html = '';
+
+    if ($attributes['caption'])
+    {
+        $html = '<div class="image-caption">';
+    }
+
+    $html .= '<img ' . getDOMAttribute( 'src', $attributes ) . ' ' . getDOMAttribute( 'alt', $attributes, [], 'caption' ) . ' '. getDOMAttributes( $attributes ) . ' />';
+
+    if ($attributes['caption'])
+    {
+        $html .= '<div class="caption monospace">' . $attributes['caption'] . '</div></div>';
+    }
+
+    return $html;
 }, ['image'] );
 
 
@@ -217,7 +231,7 @@ register_shortcode( 'timeline_entry', function( $attributes, $content ) {
   $html = '<li class="timeline-' . ( $last_align = ( $last_align == 'left' ) ? 'right' : 'left' ) . '">';
     $html .= '<div class="timeline-entry">';
       $html .= '<div class="timeline-title"><h2>';
-        if ( $attributes['href'] ) { $html .= '<span class="entypo-link"></span><a href="' . $attributes['href'] . '" title="Read more about ' . $attributes['name'] . '">' . $attributes['name'] . '</a>'; }
+        if ( $attributes['href'] ) { $html .= '<a href="' . $attributes['href'] . '" title="Read more about ' . $attributes['name'] . '">' . $attributes['name'] . '</a>'; }
         else { $html .= $attributes['name']; }
       $html .= '</h2></div>';
       $html .= '<div class="timeline-date">' . $attributes['year'] . '</div>';
@@ -318,6 +332,7 @@ register_shortcode( 'image_gallery', function( $attributes, $content ) {
 register_shortcode( 'gallery_image', function( $attributes ) {
   global $lazyLoadingIcon;
 
+  return '<div class="imageGallery_container">' . short_code( '[lazy_image src="' . $attributes['img'] . '" loader="'.$lazyLoadingIcon.'" ' . getDOMAttribute('caption', $attributes, [], 'alt') . ' ' . getDOMAttribute($attributes) . ']' ) . '</div>';
   return '<div class="imageGallery_container"><img src="' . $lazyLoadingIcon .
           '" data-lazyLoadSrc="' . $attributes['img'] . '"' .
           classes( $attributes, 'zoomIn imageGallery_img' ) .
@@ -325,17 +340,18 @@ register_shortcode( 'gallery_image', function( $attributes ) {
           '/></div>';
 } );
 
-
 // Lazy Load Image
 register_shortcode( 'lazy_image', function( $attributes ) {
-  if ( !$attributes['loader'] || !$attributes['img'] )
-    return 'Lazy Loaded images require an attribute of \'loader\' and \'img\'';
+    if ( !$attributes['loader'] || !$attributes['src'] )
+        return 'Lazy Loaded images require an attribute of \'loader\' and \'src\'';
 
-  return '<img src="' . $attributes['loader'] . '" data-lazyLoadSrc="' .
-          $attributes['img'] . '"' . classes( $attributes, 'zoomIn' ) .
-          ( $attributes['alt'] ? ' alt="' . $attributes['alt'] . '"' : '' ) .
-          '/>';
+    return short_code( '[img src="' .$attributes['loader'] . '" data-lazyloadsrc="'.$attributes['src'] .'" '. getDOMAttribute('caption', $attributes, [], 'alt') . ' ' . getDOMAttributes($attributes, ['class'=>'zoomIn']). ']');
+    /* return short_code('[img src="' . $attributes['loader'] . '" data-lazyLoadSrc="' .
+    $attributes['img'] . '"' . classes( $attributes, 'zoomIn' ) .
+    ( $attributes['alt'] ? ' alt="' . $attributes['alt'] . '"' : '' ) .
+    ']');*/
 } );
+
 
 
 // Zoomable Image
@@ -464,12 +480,17 @@ function getDOMAttributes ( $attributes, $default = [] )
 /**
  * Gets a single DOM Attribute
  */
-function getDOMAttribute ( $name, $attributes, $default = [], $alias = "" )
+function getDOMAttribute ( $name, $attributes, $default = [], $alias = [] )
 {
   if (is_string($default))
   {
-    $alias = $default;
+    $alias = array($default);
     $default = [];
+  }
+
+  if (is_string($alias))
+  {
+      $alias = array($alias);
   }
 
   // Recursively find information if $name is an array
@@ -483,7 +504,6 @@ function getDOMAttribute ( $name, $attributes, $default = [], $alias = "" )
   }
 
   $name = trim($name);
-  $alias = trim($alias);
 
   $result = array_key_exists($name, $default) ? $default[$name] . " " : "";
   $result .= array_key_exists($name, $attributes) ? $attributes[$name] . " " : "";
@@ -492,8 +512,9 @@ function getDOMAttribute ( $name, $attributes, $default = [], $alias = "" )
   {
     foreach ($alias as $search)
     {
-      $result .= array_key_exists($search, $default) ? $default[$search] . " " : "";
-      $result .= array_key_exists($search, $attributes) ? $attributes[$search] . " " : "";
+        $search = trim($search);
+        $result .= array_key_exists($search, $default) ? $default[$search] . " " : "";
+        $result .= array_key_exists($search, $attributes) ? $attributes[$search] . " " : "";
     }
   }
 

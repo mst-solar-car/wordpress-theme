@@ -18,12 +18,12 @@ window.addEventListener('load', () => {
   nav_menu.classList.remove('pre-load');
 
   // Lazy load images
-  let lazyImages = document.querySelectorAll('img[data-lazyLoadSrc]');
+  let lazyImages = document.querySelectorAll('img[data-lazyloadsrc]');
   for (let i = 0; i < lazyImages.length; i++)
   {
     if (lazyImages[i].tagName.toLowerCase() != 'img') continue; // Only lazy load images
 
-    new LazyLoader(lazyImages[i] as HTMLElement, 'data-lazyLoadSrc'); // Lazy load the image when it comes into the viewport
+    new LazyLoader(lazyImages[i] as HTMLElement, 'data-lazyloadsrc'); // Lazy load the image when it comes into the viewport
   }
 
   // Discover zoomable images that have been loaded after initialization

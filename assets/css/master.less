@@ -2,7 +2,7 @@
 
 // Namespace
 #MSTSolarCarTheme {
-  font-family: "Orgon Slab", Georgia, Times New Roman, serif;
+  font-family: @serif;
   font-weight: 300;
   letter-spacing: 0.5px;
   line-height: 1.5em;
@@ -19,6 +19,9 @@
 
   * { box-sizing: border-box; }
 
+
+    .sans-serif { font-family: @sans-serif; }
+    .serif { font-family: @serif; }
 
 
   // Common/Useful Mixins
@@ -64,7 +67,7 @@
 
 
   .monospace, .callout {
-    font-family: TSTARMonoRound,"Orgon Slab",Georgia,Times New Roman,serif;
+    font-family: @monospace;
     letter-spacing: 0;
     line-height: 1.3em;
   }
@@ -121,12 +124,14 @@
     padding: 10px 0;
     &.centered { text-align: center; padding: 10px !important; }
 
+    color: #303030;
+
     .section-intro-inner {
       letter-spacing: 0.05em;
 
-      font-family: "Orgon Slab",Georgia,Times New Roman,serif;
+      font-family: @serif;
       font-size: 1.1em;
-      color: #303030 !important;
+      color: inherit;
       font-weight: 500;
 
     }
@@ -140,7 +145,7 @@
   pre, .pre { white-space: pre-wrap; word-wrap: break-word; }
   code, .code {
     display: block;
-    font-family: 'NimbusMono', monospace, sans-serif;
+    font-family: @monospace;
     font-size: 1em;
     background: #f0f0f0;
     border: 1px solid #ccc;
@@ -161,24 +166,6 @@
   @import "modules/grid";
 
 
-  #loading-page {
-    position: fixed;
-    left: 0;
-    top: 0;
-
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    z-index: 92999999999990;
-    text-align: center;
-    vertical-align: bottom;
-  }
-
-  &.is-loading {
-    #loading-page {
-      display: block;
-    }
-  }
 
 
   #nav-menu-button, #imageGalleryOverlay{
@@ -196,16 +183,30 @@
     background: rgba(48, 48, 48, 0.95);
     z-index: 9999999;
     cursor: zoom-out;
+
+    &.visible {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    img {
+        max-width: 95% !important;
+        max-height: 90% !important;
+    }
+
+    .caption {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        margin: 0 auto;
+        max-width: 95%;
+        color: #fff;
+        background-color: rgb(48,48,48);
+        padding: 0 5px;
+    }
   }
-  #imageGalleryOverlay.visible {
-    display: flex !Important;
-    align-items: center;
-    justify-content: center;
-  }
-  #imageGalleryOverlay img {
-    max-width: 95%!important;
-    max-height: 95% !important;
-  }
+
 
   .menu-item {
     background-position: center center;
@@ -255,6 +256,24 @@
     }
   }
 
+    .image-caption {
+        display: inline-table;
+
+        img {
+            display: block;
+        }
+
+        .caption {
+            display: table-caption;
+            caption-side: bottom;
+            padding: 5px;
+            color: #fff;
+            font-size: 0.9em;
+            font-family: @monospace;
+            text-align: left !important;
+        }
+
+    }
 } // End S&T Solar Car Namespace
 
 
