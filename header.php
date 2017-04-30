@@ -95,7 +95,7 @@
     <input type="checkbox" id="menu-hack">
     <div id="nav-container">
       <div id="nav-bar" class="navigation-bar full-navbar">
-        <div class="fluid-nav width-limit reading-width">
+        <div class="fluid-nav width-limit reading-width no-select">
           <div id="NavBarHeaderLink" class="navbar-logo absolute left">
             <a href="<?php bloginfo('url') ?>" tabindex="5">
               <div id="InnerNavBarHeaderLink" class="navbar-text">

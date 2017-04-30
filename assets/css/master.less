@@ -8,7 +8,7 @@
   line-height: 1.5em;
   font-size: 1.1em;
   color: @font-color;
-  background-color: #ffffff;
+  background-color: @background;
 
   vertical-align: baseline;
 
@@ -155,7 +155,23 @@
     width: 100%;
     line-height: 1.5em;
   }
-  blockquote { padding-left: 5px; .monospace; }
+
+  blockquote {
+      .monospace;
+      &.quote {
+          padding-left: 5px;
+      }
+  }
+
+  .no-select {
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome and Opera */
+    }
 
   @import "modules/links";
   @import "modules/headers";

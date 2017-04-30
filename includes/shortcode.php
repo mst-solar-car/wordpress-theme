@@ -181,6 +181,11 @@ register_shortcode( 'section_intro', function ( $attributes, $content ) {
   return '<div ' . getDOMAttributes( $attributes, ['class' => 'section-intro'] ) . '><div class="section-intro-inner">' . short_code( $content ) . '</div></div>';
 }, ['intro'] );
 
+// Quote
+register_shortcode( 'quote', function ( $attributes, $content ) {
+    return short_code( '[blockquote ' . getDOMAttributes( $attributes, ['class'=>'quote'] ) . ']' . $content . '[/blockquote]' );
+} );
+
 
 // Split (float) left
 register_shortcode( 'split_left', function( $attributes, $content, $tag ) {

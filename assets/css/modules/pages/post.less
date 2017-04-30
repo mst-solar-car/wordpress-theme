@@ -36,9 +36,15 @@ h2 {
   font-size: 3.35em;
   line-height: 1em;
   text-transform: none !important;
-  
+
   a {
     color: inherit;
+    font-weight: inherit!important;
+    text-decoration: none;
+
+    &:hover, &:focus {
+        text-decoration: underline;
+    }
   }
 }
 

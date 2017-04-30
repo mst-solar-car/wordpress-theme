@@ -1,11 +1,18 @@
 a {
-    color: #005f83; /* Missouri S&T Orient */
+    color: @orient; /* Missouri S&T Orient */
     font-weight: 400;
 
     &:hover, &:focus {
-        color: #007A33;
+        color: @miner-green;
     }
     &.no-underline {
         text-decoration: none !important;
     }
+}
+
+
+.more-link {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
 }
