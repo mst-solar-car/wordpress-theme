@@ -2,7 +2,10 @@
   min-height: @navbar-min-height !important;
   max-height: @navbar-min-height !important;
   height: @navbar-min-height !important;
-  margin-bottom: 85px !important;
+  /*margin-bottom: 85px !important;*/
+
+    position: fixed;
+    top: -@navbar-min-height;
 
   .navbar-text, .navbar-logo {
     height: @navbar-min-height !important;
@@ -40,8 +43,6 @@
     min-height: @navbar-min-height !important;
     max-height: @navbar-min-height !important;
     line-height: @navbar-min-height !important;
-    -webkit-transition: all 0.5s ease !important;
-    transition: all 0.5s ease !important;
   }
 
   @media @m680pxWidth {
@@ -53,6 +54,7 @@
     }
   }
 }
+
 
 
 /* Full Nav Bar */
@@ -95,9 +97,7 @@
   .navbar-menu-btn, .nav-bar-social a {
     min-height: @navbar-height;
     max-height: @navbar-height;
-    line-height: @navbar-height;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    line-height: @navbar-height
   }
 
   @media @m680pxWidth {
@@ -118,11 +118,16 @@
 }
 /* Regular Nav bar */
 #menu-hack:not(checked) + #nav-container #nav-bar {
+    top: -@navbar-min-height;
+    transition: top 0.3s linear;
   .full-navbar;
 }
 /* Minimized Navigation Bar */
 #menu-hack:checked + #nav-container #nav-bar {
+    transition: none !important ;
+    top: 0;
   .minimized-navbar;
+  .peek-navbar;
 }
 
 
@@ -139,14 +144,14 @@
   .uppercase;
   .full-navbar;
 
+  transition: top 0.3s linear;
+
   &.navigation-bar {
-    .fixed;
-    top: 0; left: 0;
+    top: -@navbar-min-height; left: 0;
     width: 100%;
     height: auto;
     z-index: 910;
     overflow: hidden;
-    .ease-500ms;
   }
 
   &.full-navbar {
@@ -159,7 +164,6 @@
   .fluid-nav {
     width: 100%;
     margin: 0 auto;
-    .linear-300ms;
 
     .navbar-logo {
       a::after { display: none !important; }
@@ -171,7 +175,6 @@
         margin-top: 5px;
         width: auto;
         display: inline-block;
-        .linear-400ms;
       }
 
       .navbar-text {
@@ -191,7 +194,6 @@
             .uppercase;
             text-align: left;
             margin-left: 100px;
-            .margin-linear-500ms;
         }
 
         @media @m480pxWidth {
@@ -215,7 +217,6 @@
       .cursor-pointer;
       right: 0px;
       z-index: 999999999;
-      .ease-500ms;
       padding: 0 36px;
       vertical-align: middle;
       color: @font-light-color;
@@ -246,7 +247,6 @@
         display: inline-block;
       }
       .cursor-pointer;
-      .ease-500ms;
 
       &:hover, &:focus {
         -webkit-transition: background 0.2s linear, opacity 0.2s linear;
@@ -259,4 +259,11 @@
   } // End .fluid-nav
 
 
+}
+
+
+.peek-navbar {
+    position: fixed !important;
+    top: 0 !important;
+    .minimized-navbar;
 }

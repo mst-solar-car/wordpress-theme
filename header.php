@@ -86,13 +86,15 @@
             z-index: 900!important;
         }
         <?php if (is_home() || !has_post_thumbnail() || is_search() || is_author()) {?>.hero { display: none; } <?php } ?>
+
+        <?php if (is_user_logged_in()) : ?> body { margin-top: -32px !important; } @media screen and (max-width: 782px) { body { margin-top: -46px !important; } }<?php endif; # Hide the gap left by the admin bar ?>
     </style>
 
     <?php show_custom_css(); ?>
   </head>
   <body id="MSTSolarCarTheme">
     <!-- Navbar -->
-    <input type="checkbox" id="menu-hack">
+    <input type="checkbox" id="menu-hack" autocomplete="off">
     <div id="nav-container">
       <div id="nav-bar" class="navigation-bar full-navbar">
         <div class="fluid-nav width-limit reading-width no-select">
@@ -133,7 +135,7 @@
     </div>
     <!-- End Navigation -->
 
-    <div class="wrapper width-limit">
+    <div id="content-wrapper" class="wrapper width-limit">
       <div class="hero width-limit height-limit"></div>
       <div class="content reading-width">
         <?php if (!has_post_thumbnail()): ?><br/><br/><?php endif; ?>

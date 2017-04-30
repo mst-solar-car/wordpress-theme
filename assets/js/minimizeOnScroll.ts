@@ -9,6 +9,10 @@ export class MinimizeOnScroll {
 
   private scrollEvent: any;
 
+  private previous_scroll: number = 0;
+
+  private triggered: boolean = false;
+
   // Minimize on scroll constructor
   constructor(el: HTMLElement, limit?: number, minimizedClass?: string, maximizedClass?: string)
   {
@@ -43,6 +47,7 @@ export class MinimizeOnScroll {
     if (this.parent.classList.contains(this.maximized_class) || !this.parent.classList.contains(this.minimized_class)) {
       this.parent.classList.add(this.minimized_class);
       this.parent.classList.remove(this.maximized_class);
+      document.getElementById('content-wrapper').style['margin-top'] = "80px";
     }
   };
 
@@ -52,8 +57,12 @@ export class MinimizeOnScroll {
    */
   public maximize = (): void => {
     if (this.parent.classList.contains(this.minimized_class) || !this.parent.classList.contains(this.maximized_class)) {
-      this.parent.classList.add(this.maximized_class);
-      this.parent.classList.remove(this.minimized_class);
+        if (this.triggered)
+            this.parent.classList.add(this.maximized_class);
+        else
+            this.parent.classList.remove(this.maximized_class);
+
+        this.parent.classList.remove(this.minimized_class);
     }
   };
 
@@ -62,13 +71,29 @@ export class MinimizeOnScroll {
    * This will minimize or maximize based on the scroll position
    */
   public checkScroll = (): void => {
-    if ((window.pageYOffset > this.scroll_limit) || document.getElementById("nav-menu").classList.contains('visible')) {
+    if ((window.pageYOffset > this.scroll_limit*2) || document.getElementById("nav-menu").classList.contains('visible')) {
       // Minimize
       this.minimize();
+
+      if (!this.triggered && (window.pageYOffset > this.scroll_limit))
+        this.triggered = true;
+
+      if (window.pageYOffset < (this.previous_scroll - (0.5 * this.scroll_limit)) && window.pageYOffset > (this.scroll_limit * 2))
+          this.maximize();
+
     } else {
       // Maximize
-      this.maximize();
+      if (this.triggered)
+      {
+          this.triggered = false;
+
+          document.getElementById('content-wrapper').style['margin-top'] = "0px";
+          this.parent.classList.remove(this.minimized_class);
+          this.parent.classList.remove(this.maximized_class);
+      }
     }
+
+    this.previous_scroll = window.pageYOffset;
   };
 
   // Alias for checkScroll
