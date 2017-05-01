@@ -4,7 +4,7 @@ import { LazyLoader } from "./LazyLoader";
 
 
 // Setup the scroller to control the navbar
-var scroller = new MinimizeOnScroll(document.getElementById('nav-bar'), 80, 'hidden-navbar', 'minimized-navbar');
+var scroller = new MinimizeOnScroll(document.getElementById('nav-bar'), 45, 'minimized-navbar', 'full-navbar');
 
 // Setup the zoom control for zooming in on images
 var zoom = new ImageZoom('zoomIn', document.getElementById('imageGalleryOverlay'), 'visible');
@@ -29,4 +29,5 @@ window.addEventListener('load', () => {
   // Discover zoomable images that have been loaded after initialization
   zoom.DiscoverImages();
 
+  scroller.check();
 });

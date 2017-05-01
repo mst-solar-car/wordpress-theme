@@ -87,7 +87,7 @@
         }
         <?php if (is_home() || !has_post_thumbnail() || is_search() || is_author()) {?>.hero { display: none; } <?php } ?>
 
-        <?php if (is_user_logged_in()) : ?> body { margin-top: -32px !important; } @media screen and (max-width: 782px) { body { margin-top: -46px !important; } }<?php endif; # Hide the gap left by the admin bar ?>
+        <?php if (is_user_logged_in()) : ?> body { margin-top: -48px !important; } @media screen and (max-width: 782px) { body { margin-top: -46px !important; } }<?php endif; # Hide the gap left by the admin bar ?>
     </style>
 
     <?php show_custom_css(); ?>
@@ -96,12 +96,12 @@
     <!-- Navbar -->
     <input type="checkbox" id="menu-hack" autocomplete="off">
     <div id="nav-container">
-      <div id="nav-bar" class="navigation-bar">
+      <div id="nav-bar" class="navigation-bar uppercase">
         <div class="fluid-nav width-limit reading-width no-select">
-          <div id="NavBarHeaderLink" class="navbar-logo absolute left">
-            <a href="<?php bloginfo('url') ?>" tabindex="5">
+          <div id="NavBarHeaderLink" class="navbar-brand absolute left">
+            <a href="<?php bloginfo('url') ?>" tabindex="5" class="no-underline">
               <div id="InnerNavBarHeaderLink" class="navbar-text">
-                <img alt="Brand" src="<?php logo_url(); ?>">
+                <img alt="Brand" src="<?php logo_url(); ?>" class="navbar-image">
                 <span class="navbar-title-top"><?php setting( 'title_top_long' ); ?></span>
                 <span class="navbar-title-top-short"><?php setting( 'title_top_short' ); ?></span>
                 <span class="navbar-title-bottom"><?php setting( 'title_bottom_long' ); ?></span>
@@ -109,19 +109,19 @@
               </div>
             </a>
           </div>
-          <div id="nav-navigation" class="right">
+          <div id="nav-navigation" class="navbar-nav right">
             <?php if ( get_theme_mod( 'include_social_media', '' ) == 'y' ) : ?>
               <?php if ( is_setting( 'facebook_url' ) ) :?>
-                <div class="nav-bar-social relative" class="relative">
+                <div class="navbar-social relative" class="relative">
                   <a href="https://www.facebook.com/<?php socialmedia_url( 'facebook' ); ?>" target="_blank" title="Like us on Facebook"><span class="social facebook"></span></a>
-                </div><?php endif; ?><?php if( is_setting( 'twitter_url' ) ) :?><div class="nav-bar-social relative" class="relative">
+                </div><?php endif; ?><?php if( is_setting( 'twitter_url' ) ) :?><div class="navbar-social relative" class="relative">
                   <a href="https://twitter.com/<?php socialmedia_url( 'twitter' ); ?>" target="_blank" title="Follow us on Twitter"><span class="social twitter"></span></a>
-                </div><?php endif; ?><?php if( is_setting( 'instagram_url' ) ) :?><div class="nav-bar-social relative" class="relative">
+                </div><?php endif; ?><?php if( is_setting( 'instagram_url' ) ) :?><div class="navbar-social relative" class="relative">
                   <a href="https://instagram.com/<?php socialmedia_url( 'instagram' ); ?>" target="_blank" title="Follow us on Instagram"><span class="social instagram"></span></a>
                 </div><?php endif; ?>
             <?php endif; ?>
             <label for="menu-hack" id="nav-menu-button2" class="navbar-menu-btn relative" tabindex="10">
-             
+
             </label>
           </div>
         </div>

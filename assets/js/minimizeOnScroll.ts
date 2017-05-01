@@ -30,11 +30,13 @@ export class MinimizeOnScroll {
     document.addEventListener('scroll', () => {
       // Clear the old timeout event
       if (this.scrollEvent != null)
-        clearTimeout(this.scrollEvent);
+        return;
 
       // Set a new timeout event
       this.scrollEvent = setTimeout(() => {
         this.checkScroll();
+        clearTimeout(this.scrollEvent);
+        this.scrollEvent = null;
       }, 50);
     });  // Minimizes/maximizes navbar on scroll
   }
@@ -47,7 +49,7 @@ export class MinimizeOnScroll {
     if (this.parent.classList.contains(this.maximized_class) || !this.parent.classList.contains(this.minimized_class)) {
       this.parent.classList.add(this.minimized_class);
       this.parent.classList.remove(this.maximized_class);
-      document.getElementById('content-wrapper').style['margin-top'] = "80px";
+
     }
   };
 
@@ -57,11 +59,7 @@ export class MinimizeOnScroll {
    */
   public maximize = (): void => {
     if (this.parent.classList.contains(this.minimized_class) || !this.parent.classList.contains(this.maximized_class)) {
-        if (this.triggered)
-            this.parent.classList.add(this.maximized_class);
-        else
-            this.parent.classList.remove(this.maximized_class);
-
+        this.parent.classList.add(this.maximized_class);
         this.parent.classList.remove(this.minimized_class);
     }
   };
@@ -74,24 +72,9 @@ export class MinimizeOnScroll {
     if ((window.pageYOffset > this.scroll_limit) || document.getElementById("nav-menu").classList.contains('visible')) {
       // Minimize
       this.minimize();
-
-      if (!this.triggered && (window.pageYOffset > this.scroll_limit))
-        this.triggered = true;
-
-      if (window.pageYOffset < this.previous_scroll)
-          this.maximize();
-
-
     } else {
       // Maximize
-      if (this.triggered && window.pageYOffset <= (this.scroll_limit / 2))
-      {
-          this.triggered = false;
-
-          document.getElementById('content-wrapper').style['margin-top'] = "0px";
-          this.parent.classList.remove(this.minimized_class);
-          this.parent.classList.remove(this.maximized_class);
-      }
+      this.maximize();
     }
 
     this.previous_scroll = window.pageYOffset;
