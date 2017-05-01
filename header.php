@@ -79,12 +79,14 @@
 
     <style>
         #wpadminbar {
-            position: static!important;
-            overflow-x: hidden!important;
+            position: static !important;
+            overflow-x: hidden !important;
         }
         #wpadminbar * {
-            z-index: 900!important;
+            z-index: 900 !important;
         }
+        a.screen-reader-shortcut { display: none; }
+
         <?php if (is_home() || !has_post_thumbnail() || is_search() || is_author()) {?>.hero { display: none; } <?php } ?>
 
         <?php if (is_user_logged_in()) : ?> body { margin-top: -48px !important; } @media screen and (max-width: 782px) { body { margin-top: -46px !important; } }<?php endif; # Hide the gap left by the admin bar ?>
@@ -94,12 +96,12 @@
   </head>
   <body id="MSTSolarCarTheme">
     <!-- Navbar -->
-    <input type="checkbox" id="menu-hack" autocomplete="off">
+    <input type="checkbox" id="menu-hack" autocomplete="off" tabindex="-1">
     <div id="nav-container">
       <div id="nav-bar" class="navigation-bar uppercase">
         <div class="fluid-nav width-limit reading-width no-select">
           <div id="NavBarHeaderLink" class="navbar-brand absolute left">
-            <a href="<?php bloginfo('url') ?>" tabindex="5" class="no-underline">
+            <a href="<?php bloginfo('url') ?>" tabindex="5" class="no-underline" tabindex="0">
               <div id="InnerNavBarHeaderLink" class="navbar-text">
                 <img alt="Brand" src="<?php logo_url(); ?>" class="navbar-image">
                 <span class="navbar-title-top"><?php setting( 'title_top_long' ); ?></span>

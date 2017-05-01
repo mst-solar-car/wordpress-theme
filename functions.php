@@ -21,6 +21,13 @@ add_filter ('the_content', function ( $content ) {
 });
 
 
+// Remove stuff from the admin bar
+add_action(  'wp_before_admin_bar_render', function() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments'); // Remove comments
+ } );
+
+
 
 /**
  * Theme Support
@@ -64,6 +71,7 @@ add_action( 'wp_head', function() {
   $rgb_third    = get_rgb( $third );  // Third color in RGBA
   $rgb_loading = get_rgb( $loading );
 
+  // Determine width for the number of sponsors in the footer
   $num_footer_sponsors = 0;
   if ( is_setting( 'sponsor1' ) ) : $num_footer_sponsors++; endif;
   if ( is_setting( 'sponsor2' ) ) : $num_footer_sponsors++; endif;
@@ -83,7 +91,7 @@ add_action( 'wp_head', function() {
      * Navigation bar
      */
     .navbar-menu-btn, .navbar-social { background: <?php rgba( $rgb_third, '0.8'); ?>; }
-    .navbar-menu-btn:hover, .navbar-social:hover, .navbar-social:focus { background: <?php rgba( $rgb_secondary, '0.9') ?>; }
+     .navbar-menu-btn:hover, #menu-hack:not(:checked) + #nav-container .navbar-menu-btn:focus, .navbar-social:hover, .navbar-social:focus, .navbar-social a:focus, .navbar-social a:hover { background: <?php rgba( $rgb_secondary, '0.9') ?>; }
     .navbar-brand { color: <?php echo $secondary; ?> !important; }
     .navbar-brand:hover, .navbar-brand:focus { color: <?php echo $primary; ?> !important; }
 
