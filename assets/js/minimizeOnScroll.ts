@@ -71,19 +71,20 @@ export class MinimizeOnScroll {
    * This will minimize or maximize based on the scroll position
    */
   public checkScroll = (): void => {
-    if ((window.pageYOffset > this.scroll_limit*2) || document.getElementById("nav-menu").classList.contains('visible')) {
+    if ((window.pageYOffset > this.scroll_limit) || document.getElementById("nav-menu").classList.contains('visible')) {
       // Minimize
       this.minimize();
 
       if (!this.triggered && (window.pageYOffset > this.scroll_limit))
         this.triggered = true;
 
-      if (window.pageYOffset < (this.previous_scroll - (0.5 * this.scroll_limit)) && window.pageYOffset > (this.scroll_limit * 2))
+      if (window.pageYOffset < this.previous_scroll)
           this.maximize();
+
 
     } else {
       // Maximize
-      if (this.triggered)
+      if (this.triggered && window.pageYOffset <= (this.scroll_limit / 2))
       {
           this.triggered = false;
 

@@ -81,7 +81,7 @@ add_action( 'wp_head', function() {
     .navigation-menu { background: <?php echo $third; ?>; }
     #nav-menu .menu-item a { background: <?php rgba( $rgb_third, '0.75' ); ?>; }
     #nav-menu .menu-item > a:hover, #nav-menu .menu-item > a:focus { background: <?php rgba( $rgb_third, '0.5' ); ?>; }
-    .full-navbar { background: <?php rgba( $rgb_third, '0.85' ); ?> }
+    #nav-bar { background: <?php rgba( $rgb_third, '0.85' ); ?> }
     .navbar-menu-btn, .nav-bar-social { background: <?php rgba( $rgb_third, '0.8' ); ?> }
     .minimized-navbar, .peek-navbar { background: <?php rgba( $rgb_third, '0.95' ); ?> }
     .minimized-navbar .navbar-menu-btn, .minimized-navbar .nav-bar-social, footer { background: <?php rgba( $rgb_third, '0.9' ); ?>}

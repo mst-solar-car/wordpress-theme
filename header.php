@@ -96,7 +96,7 @@
     <!-- Navbar -->
     <input type="checkbox" id="menu-hack" autocomplete="off">
     <div id="nav-container">
-      <div id="nav-bar" class="navigation-bar full-navbar">
+      <div id="nav-bar" class="navigation-bar">
         <div class="fluid-nav width-limit reading-width no-select">
           <div id="NavBarHeaderLink" class="navbar-logo absolute left">
             <a href="<?php bloginfo('url') ?>" tabindex="5">
@@ -121,7 +121,7 @@
                 </div><?php endif; ?>
             <?php endif; ?>
             <label for="menu-hack" id="nav-menu-button2" class="navbar-menu-btn relative" tabindex="10">
-              <span class="regular-text"><?php setting( 'menu_btn_text', 'Menu' ); ?></span><span class="close-text">Close</span>
+             
             </label>
           </div>
         </div>
@@ -138,4 +138,3 @@
     <div id="content-wrapper" class="wrapper width-limit">
       <div class="hero width-limit height-limit"></div>
       <div class="content reading-width">
-        <?php if (!has_post_thumbnail()): ?><br/><br/><?php endif; ?>
