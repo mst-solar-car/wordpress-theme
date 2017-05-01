@@ -90,10 +90,13 @@ add_action( 'wp_head', function() {
     /**
      * Navigation bar
      */
+     #nav-bar { background: <?php rgba( $rgb_third, '0.85' ); ?> }
+     #nav-bar.minimized-navbar { background: <?php rgba( $rgb_third, '0.95' ); ?>; }
     .navbar-menu-btn, .navbar-social { background: <?php rgba( $rgb_third, '0.8'); ?>; }
      .navbar-menu-btn:hover, #menu-hack:not(:checked) + #nav-container .navbar-menu-btn:focus, .navbar-social:hover, .navbar-social:focus, .navbar-social a:focus, .navbar-social a:hover { background: <?php rgba( $rgb_secondary, '0.9') ?>; }
     .navbar-brand { color: <?php echo $secondary; ?> !important; }
     .navbar-brand:hover, .navbar-brand:focus { color: <?php echo $primary; ?> !important; }
+
 
     /**
      * Footer
@@ -101,7 +104,7 @@ add_action( 'wp_head', function() {
     footer { background: <?php rgba( $rgb_third, '0.8' ); ?>; }
     .footer-sponsor { max-width: <?php echo $sponsor_size ?>%; max-width: <?php echo $sponsor_size ?>%; min-width: <?php echo $sponsor_size ?>%; }
 
-    
+
     #nav-menu .menu-item, #loading-page { background: <?php echo $primary; ?> }
     .image-hover-text-title { color: <?php echo $secondary; ?> !important; }
     .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?> !important; }
@@ -115,7 +118,6 @@ add_action( 'wp_head', function() {
 
     #nav-menu .menu-item a { background: <?php rgba( $rgb_third, '0.75' ); ?>; }
     #nav-menu .menu-item > a:hover, #nav-menu .menu-item > a:focus { background: <?php rgba( $rgb_third, '0.5' ); ?>; }
-    #nav-bar { background: <?php rgba( $rgb_third, '0.85' ); ?> }
 
 
     /*.minimized-navbar, .peek-navbar { background: <?php rgba( $rgb_third, '0.95' ); ?> !important }
