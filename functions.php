@@ -101,8 +101,9 @@ add_action( 'wp_head', function() {
     footer { background: <?php rgba( $rgb_third, '0.8' ); ?>; }
     .footer-sponsor { max-width: <?php echo $sponsor_size ?>%; max-width: <?php echo $sponsor_size ?>%; min-width: <?php echo $sponsor_size ?>%; }
 
+    
     #nav-menu .menu-item, #loading-page { background: <?php echo $primary; ?> }
-    ..image-hover-text-title { color: <?php echo $secondary; ?> !important; }
+    .image-hover-text-title { color: <?php echo $secondary; ?> !important; }
     .timeline-left .timeline-date::after, .timeline-title::before { border: 4px solid <?php echo $secondary; ?> !important; }
     blockquote.quote { border-left: 5px solid <?php echo $secondary; ?>; }
     h1, h2, h3, h4, h5, h6,  .post-title a:hover, .post-title a:focus { color: <?php echo $primary; ?> !important; }
